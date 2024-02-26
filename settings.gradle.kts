@@ -21,5 +21,6 @@ include(
     ":app",
     ":activity",
     ":core:compose",
-    ":core:datastore"
+    ":core:datastore",
+    ":core:model"
 )

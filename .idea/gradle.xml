@@ -25,6 +25,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/compose" />
             <option value="$PROJECT_DIR$/core/datastore" />
+            <option value="$PROJECT_DIR$/core/model" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

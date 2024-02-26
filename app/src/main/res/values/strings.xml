@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Moonila</string>
+    <string translatable="false" name="default_notification_channel_id">0375</string>
 </resources>

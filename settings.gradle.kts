@@ -26,5 +26,9 @@ include(
     ":core:network",
     ":core:util",
     ":core:vm",
-    ":umbrella"
+    ":umbrella",
+
+    ":features:onboarding:api",
+    ":features:onboarding:data",
+    ":features:onboarding:presentation",
 )

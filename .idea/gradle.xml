@@ -29,6 +29,11 @@
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/core/util" />
             <option value="$PROJECT_DIR$/core/vm" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/onboarding" />
+            <option value="$PROJECT_DIR$/features/onboarding/api" />
+            <option value="$PROJECT_DIR$/features/onboarding/data" />
+            <option value="$PROJECT_DIR$/features/onboarding/presentation" />
             <option value="$PROJECT_DIR$/umbrella" />
           </set>
         </option>

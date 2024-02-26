@@ -16,13 +16,10 @@ android {
 }
 
 dependencies {
-//    implementation(libs.android.compose.lootie)
-//    implementation(libs.androidx.compose.paging)
-//
-//    implementation(projects.shared.core.vm)
-//    implementation(projects.shared.core.util)
-//    implementation(projects.shared.core.model)
-//    implementation(projects.shared.features.createnote.presentation)
-//
-//    implementation(projects.shared.resources)
+    implementation(libs.android.compose.lootie)
+    implementation(libs.androidx.compose.paging)
+
+    implementation(projects.core.vm)
+    implementation(projects.core.util)
+    implementation(projects.core.model)
 }

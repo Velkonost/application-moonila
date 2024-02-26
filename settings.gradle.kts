@@ -17,4 +17,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Moonila"
-include(":app")
+include(
+    ":app",
+    ":activity",
+    ":core:compose",
+    ":core:datastore"
+)

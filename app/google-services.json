@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "159766998277",
+    "project_id": "getbettermultiplatform",
+    "storage_bucket": "getbettermultiplatform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159766998277:android:4b963b93ed76dc59a49b6c",
+        "android_client_info": {
+          "package_name": "com.moonila"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5f7c_MYXt1GYHxurNNfW1XRWUxiUTqCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159766998277:android:71433006a3571f47a49b6c",
+        "android_client_info": {
+          "package_name": "com.velkonost.getbetter.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5f7c_MYXt1GYHxurNNfW1XRWUxiUTqCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -23,5 +23,7 @@ include(
     ":core:compose",
     ":core:datastore",
     ":core:model",
-    ":core:network"
+    ":core:network",
+    ":core:util",
+    ":core:vm"
 )

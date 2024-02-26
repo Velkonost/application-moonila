@@ -11,11 +11,11 @@ android {
 
 dependencies {
     implementation(projects.core.compose)
-//
-//    implementation(projects.androidApp.features.auth)
-//
+
+    implementation(projects.features.splash.presentation)
+
     implementation(projects.core.vm)
     implementation(projects.core.util)
-//
+
     implementation(libs.firebase.android.analytics)
 }

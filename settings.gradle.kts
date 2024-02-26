@@ -31,4 +31,8 @@ include(
     ":features:onboarding:api",
     ":features:onboarding:data",
     ":features:onboarding:presentation",
+
+    ":features:splash:api",
+    ":features:splash:data",
+    ":features:splash:presentation",
 )

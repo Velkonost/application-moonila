@@ -4,10 +4,12 @@ import androidx.compose.runtime.MutableState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.navigation
+import core.compose.provide
 import core.vm.navigation.NavigationScreen
+import features.splash.screen.SplashNavRoute
 
 val AppScreens = setOf(
-
+    SplashNavRoute
 //    AuthNavRoute,
 //    AddAreaNavRoute,
 //    NoteDetailNavRoute,
@@ -17,7 +19,7 @@ val AppScreens = setOf(
 )
 
 val NavigationScreens = setOf(
-//    SocialNavRoute,
+    SplashNavRoute,
 //    DiaryNavRoute,
 //    CalendarsNavRoute,
 //    AbilitiesNavRoute,
@@ -33,6 +35,6 @@ fun NavGraphBuilder.addSplashRoute(
         startDestination = NavigationScreen.SplashNavScreen.route
     ) {
         SplashNavRoute.provide(this, navController, forceHideBottomBar)
-        OnboardingNavRoute.provide(this, navController, forceHideBottomBar)
+//        OnboardingNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

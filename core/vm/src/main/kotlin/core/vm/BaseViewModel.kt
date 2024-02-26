@@ -11,6 +11,7 @@ import core.vm.navigation.NavigationEvent
 import core.vm.navigation.RouteNavigator
 import core.vm.resource.Message
 import core.vm.resource.MessageDeque
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -30,6 +31,8 @@ abstract class BaseViewModel
 ) : ViewModel(), ActionDispatcher<A>, RouteNavigator, BaseJobContainer {
 
     //    override var coroutineScope = vmScope
+    override var coroutineScope: CoroutineScope = vmScope
+
     override val error = MutableStateFlow<Throwable?>(null)
 
     private val vmScope

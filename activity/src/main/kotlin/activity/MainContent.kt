@@ -1,11 +1,14 @@
 package activity
 
+import activity.components.BottomBar
+import activity.components.MainSnackBarHost
+import activity.components.rememberSnackBarHostState
+import activity.di.AppScreens
+import activity.di.addSplashRoute
 import android.annotation.SuppressLint
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetValue
-import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,6 +22,11 @@ import androidx.core.os.bundleOf
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.velkonost.getbetter.android.activity.components.bottomBarEnter
+import com.velkonost.getbetter.android.activity.components.bottomBarExit
+import core.compose.provide
+import core.compose.theme.ApplicationTheme
+import core.vm.navigation.NavigationScreen
 import core.vm.resource.MessageDeque
 import kotlinx.coroutines.flow.collectLatest
 
@@ -31,6 +39,7 @@ internal fun MainContent() {
     val navController = rememberAnimatedNavController()
     val snackBarHostState = rememberSnackBarHostState()
 
+    val forceHideBottomBar = remember { mutableStateOf(false) }
     val localFocusManager = LocalFocusManager.current
 
     val firebaseAnalytics = remember {
@@ -48,9 +57,9 @@ internal fun MainContent() {
                     })
                 },
             bottomBar = {
-                BottomBar(navController, forceHideBottomBar)
+                BottomBar(navController)
             },
-            containerColor = colorResource(resource = SharedR.colors.main_background)
+//            containerColor = colorResource(resource = SharedR.colors.main_background)
         ) {
             AnimatedNavHost(
                 navController = navController,
@@ -60,11 +69,6 @@ internal fun MainContent() {
             ) {
                 AppScreens.provide(this@AnimatedNavHost, navController, forceHideBottomBar)
                 addSplashRoute(navController, forceHideBottomBar)
-                addSocialRoute(navController, forceHideBottomBar)
-                addDiaryRoute(navController, forceHideBottomBar)
-                addCalendarRoute(navController, forceHideBottomBar)
-                addAbilitiesRoute(navController, forceHideBottomBar)
-                addProfileRoute(navController, forceHideBottomBar)
             }
         }
     }

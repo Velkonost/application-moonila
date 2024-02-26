@@ -1,4 +1,4 @@
-package com.velkonost.getbetter.android.activity.components
+package activity.components
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
@@ -17,9 +17,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.velkonost.getbetter.core.compose.extensions.borderBevel
-import com.velkonost.getbetter.shared.resources.SharedR
-import dev.icerock.moko.resources.compose.colorResource
 
 
 @Composable
@@ -32,10 +29,10 @@ internal fun MainSnackBarHost(snackBarHostState: SnackbarHostState) {
                     .fillMaxWidth()
                     .wrapContentHeight()
                     .defaultMinSize(minHeight = 72.dp)
-                    .borderBevel()
+//                    .borderBevel()
                     .padding(8.dp),
                 shape = MaterialTheme.shapes.medium,
-                color = colorResource(resource = SharedR.colors.button_gradient_start),
+//                color = colorResource(resource = SharedR.colors.button_gradient_start),
                 tonalElevation = 12.dp,
                 shadowElevation = 8.dp
             ) {
@@ -45,7 +42,7 @@ internal fun MainSnackBarHost(snackBarHostState: SnackbarHostState) {
                 ) {
                     Text(
                         text = snackBarData.visuals.message,
-                        color = colorResource(resource = SharedR.colors.text_light),
+//                        color = colorResource(resource = SharedR.colors.text_light),
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier
                             .fillMaxWidth()

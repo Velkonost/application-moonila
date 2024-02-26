@@ -6,25 +6,22 @@ import com.moonila.join
 plugins {
     `android-common-plugin`
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
     namespace = ANDROID_PACKAGE.join(
         projects.features,
-        projects.features.onboarding,
-        projects.features.onboarding.presentation
+        projects.features.splash,
+        projects.features.splash.api
     )
 }
 
 dependencies {
-    api(projects.core.vm)
-    api(projects.core.util)
-
     implementation(libs.koin.core)
     implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.koin.androidx.compose)
+    implementation(libs.kotlinx.serialization)
 
-    api(projects.core.model)
-    implementation(projects.core.compose)
-    implementation(projects.features.onboarding.api)
+    implementation(projects.core.util)
+    implementation(projects.core.model)
 }

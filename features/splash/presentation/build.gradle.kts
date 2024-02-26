@@ -11,8 +11,8 @@ plugins {
 android {
     namespace = ANDROID_PACKAGE.join(
         projects.features,
-        projects.features.onboarding,
-        projects.features.onboarding.presentation
+        projects.features.splash,
+        projects.features.splash.presentation
     )
 }
 
@@ -26,5 +26,5 @@ dependencies {
 
     api(projects.core.model)
     implementation(projects.core.compose)
-    implementation(projects.features.onboarding.api)
+    implementation(projects.features.splash.api)
 }

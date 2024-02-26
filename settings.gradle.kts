@@ -22,5 +22,6 @@ include(
     ":activity",
     ":core:compose",
     ":core:datastore",
-    ":core:model"
+    ":core:model",
+    ":core:network"
 )

@@ -25,5 +25,6 @@ include(
     ":core:model",
     ":core:network",
     ":core:util",
-    ":core:vm"
+    ":core:vm",
+    ":umbrella"
 )

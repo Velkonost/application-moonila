@@ -19,8 +19,6 @@ android {
 dependencies {
     implementation(libs.koin.core)
     implementation(libs.kotlinx.coroutines.core)
-
-//    api(libs.rickclephas.kmm.viewmodel)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     implementation(projects.core.util)

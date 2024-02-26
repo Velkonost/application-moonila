@@ -29,6 +29,7 @@
             <option value="$PROJECT_DIR$/core/network" />
             <option value="$PROJECT_DIR$/core/util" />
             <option value="$PROJECT_DIR$/core/vm" />
+            <option value="$PROJECT_DIR$/umbrella" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

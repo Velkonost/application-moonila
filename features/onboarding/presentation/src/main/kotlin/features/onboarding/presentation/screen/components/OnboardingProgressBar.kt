@@ -46,5 +46,4 @@ fun OnboardingProgressBar(
                 .width(width * percent / 100)
         )
     }
-
 }

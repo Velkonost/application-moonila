@@ -29,6 +29,7 @@ import core.compose.theme.PoppinsFontFamily
 import features.onboarding.presentation.OnboardingViewModel
 import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.model.OnboardingStep
+import features.onboarding.presentation.model.OnboardingStep.Companion.asPercent
 import features.onboarding.presentation.screen.components.BackgroundImage
 import features.onboarding.presentation.screen.components.OnboardingProgressBar
 import features.onboarding.presentation.screen.components.StepText
@@ -69,7 +70,7 @@ fun OnboardingScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Spacer(modifier.weight(1f))
-                        OnboardingProgressBar(percent = 60)
+                        OnboardingProgressBar(percent = state.step.percent)
                         Spacer(modifier.weight(1f))
                     }
 

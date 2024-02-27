@@ -1,6 +1,7 @@
 package features.onboarding.presentation
 
 import core.vm.BaseViewModel
+import features.onboarding.api.OnboardingRepository
 import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.contract.OnboardingEvent
 import features.onboarding.presentation.contract.OnboardingNavigation
@@ -9,6 +10,7 @@ import features.onboarding.presentation.model.OnboardingStep
 
 class OnboardingViewModel
 internal constructor(
+    private val onboardingRepository: OnboardingRepository
 ) : BaseViewModel<OnboardingViewState, OnboardingAction, OnboardingNavigation, OnboardingEvent>(
     initialState = OnboardingViewState()
 ) {

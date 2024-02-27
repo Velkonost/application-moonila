@@ -6,9 +6,11 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -57,29 +59,43 @@ fun OnboardingScreen(
                 enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),
                 exit = fadeOut(animationSpec = tween(1000))
             ) {
-                Row(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 23.dp)
-                        .padding(top = 48.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    OnboardingProgressBar(percent = 60)
+                Box {
+                    Row(
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 23.dp)
+                            .padding(top = 32.dp)
+                            .height(44.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Spacer(modifier.weight(1f))
+                        OnboardingProgressBar(percent = 60)
+                        Spacer(modifier.weight(1f))
+                    }
 
-                    Spacer(modifier.weight(1f))
-
-                    Text(
-                        text = stringResource(
-                            id = com.moonila.features.onboarding.presentation.R.string.skip_btn
-                        ),
-                        color = colorResource(
-                            id = com.moonila.features.onboarding.presentation.R.color.main_text_color
-                        ),
-                        fontSize = 14.sp,
-                        fontFamily = PoppinsFontFamily,
-                        fontWeight = FontWeight.Medium
-                    )
+                    Row(
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 23.dp)
+                            .padding(top = 32.dp)
+                            .height(44.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Spacer(modifier.weight(1f))
+                        Text(
+                            text = stringResource(
+                                id = com.moonila.features.onboarding.presentation.R.string.skip_btn
+                            ),
+                            color = colorResource(
+                                id = com.moonila.features.onboarding.presentation.R.color.main_text_color
+                            ),
+                            fontSize = 14.sp,
+                            fontFamily = PoppinsFontFamily,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
                 }
+
 
             }
 

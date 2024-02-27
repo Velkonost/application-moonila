@@ -247,3 +247,9 @@ b
 ,features/compatibility/data/build.gradle.kts,a/5/a596c0ba6804f7cf005e8771f5b26e3981e30e1e
 d
 4features/compatibility/presentation/build.gradle.kts,9/b/9bc6533528c61d1b190f21597fb4217e270e9f16
+{
+Kfeatures/splash/api/src/main/kotlin/features/splash/api/SplashRepository.kt,1/c/1c5d273d1457c4488d11d718448780457cdf6ac6
+Å
+Qfeatures/splash/data/src/main/kotlin/features/splash/data/SplashRepositoryImpl.kt,1/6/16f384a0018f5345faf8d7e9358cea5ee9d62f93
+Ä
+Pfeatures/splash/data/src/main/kotlin/features/splash/data/di/SplashDataModule.kt,c/6/c6cff2b73c7ac332afc403a465b94e18455c8c30

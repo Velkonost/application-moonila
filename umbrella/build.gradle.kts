@@ -14,8 +14,14 @@ dependencies {
     implementation(projects.core.datastore)
     implementation(projects.core.network)
 
+    implementation(projects.features.splash.data)
     implementation(projects.features.splash.presentation)
+    
     implementation(projects.features.onboarding.presentation)
+    implementation(projects.features.paywall.presentation)
+    implementation(projects.features.feed.presentation)
+    implementation(projects.features.mooninsight.presentation)
+    implementation(projects.features.compatibility.presentation)
 
     implementation(libs.koin.core)
 }

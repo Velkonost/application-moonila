@@ -33,8 +33,8 @@ fun BackgroundImage(
         targetState = image,
         label = "",
         transitionSpec = {
-            (fadeIn(animationSpec = tween(500)))
-                .togetherWith(fadeOut(animationSpec = tween(1000)))
+            (fadeIn(animationSpec = tween(2000)))
+                .togetherWith(fadeOut(animationSpec = tween(1500, delayMillis = 2000)))
         }
     ) {
         Image(

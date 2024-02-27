@@ -30,8 +30,8 @@ object SplashNavRoute : NavRoute<SplashViewModel> {
 val SplashExitTransition: AnimatedBackStack.() -> ExitTransition? = {
     fadeOut(
         animationSpec = tween(
-            durationMillis = 280,
-            delayMillis = 20,
+            durationMillis = 500,
+            delayMillis = 400,
             easing = androidx.compose.animation.core.FastOutSlowInEasing
         )
     )

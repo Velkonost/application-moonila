@@ -38,11 +38,8 @@ fun StepText(
         targetState = step,
         label = "",
         transitionSpec = {
-        (
-                fadeIn(animationSpec = tween(220, delayMillis = 90))
-//                scaleIn(initialScale = 0.92f, animationSpec = tween(220, delayMillis = 90))
-        )
-            .togetherWith(fadeOut(animationSpec = tween(90)))
+        (fadeIn(animationSpec = tween(1000, delayMillis = 1000)))
+            .togetherWith(fadeOut(animationSpec = tween(1000)))
     },
     ) {
         val title = stringResource(
@@ -68,7 +65,7 @@ fun StepText(
         }
 
         Column(
-            modifier = modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize().padding(horizontal = 18.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier.weight(1f))

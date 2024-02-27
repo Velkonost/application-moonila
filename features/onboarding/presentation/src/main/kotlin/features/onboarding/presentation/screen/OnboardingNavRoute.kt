@@ -28,8 +28,7 @@ object OnboardingNavRoute : NavRoute<OnboardingViewModel> {
 val OnboardingEnterTransition: AnimatedBackStack.() -> EnterTransition? = {
     fadeIn(
         animationSpec = tween(
-            durationMillis = 300,
-            delayMillis = 10,
+            durationMillis = 500,
             easing = FastOutSlowInEasing
         )
     )

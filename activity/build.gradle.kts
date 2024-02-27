@@ -13,6 +13,7 @@ dependencies {
     implementation(projects.core.compose)
 
     implementation(projects.features.splash.presentation)
+    implementation(projects.features.onboarding.presentation)
 
     implementation(projects.core.vm)
     implementation(projects.core.util)

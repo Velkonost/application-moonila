@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import core.compose.provide
 import core.vm.navigation.NavigationScreen
+import features.onboarding.presentation.screen.OnboardingNavRoute
 import features.splash.presentation.screen.SplashNavRoute
 
 val AppScreens = setOf(
@@ -35,6 +36,6 @@ fun NavGraphBuilder.addSplashRoute(
         startDestination = NavigationScreen.SplashNavScreen.route
     ) {
         SplashNavRoute.provide(this, navController, forceHideBottomBar)
-//        OnboardingNavRoute.provide(this, navController, forceHideBottomBar)
+        OnboardingNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

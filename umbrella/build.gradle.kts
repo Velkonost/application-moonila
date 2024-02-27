@@ -15,6 +15,7 @@ dependencies {
     implementation(projects.core.network)
 
     implementation(projects.features.splash.presentation)
+    implementation(projects.features.onboarding.presentation)
 
     implementation(libs.koin.core)
 }

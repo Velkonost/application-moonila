@@ -29,13 +29,12 @@ import core.compose.theme.BonaNovaFontFamily
 import features.splash.presentation.SplashViewModel
 
 @Composable
-fun SplashScreen(
+internal fun SplashScreen(
     modifier: Modifier = Modifier,
-    @Suppress("unused") viewModel: SplashViewModel
+    viewModel: SplashViewModel
 ) {
 
     val state = viewModel.viewState.collectAsStateWithLifecycle()
-
 
     Box {
         Image(

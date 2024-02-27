@@ -2,4 +2,7 @@
 <resources>
     <color name="text_color">#BBBBFF</color>
 
+    <color name="progress_bar_bg">#1C1B49</color>
+
+    <color name="main_text_color">#AEAEFB</color>
 </resources>

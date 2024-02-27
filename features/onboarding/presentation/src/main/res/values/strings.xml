@@ -9,4 +9,22 @@
     <string name="text_3_title">Find Your Soulmate</string>
     <string name="text_3_text">Discover the way for harmonious relationships with yourself and people around</string>
 
+    <string name="gender_1">She / her</string>
+    <string name="gender_2">He / him</string>
+    <string name="gender_3">They / their</string>
+    <string name="gender_4">Other</string>
+
+    <string name="improve_1">Life</string>
+    <string name="improve_2">Finance</string>
+    <string name="improve_3">Career</string>
+    <string name="improve_4">Relationship</string>
+    <string name="improve_5">Other</string>
+
+    <string name="goal_1">Personalized lunar calendar</string>
+    <string name="goal_2">Recognize yourself</string>
+    <string name="goal_3">Relationship compatibility</string>
+    <string name="goal_4">Relieve anxiety</string>
+    <string name="goal_5">Practices and affirmations</string>
+
+    <string name="skip_btn">Skip</string>
 </resources>

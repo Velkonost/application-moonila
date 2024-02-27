@@ -1,17 +1,34 @@
 package features.onboarding.presentation.screen
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.moonila.core.compose.R
+import core.compose.components.AppButton
+import core.compose.theme.PoppinsFontFamily
 import features.onboarding.presentation.OnboardingViewModel
 import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.model.OnboardingStep
 import features.onboarding.presentation.screen.components.BackgroundImage
+import features.onboarding.presentation.screen.components.OnboardingProgressBar
 import features.onboarding.presentation.screen.components.StepText
 
 @Composable
@@ -22,22 +39,64 @@ fun OnboardingScreen(
 
     val state by viewModel.viewState.collectAsStateWithLifecycle()
 
-    Box(
-        modifier = modifier
-            .clickable(
-                interactionSource = remember { MutableInteractionSource() },
-                indication = null,
-                onClick = {
-                    viewModel.dispatch(OnboardingAction.NextStepClick)
-                }
-            )
-    ) {
+    Box {
         BackgroundImage(step = state.step)
+
 
         when (state.step) {
             OnboardingStep.Text1, OnboardingStep.Text2, OnboardingStep.Text3 -> StepText(step = state.step)
             else -> {
 
+            }
+        }
+
+        Column {
+
+            AnimatedVisibility(
+                visible = state.step.position > OnboardingStep.Text3.position,
+                enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),
+                exit = fadeOut(animationSpec = tween(1000))
+            ) {
+                Row(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 23.dp)
+                        .padding(top = 48.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    OnboardingProgressBar(percent = 60)
+
+                    Spacer(modifier.weight(1f))
+
+                    Text(
+                        text = stringResource(
+                            id = com.moonila.features.onboarding.presentation.R.string.skip_btn
+                        ),
+                        color = colorResource(
+                            id = com.moonila.features.onboarding.presentation.R.color.main_text_color
+                        ),
+                        fontSize = 14.sp,
+                        fontFamily = PoppinsFontFamily,
+                        fontWeight = FontWeight.Medium
+                    )
+                }
+
+            }
+
+            Spacer(modifier.weight(1f))
+
+            AnimatedVisibility(
+                visible = state.step.position >= OnboardingStep.Text3.position,
+                enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),
+                exit = fadeOut(animationSpec = tween(1000))
+            ) {
+                AppButton(
+                    enabled = state.canGoNextStep,
+                    label = stringResource(id = R.string.continue_btn),
+                    onClick = {
+                        viewModel.dispatch(OnboardingAction.NextStepClick)
+                    }
+                )
             }
         }
 

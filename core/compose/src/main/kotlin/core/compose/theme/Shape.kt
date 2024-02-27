@@ -8,5 +8,5 @@ internal val AppShapes = Shapes(
     small = RoundedCornerShape(8.dp),
     medium = RoundedCornerShape(12.dp),
     large = RoundedCornerShape(24.dp),
-    extraLarge = RoundedCornerShape(48.dp)
+    extraLarge = RoundedCornerShape(36.dp)
 )

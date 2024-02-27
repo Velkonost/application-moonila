@@ -9,4 +9,10 @@
 
     <color name="blue_gradient_start">#20AFFF</color>
     <color name="blue_gradient_end">#C2E0FF</color>
+
+    <color name="light_color">#FCFBEB</color>
+    <color name="blue_color">#303896</color>
+
+    <color name="disabled_blue_color">#323273</color>
+    <color name="disabled_text_color">#737AD3</color>
 </resources>

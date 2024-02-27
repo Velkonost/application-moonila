@@ -1,6 +1,6 @@
 package features.splash.api
 
-interface SplashRepository {
+fun interface SplashRepository {
 
     suspend fun showOnboarding(): Boolean
 

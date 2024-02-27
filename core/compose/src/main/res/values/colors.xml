@@ -3,4 +3,10 @@
 
     <color name="orange_gradient_start">#FFA746</color>
     <color name="orange_gradient_end">#FFEBCE</color>
+
+    <color name="pink_gradient_start">#FC6CFF</color>
+    <color name="pink_gradient_end">#EAECFF</color>
+
+    <color name="blue_gradient_start">#20AFFF</color>
+    <color name="blue_gradient_end">#C2E0FF</color>
 </resources>

@@ -253,3 +253,11 @@ Kfeatures/splash/api/src/main/kotlin/features/splash/api/SplashRepository.kt,1/
 Qfeatures/splash/data/src/main/kotlin/features/splash/data/SplashRepositoryImpl.kt,1/6/16f384a0018f5345faf8d7e9358cea5ee9d62f93
 €
 Pfeatures/splash/data/src/main/kotlin/features/splash/data/di/SplashDataModule.kt,c/6/c6cff2b73c7ac332afc403a465b94e18455c8c30
+™
+ifeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/model/OnboardingStep.kt,2/6/26a70a383ffe081d7617547d73be802dd9e273bd
+¦
+vfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/BackgroundImage.kt,7/1/717192f2aa6eee808a790a71c0d37c2fef978c6e
+ 
+pfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/StepText1.kt,c/1/c18c01b4ff9c05fb592d6a27d13cefe6aaac7194
+Ÿ
+ofeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/StepText.kt,b/4/b421f0da740355fa2918e036946fdb5473ca5f33

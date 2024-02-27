@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_1_title">Unlock Your\nCosmic Rhythm</string>
+    <string name="text_1_text">Personal moon calendar\nfor Your Life's Journey!</string>
+
+    <string name="text_2_title">Harness the\nPower of the Moon</string>
+    <string name="text_2_text">Discover your lunar destiny\nand learn about relationships</string>
+
+    <string name="text_3_title">Your Lunar Guide\nAnytime, Anywhere</string>
+    <string name="text_3_text">Navigate your days aligned\nwith lunar wisdom</string>
+
+</resources>

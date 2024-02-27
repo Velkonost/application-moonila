@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 import com.moonila.core.compose.R
 
-private val PoppinsFontFamily = FontFamily(
+val PoppinsFontFamily = FontFamily(
     listOf(
         Font(resId = R.font.poppins_medium, weight = FontWeight.Medium),
         Font(resId = R.font.poppins_regular, weight = FontWeight.Normal),

@@ -10,21 +10,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.splash.presentation.R
-import core.compose.composable.OrangeTextGradient
+import core.compose.composable.orangeTextGradient
 import core.compose.theme.BonaNovaFontFamily
 import features.splash.presentation.SplashViewModel
 
@@ -34,7 +31,7 @@ internal fun SplashScreen(
     viewModel: SplashViewModel
 ) {
 
-    val state = viewModel.viewState.collectAsStateWithLifecycle()
+    val state by viewModel.viewState.collectAsStateWithLifecycle()
 
     Box {
         Image(
@@ -60,7 +57,7 @@ internal fun SplashScreen(
                 text = stringResource(id = R.string.splash_title),
                 fontFamily = BonaNovaFontFamily,
                 fontWeight = FontWeight.Bold,
-                style = OrangeTextGradient(fontSize = 24.sp)
+                style = orangeTextGradient(fontSize = 24.sp)
             )
             Spacer(modifier.weight(1f))
         }

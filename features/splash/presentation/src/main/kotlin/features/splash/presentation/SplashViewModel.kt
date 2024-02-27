@@ -18,7 +18,7 @@ internal constructor(
     init {
         setupStartDestination()
     }
-    
+
     private fun setupStartDestination() {
         launchJob {
             delay(1500)
@@ -36,10 +36,6 @@ internal constructor(
         }
     }
 
-    override fun dispatch(action: SplashAction) = when (action) {
-        else -> {
-
-        }
-    }
+    override fun dispatch(action: SplashAction) = Unit
 
 }

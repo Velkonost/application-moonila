@@ -1,6 +1,11 @@
 package features.onboarding.presentation.screen.components
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moonila.features.onboarding.presentation.R
@@ -28,7 +34,17 @@ fun StepText(
     step: OnboardingStep
 ) {
 
-    AnimatedContent(targetState = step, label = "") {
+    AnimatedContent(
+        targetState = step,
+        label = "",
+        transitionSpec = {
+        (
+                fadeIn(animationSpec = tween(220, delayMillis = 90))
+//                scaleIn(initialScale = 0.92f, animationSpec = tween(220, delayMillis = 90))
+        )
+            .togetherWith(fadeOut(animationSpec = tween(90)))
+    },
+    ) {
         val title = stringResource(
             id = when (it) {
                 OnboardingStep.Text1 -> R.string.text_1_title
@@ -60,7 +76,8 @@ fun StepText(
                 text = title,
                 fontFamily = BonaNovaFontFamily,
                 fontWeight = FontWeight.Bold,
-                style = titleStyle
+                style = titleStyle,
+                textAlign = TextAlign.Center
             )
             Text(
                 modifier = modifier.padding(top = 12.dp),
@@ -68,6 +85,7 @@ fun StepText(
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.Normal,
                 color = colorResource(id = R.color.text_color),
+                textAlign = TextAlign.Center
             )
             Spacer(modifier.weight(1f))
         }

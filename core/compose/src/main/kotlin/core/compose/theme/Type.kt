@@ -2,18 +2,21 @@ package core.compose.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
+import com.moonila.core.compose.R
 
 private val SFFontFamily = FontFamily(
     listOf(
-//        Font(resId = sfpro.rounded_regular.fontResourceId, weight = FontWeight.Normal),
-//        Font(resId = sfpro.rounded_semibold.fontResourceId, weight = FontWeight.SemiBold),
-//        Font(resId = sfpro.rounded_bold.fontResourceId, weight = FontWeight.Bold),
-//        Font(resId = sfpro.rounded_black.fontResourceId, weight = FontWeight.Black)
+        Font(resId = R.font.poppins_medium, weight = FontWeight.Medium),
+        Font(resId = R.font.poppins_regular, weight = FontWeight.Normal),
+        Font(resId = R.font.poppins_semibold, weight = FontWeight.SemiBold),
+        Font(resId = R.font.poppins_bold, weight = FontWeight.Bold),
+        Font(resId = R.font.poppins_black, weight = FontWeight.Black)
     )
 )
 

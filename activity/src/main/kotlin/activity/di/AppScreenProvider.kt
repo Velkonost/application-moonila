@@ -7,10 +7,11 @@ import androidx.navigation.navigation
 import core.compose.provide
 import core.vm.navigation.NavigationScreen
 import features.onboarding.presentation.screen.OnboardingNavRoute
+import features.paywall.presentation.screen.PaywallNavRoute
 import features.splash.presentation.screen.SplashNavRoute
 
 val AppScreens = setOf(
-    SplashNavRoute
+    PaywallNavRoute
 //    AuthNavRoute,
 //    AddAreaNavRoute,
 //    NoteDetailNavRoute,

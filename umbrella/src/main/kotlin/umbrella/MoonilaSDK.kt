@@ -2,7 +2,10 @@ package umbrella
 
 import core.datastore.di.CoreDataStoreModule
 import core.network.di.CoreNetworkModule
+import features.onboarding.data.di.OnboardingDataModule
 import features.onboarding.presentation.di.OnboardingPresentationModule
+import features.paywall.data.di.PaywallDataModule
+import features.paywall.presentation.di.PaywallPresentationModule
 import features.splash.data.di.SplashDataModule
 import features.splash.presentation.di.SplashPresentationModule
 import org.koin.core.context.startKoin
@@ -25,7 +28,11 @@ object MoonilaSDK {
             SplashDataModule,
             SplashPresentationModule,
 
-            OnboardingPresentationModule
+            OnboardingDataModule,
+            OnboardingPresentationModule,
+
+            PaywallDataModule,
+            PaywallPresentationModule
         )
 
         modules?.let(::modules)

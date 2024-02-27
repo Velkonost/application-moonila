@@ -7,16 +7,11 @@ import features.onboarding.presentation.contract.OnboardingNavigation
 import features.onboarding.presentation.contract.OnboardingViewState
 import features.onboarding.presentation.model.OnboardingStep
 
-
 class OnboardingViewModel
 internal constructor(
 ) : BaseViewModel<OnboardingViewState, OnboardingAction, OnboardingNavigation, OnboardingEvent>(
     initialState = OnboardingViewState()
 ) {
-
-    init {
-    }
-
 
     override fun dispatch(action: OnboardingAction) = when (action) {
         is OnboardingAction.NextStepClick -> increaseStep()

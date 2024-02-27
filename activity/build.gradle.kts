@@ -14,6 +14,7 @@ dependencies {
 
     implementation(projects.features.splash.presentation)
     implementation(projects.features.onboarding.presentation)
+    implementation(projects.features.paywall.presentation)
 
     implementation(projects.core.vm)
     implementation(projects.core.util)

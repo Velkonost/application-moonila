@@ -1,4 +1,4 @@
-package features.splash.contract
+package features.splash.presentation.contract
 
 import core.vm.contracts.UIContract
 

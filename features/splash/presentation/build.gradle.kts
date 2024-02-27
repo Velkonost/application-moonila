@@ -17,14 +17,10 @@ android {
 }
 
 dependencies {
-    api(projects.core.vm)
-    api(projects.core.util)
-
-    implementation(libs.koin.core)
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.koin.androidx.compose)
-
-    api(projects.core.model)
+    implementation(projects.core.vm)
+    implementation(projects.core.util)
+    implementation(projects.core.model)
     implementation(projects.core.compose)
+    
     implementation(projects.features.splash.api)
 }

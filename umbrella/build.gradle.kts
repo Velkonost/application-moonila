@@ -13,5 +13,8 @@ android {
 dependencies {
     implementation(projects.core.datastore)
     implementation(projects.core.network)
+
+    implementation(projects.features.splash.presentation)
+
     implementation(libs.koin.core)
 }

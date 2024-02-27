@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import core.compose.provide
 import core.vm.navigation.NavigationScreen
-import features.splash.screen.SplashNavRoute
+import features.splash.presentation.screen.SplashNavRoute
 
 val AppScreens = setOf(
     SplashNavRoute

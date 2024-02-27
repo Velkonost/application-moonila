@@ -1,6 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
 import com.moonila.util.libs
+import gradle.kotlin.dsl.accessors._f6236583583f76e66ad2c169bded4799.implementation
+import gradle.kotlin.dsl.accessors._f6236583583f76e66ad2c169bded4799.kotlinOptions
 
 plugins {
     id("com.android.library")
@@ -27,12 +29,32 @@ android {
         targetCompatibility = JavaVersion.VERSION_18
     }
 
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
+    }
+
+    kotlinOptions {
+        jvmTarget = "18"
+    }
+
     sourceSets.all {
         java.srcDirs("src/$name/kotlin")
+    }
+
+    dependencies {
+        implementation(libs.koin.core)
+        implementation(libs.koin.androidx.compose)
+        implementation(libs.kotlinx.coroutines.core)
     }
 }
 
 kotlin {
+    jvmToolchain(18)
+
     sourceSets.all {
         languageSettings.apply {
             optIn("kotlin.RequiresOptIn")

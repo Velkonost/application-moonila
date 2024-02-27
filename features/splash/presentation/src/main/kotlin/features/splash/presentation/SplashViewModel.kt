@@ -1,10 +1,10 @@
-package features.splash
+package features.splash.presentation
 
 import core.vm.BaseViewModel
-import features.splash.contract.SplashAction
-import features.splash.contract.SplashEvent
-import features.splash.contract.SplashNavigation
-import features.splash.contract.SplashViewState
+import features.splash.presentation.contract.SplashAction
+import features.splash.presentation.contract.SplashEvent
+import features.splash.presentation.contract.SplashNavigation
+import features.splash.presentation.contract.SplashViewState
 
 class SplashViewModel
 internal constructor(

@@ -28,11 +28,27 @@ include(
     ":core:vm",
     ":umbrella",
 
+    ":features:splash:api",
+    ":features:splash:data",
+    ":features:splash:presentation",
+
     ":features:onboarding:api",
     ":features:onboarding:data",
     ":features:onboarding:presentation",
 
-    ":features:splash:api",
-    ":features:splash:data",
-    ":features:splash:presentation",
+    ":features:paywall:api",
+    ":features:paywall:data",
+    ":features:paywall:presentation",
+
+    ":features:feed:api",
+    ":features:feed:data",
+    ":features:feed:presentation",
+
+    ":features:mooninsight:api",
+    ":features:mooninsight:data",
+    ":features:mooninsight:presentation",
+
+    ":features:compatibility:api",
+    ":features:compatibility:data",
+    ":features:compatibility:presentation",
 )

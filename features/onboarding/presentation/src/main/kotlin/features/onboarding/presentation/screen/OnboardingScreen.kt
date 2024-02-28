@@ -28,6 +28,7 @@ import core.compose.theme.PoppinsFontFamily
 import features.onboarding.presentation.OnboardingViewModel
 import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.model.OnboardingStep
+import features.onboarding.presentation.screen.components.AgeStep
 import features.onboarding.presentation.screen.components.BackgroundImage
 import features.onboarding.presentation.screen.components.GenderStep
 import features.onboarding.presentation.screen.components.NameStep
@@ -61,6 +62,9 @@ fun OnboardingScreen(
                 itemClick = {
                     viewModel.dispatch(OnboardingAction.GenderSelect(it))
                 }
+            )
+            OnboardingStep.Age -> AgeStep(
+                userName = state.nameValue
             )
             else -> {
 

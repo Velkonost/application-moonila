@@ -51,8 +51,6 @@ fun SingleLineTextField(
     val textColor = colorResource(id = R.color.light_color)
 
     Box {
-
-
         BasicTextField(
             value = value,
             onValueChange = onValueChanged,

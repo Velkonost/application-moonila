@@ -27,6 +27,7 @@ fun NameStep(
 
     Column(
         modifier = modifier
+            .padding(top = 100.dp)
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally

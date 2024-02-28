@@ -29,6 +29,7 @@ import features.onboarding.presentation.OnboardingViewModel
 import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.model.OnboardingStep
 import features.onboarding.presentation.screen.components.BackgroundImage
+import features.onboarding.presentation.screen.components.GenderStep
 import features.onboarding.presentation.screen.components.NameStep
 import features.onboarding.presentation.screen.components.OnboardingProgressBar
 import features.onboarding.presentation.screen.components.StepText
@@ -47,15 +48,23 @@ fun OnboardingScreen(
 
         when (state.step) {
             OnboardingStep.Text1, OnboardingStep.Text2, OnboardingStep.Text3 -> StepText(step = state.step)
-            else -> {
-                Box(modifier = modifier.padding(top = 100.dp)) {
-                    NameStep(
-                        value = state.nameValue,
-                        onValueChanged = {
-                            viewModel.dispatch(OnboardingAction.NameChanged(it))
-                        },
-                    )
+            OnboardingStep.Name -> NameStep(
+                value = state.nameValue,
+                onValueChanged = {
+                    viewModel.dispatch(OnboardingAction.NameChanged(it))
+                },
+            )
+            OnboardingStep.Gender -> GenderStep(
+                userName = state.nameValue,
+                items = state.genderViewState.items,
+                selectedItem = state.genderViewState.selectedItem,
+                itemClick = {
+                    viewModel.dispatch(OnboardingAction.GenderSelect(it))
                 }
+            )
+            else -> {
+
+
             }
         }
 

@@ -285,3 +285,5 @@ Lcore/compose/src/main/kotlin/core/compose/components/TextWithGradientPart.kt,9
 ofeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/NameStep.kt,2/7/27daa66dc3c20e391fd723e8157a67eeb6efc496
 {
 Kcore/compose/src/main/kotlin/core/compose/components/SingleLineTextField.kt,8/3/8308cc133949dece392bf2d16fb93bd322a56617
+¡
+qfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/GenderStep.kt,a/6/a6fb380cf3e7244ed69e5cfaa41067a2d1fc27bb

@@ -6,6 +6,7 @@ import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.contract.OnboardingEvent
 import features.onboarding.presentation.contract.OnboardingNavigation
 import features.onboarding.presentation.contract.OnboardingViewState
+import features.onboarding.presentation.model.Gender
 import features.onboarding.presentation.model.OnboardingStep
 import kotlinx.coroutines.delay
 
@@ -23,6 +24,7 @@ internal constructor(
     override fun dispatch(action: OnboardingAction) = when (action) {
         is OnboardingAction.NextStepClick -> increaseStep()
         is OnboardingAction.NameChanged -> obtainNameChanged(action.value)
+        is OnboardingAction.GenderSelect -> obtainGenderSelect(action.value)
     }
 
     private fun processTextSteps() {
@@ -45,6 +47,11 @@ internal constructor(
     private fun obtainNameChanged(value: String) {
         val canGoNext = value.length > NAME_REQUIRED_LENGTH
         emit(viewState.value.copy(nameValue = value, canGoNextStep = canGoNext))
+    }
+
+    private fun obtainGenderSelect(value: Gender) {
+        val genderViewState = viewState.value.genderViewState.copy(selectedItem = value)
+        emit(viewState.value.copy(genderViewState = genderViewState))
     }
 
     companion object {

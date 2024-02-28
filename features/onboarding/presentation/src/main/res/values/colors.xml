@@ -7,4 +7,7 @@
     <color name="main_text_color">#AEAEFB</color>
 
     <color name="title_color">#F0F0FF</color>
+
+    <color name="selected_item">#525FFF</color>
+    <color name="default_item">#363D8E</color>
 </resources>

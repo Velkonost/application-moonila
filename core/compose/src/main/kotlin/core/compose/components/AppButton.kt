@@ -1,8 +1,11 @@
 package core.compose.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
@@ -39,6 +42,8 @@ fun AppButton(
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .padding(bottom = 56.dp)
+            .consumeWindowInsets(PaddingValues(bottom = 36.dp))
+            .imePadding()
             .background(
                 color = colorResource(
                     id = if (enabled) R.color.light_color

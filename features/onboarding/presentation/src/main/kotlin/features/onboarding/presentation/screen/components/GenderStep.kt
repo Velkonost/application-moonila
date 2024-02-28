@@ -129,7 +129,9 @@ fun GenderItem(
             ) {
                 Spacer(modifier.weight(1f))
                 Image(
-                    modifier = modifier.size(24.dp),
+                    modifier = modifier
+                        .padding(end = 14.dp)
+                        .size(24.dp),
                     painter = painterResource(id = com.moonila.core.compose.R.drawable.ic_radiobutton),
                     contentDescription = null
                 )

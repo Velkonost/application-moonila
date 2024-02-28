@@ -51,7 +51,7 @@ internal constructor(
 
     private fun obtainGenderSelect(value: Gender) {
         val genderViewState = viewState.value.genderViewState.copy(selectedItem = value)
-        emit(viewState.value.copy(genderViewState = genderViewState))
+        emit(viewState.value.copy(genderViewState = genderViewState, canGoNextStep = true))
     }
 
     companion object {

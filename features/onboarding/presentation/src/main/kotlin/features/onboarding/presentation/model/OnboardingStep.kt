@@ -2,7 +2,8 @@ package features.onboarding.presentation.model
 
 enum class OnboardingStep(
     val position: Int,
-    val percent: Int
+    val percent: Int,
+    val canGoNextAfk: Boolean = true
 ) {
     Text1(
         position = 0,
@@ -18,11 +19,13 @@ enum class OnboardingStep(
     ),
     Name(
         position = 3,
-        percent = 20
+        percent = 20,
+        canGoNextAfk = false
     ),
     Gender(
         position = 4,
-        percent = 40
+        percent = 40,
+        canGoNextAfk = false
     ),
     Age(
         position = 5,
@@ -42,11 +45,13 @@ enum class OnboardingStep(
     ),
     Improve(
         position = 9,
-        percent = 80
+        percent = 80,
+        canGoNextAfk = false
     ),
     Goals(
         position = 10,
-        percent = 100
+        percent = 100,
+        canGoNextAfk = false
     ),
     ProfileSettings(
         position = 11,

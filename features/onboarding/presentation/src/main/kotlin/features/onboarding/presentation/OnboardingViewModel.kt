@@ -38,12 +38,17 @@ internal constructor(
     private fun increaseStep() {
         val nextStep = OnboardingStep.getNextStep(viewState.value.step)
         if (nextStep != null) {
-            emit(viewState.value.copy(step = nextStep))
+            emit(viewState.value.copy(step = nextStep, canGoNextStep = nextStep.canGoNextAfk ))
         }
     }
 
     private fun obtainNameChanged(value: String) {
-        emit(viewState.value.copy(nameValue = value))
+        val canGoNext = value.length > NAME_REQUIRED_LENGTH
+        emit(viewState.value.copy(nameValue = value, canGoNextStep = canGoNext))
+    }
+
+    companion object {
+        private const val NAME_REQUIRED_LENGTH = 5
     }
 
 }

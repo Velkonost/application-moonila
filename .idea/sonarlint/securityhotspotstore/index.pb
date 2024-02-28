@@ -369,3 +369,5 @@ acore/compose/datepicker/src/main/java/com/ozcanalasalvar/datepicker/view/popup/
 [core/compose/datepicker/src/main/java/com/ozcanalasalvar/datepicker/ui/theme/PickerBrush.kt,1/d/1d8629b347d2dd6636c9da07365b161c4569f28d
 Œ
 \core/compose/datepicker/src/main/java/com/ozcanalasalvar/datepicker/ui/theme/PickerColors.kt,5/8/58bee3bf30d1abeefd1c97cc2309806012f5db42
+ž
+nfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/AgeStep.kt,6/7/679c3447aa18fd25e8a968a7e7365c8d6d1fe5b5

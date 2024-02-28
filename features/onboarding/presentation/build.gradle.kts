@@ -26,5 +26,6 @@ dependencies {
 
     api(projects.core.model)
     implementation(projects.core.compose)
+    implementation(projects.core.compose.datepicker)
     implementation(projects.features.onboarding.api)
 }

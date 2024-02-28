@@ -29,8 +29,8 @@ import core.compose.theme.PoppinsFontFamily
 import features.onboarding.presentation.OnboardingViewModel
 import features.onboarding.presentation.contract.OnboardingAction
 import features.onboarding.presentation.model.OnboardingStep
-import features.onboarding.presentation.model.OnboardingStep.Companion.asPercent
 import features.onboarding.presentation.screen.components.BackgroundImage
+import features.onboarding.presentation.screen.components.NameStep
 import features.onboarding.presentation.screen.components.OnboardingProgressBar
 import features.onboarding.presentation.screen.components.StepText
 
@@ -49,12 +49,18 @@ fun OnboardingScreen(
         when (state.step) {
             OnboardingStep.Text1, OnboardingStep.Text2, OnboardingStep.Text3 -> StepText(step = state.step)
             else -> {
+                Box(modifier = modifier.padding(top = 100.dp)) {
+                    NameStep(
+                        value = state.nameValue,
+                        onValueChanged = {
 
+                        }
+                    )
+                }
             }
         }
 
         Column {
-
             AnimatedVisibility(
                 visible = state.step.position > OnboardingStep.Text3.position,
                 enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),

@@ -27,4 +27,13 @@
     <string name="goal_5">Practices and affirmations</string>
 
     <string name="skip_btn">Skip</string>
+
+    <string name="welcome_to">Welcome to\ </string>
+    <string name="hello">Hello,\ </string>
+
+    <string name="name_text">What\'s your name?</string>
+    <string name="name_hint">Your name</string>
+
+    <string name="gender_text">We strive to create a comfortable environment\nfor members of all gender identities</string>
+    <string name="age_text">,\ enter the date of birth, and we will calculate your personal content!</string>
 </resources>

@@ -15,4 +15,8 @@
 
     <color name="disabled_blue_color">#323273</color>
     <color name="disabled_text_color">#737AD3</color>
+
+    <color name="unfocused_tf_border">#33FFFFFF</color>
+
+    <color name="common_text_color">#AEAEFB</color>
 </resources>

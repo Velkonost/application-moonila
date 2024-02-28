@@ -22,6 +22,7 @@ internal constructor(
 
     override fun dispatch(action: OnboardingAction) = when (action) {
         is OnboardingAction.NextStepClick -> increaseStep()
+        is OnboardingAction.NameChanged -> obtainNameChanged(action.value)
     }
 
     private fun processTextSteps() {
@@ -39,6 +40,10 @@ internal constructor(
         if (nextStep != null) {
             emit(viewState.value.copy(step = nextStep))
         }
+    }
+
+    private fun obtainNameChanged(value: String) {
+        emit(viewState.value.copy(nameValue = value))
     }
 
 }

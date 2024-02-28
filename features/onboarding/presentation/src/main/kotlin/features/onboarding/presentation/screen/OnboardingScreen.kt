@@ -52,8 +52,8 @@ fun OnboardingScreen(
                     NameStep(
                         value = state.nameValue,
                         onValueChanged = {
-
-                        }
+                            viewModel.dispatch(OnboardingAction.NameChanged(it))
+                        },
                     )
                 }
             }

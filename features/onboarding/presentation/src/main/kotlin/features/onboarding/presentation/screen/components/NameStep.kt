@@ -55,7 +55,7 @@ fun NameStep(
             placeholderText = stringResource(id = R.string.name_hint),
             onValueChanged = onValueChanged,
             onClearClick = {
-
+                onValueChanged("")
             }
         )
     }

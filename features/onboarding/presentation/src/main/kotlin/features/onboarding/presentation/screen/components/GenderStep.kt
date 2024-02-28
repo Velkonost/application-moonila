@@ -87,10 +87,12 @@ fun GenderItem(
     onClick: () -> Unit
 ) {
 
-    Box {
+    Box(
+        modifier = modifier
+            .padding(top = 12.dp)
+    ) {
         Row(
             modifier = modifier
-                .padding(top = 12.dp)
                 .fillMaxWidth()
                 .height(52.dp)
                 .background(
@@ -122,7 +124,6 @@ fun GenderItem(
         if (selected) {
             Row(
                 modifier = modifier
-                    .padding(top = 12.dp)
                     .fillMaxWidth()
                     .height(52.dp),
                 verticalAlignment = Alignment.CenterVertically

@@ -55,7 +55,7 @@ internal constructor(
     }
 
     companion object {
-        private const val NAME_REQUIRED_LENGTH = 5
+        private const val NAME_REQUIRED_LENGTH = 2
     }
 
 }

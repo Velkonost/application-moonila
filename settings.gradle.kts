@@ -21,6 +21,8 @@ include(
     ":app",
     ":activity",
     ":core:compose",
+    ":core:compose:datepicker",
+    ":core:compose:wheelview",
     ":core:datastore",
     ":core:model",
     ":core:network",

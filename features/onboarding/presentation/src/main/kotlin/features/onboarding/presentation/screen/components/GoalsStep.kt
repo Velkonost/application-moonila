@@ -28,16 +28,16 @@ import androidx.compose.ui.unit.sp
 import com.moonila.features.onboarding.presentation.R
 import core.compose.components.TextWithGradientPart
 import core.compose.theme.PoppinsFontFamily
-import features.onboarding.presentation.model.Gender
+import features.onboarding.presentation.model.Goal
 import features.onboarding.presentation.model.Improve
 
 @Composable
-fun ImproveStep(
+fun GoalsStep(
     modifier: Modifier = Modifier,
     userName: String,
-    items: List<Improve>,
-    selectedItems: List<Improve>,
-    itemClick: (Improve) -> Unit
+    items: List<Goal>,
+    selectedItems: List<Goal>,
+    itemClick: (Goal) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -47,7 +47,7 @@ fun ImproveStep(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextWithGradientPart(
-            text = stringResource(id = R.string.improve_title),
+            text = stringResource(id = R.string.goals_title),
             commonTextColor = colorResource(id = R.color.title_color),
             textSize = 24.sp,
             fontWeight = FontWeight.Medium,
@@ -55,7 +55,7 @@ fun ImproveStep(
 
         TextWithGradientPart(
             modifier = modifier.padding(top = 8.dp),
-            text = stringResource(id = R.string.improve_text),
+            text = stringResource(id = R.string.goals_text),
             commonTextColor = colorResource(id = com.moonila.core.compose.R.color.common_text_color),
             textSize = 14.sp,
             fontWeight = FontWeight.Normal,
@@ -65,7 +65,7 @@ fun ImproveStep(
         Spacer(modifier.height(12.dp))
 
         items.forEach {
-            ImproveItem(
+            GoalItem(
                 item = it,
                 selected = it in selectedItems,
                 onClick = {
@@ -76,10 +76,11 @@ fun ImproveStep(
     }
 }
 
+
 @Composable
-fun ImproveItem(
+fun GoalItem(
     modifier: Modifier = Modifier,
-    item: Improve,
+    item: Goal,
     selected: Boolean,
     onClick: () -> Unit
 ) {

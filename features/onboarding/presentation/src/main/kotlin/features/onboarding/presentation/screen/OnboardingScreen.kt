@@ -31,9 +31,11 @@ import features.onboarding.presentation.model.OnboardingStep
 import features.onboarding.presentation.screen.components.AgeStep
 import features.onboarding.presentation.screen.components.BackgroundImage
 import features.onboarding.presentation.screen.components.GenderStep
+import features.onboarding.presentation.screen.components.GoalsStep
 import features.onboarding.presentation.screen.components.ImproveStep
 import features.onboarding.presentation.screen.components.NameStep
 import features.onboarding.presentation.screen.components.OnboardingProgressBar
+import features.onboarding.presentation.screen.components.ProfileSettingsStep
 import features.onboarding.presentation.screen.components.PromoStep
 import features.onboarding.presentation.screen.components.StepText
 
@@ -79,10 +81,15 @@ fun OnboardingScreen(
                     viewModel.dispatch(OnboardingAction.ImproveSelect(it))
                 }
             )
-            else -> {
-
-
-            }
+            OnboardingStep.Goals -> GoalsStep(
+                userName = state.nameValue,
+                items = state.goalViewState.items,
+                selectedItems = state.goalViewState.selectedItems,
+                itemClick = {
+                    viewModel.dispatch(OnboardingAction.GoalSelect(it))
+                }
+            )
+            OnboardingStep.ProfileSettings -> ProfileSettingsStep()
         }
 
         Column {

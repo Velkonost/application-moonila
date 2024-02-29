@@ -319,3 +319,7 @@ S
 pfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/PromoStep.kt,7/4/743810c31e0e4578ffc99963694b2cb9c5842c41
 ¢
 rfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/ImproveStep.kt,8/4/8459d56238ce93874ff520a770bc102ab21a0ca2
+ 
+pfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/GoalsStep.kt,f/3/f3b40ec5e9a763e27576b3b12b60cae98d96f9d3
+ª
+zfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/ProfileSettingsStep.kt,e/7/e72ec1ccc396020ff98074eb7edefabbf52aa9e4

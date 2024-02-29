@@ -31,6 +31,7 @@ import features.onboarding.presentation.model.OnboardingStep
 import features.onboarding.presentation.screen.components.AgeStep
 import features.onboarding.presentation.screen.components.BackgroundImage
 import features.onboarding.presentation.screen.components.GenderStep
+import features.onboarding.presentation.screen.components.ImproveStep
 import features.onboarding.presentation.screen.components.NameStep
 import features.onboarding.presentation.screen.components.OnboardingProgressBar
 import features.onboarding.presentation.screen.components.PromoStep
@@ -69,6 +70,14 @@ fun OnboardingScreen(
             )
             OnboardingStep.Promo1, OnboardingStep.Promo2, OnboardingStep.Promo3 -> PromoStep(
                 step = state.step
+            )
+            OnboardingStep.Improve -> ImproveStep(
+                userName = state.nameValue,
+                items = state.improveViewState.items,
+                selectedItems = state.improveViewState.selectedItems,
+                itemClick = {
+                    viewModel.dispatch(OnboardingAction.ImproveSelect(it))
+                }
             )
             else -> {
 

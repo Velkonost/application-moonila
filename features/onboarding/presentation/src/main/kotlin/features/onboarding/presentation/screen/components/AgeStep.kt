@@ -1,5 +1,10 @@
 package features.onboarding.presentation.screen.components
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +14,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,6 +34,8 @@ import com.commandiron.wheel_picker_compose.core.WheelPickerDefaults
 import com.moonila.features.onboarding.presentation.R
 import core.compose.components.TextWithGradientPart
 import core.compose.theme.PoppinsFontFamily
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
 @Composable
@@ -35,6 +46,15 @@ fun AgeStep(
 
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
+
+    val scope = rememberCoroutineScope()
+    val datePickerVisible = remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        scope.launch {
+            datePickerVisible.value = true
+        }
+    }
 
     Column(
         modifier = modifier
@@ -62,26 +82,33 @@ fun AgeStep(
 
         Spacer(modifier.height(32.dp))
 
-        WheelDatePicker(
-            startDate = LocalDate.of(
-                1995, 1, 25
-            ),
-            minDate = LocalDate.MIN,
-            maxDate = LocalDate.now(),
-            size = DpSize(screenWidth - 40.dp, 250.dp),
-            rowCount = 7,
-            textStyle = TextStyle(
-                fontFamily = PoppinsFontFamily,
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
-            ),
-            textColor = colorResource(id = com.moonila.core.compose.R.color.light_color),
-            selectorProperties = WheelPickerDefaults.selectorProperties(
-                enabled = true,
-                shape = RoundedCornerShape(10.dp),
-                color = colorResource(id = R.color.default_item)
-            )
-        ) { snappedDateTime -> }
+        AnimatedVisibility(
+            visible = datePickerVisible.value,
+            enter = fadeIn(animationSpec = tween(500))
+        ) {
+            WheelDatePicker(
+                startDate = LocalDate.of(
+                    1995, 1, 25
+                ),
+                minDate = LocalDate.MIN,
+                maxDate = LocalDate.now(),
+                size = DpSize(screenWidth - 40.dp, 250.dp),
+                rowCount = 7,
+                textStyle = TextStyle(
+                    fontFamily = PoppinsFontFamily,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 20.sp
+                ),
+                textColor = colorResource(id = com.moonila.core.compose.R.color.light_color),
+                selectorProperties = WheelPickerDefaults.selectorProperties(
+                    enabled = true,
+                    shape = RoundedCornerShape(10.dp),
+                    color = colorResource(id = R.color.default_item),
+                    border = null
+                )
+            ) { snappedDateTime -> }
+        }
+
 //        Text(
 //            modifier = modifier.padding(top = 8.dp),
 //            text = stringResource(id = R.string.gender_text),

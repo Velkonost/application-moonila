@@ -116,6 +116,7 @@ internal fun DefaultWheelDatePicker(
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
                 ),
+                alignStart = true,
                 startIndex = months.find { it.value== startDate.monthValue }?.index ?: 0,
                 onScrollFinished = { snappedIndex ->
 

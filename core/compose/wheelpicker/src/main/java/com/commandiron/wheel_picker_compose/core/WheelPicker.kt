@@ -106,8 +106,8 @@ internal fun WheelPicker(
 private fun calculateSnappedItemIndex(snapperLayoutInfo: SnapperLayoutInfo): Int? {
     var currentItemIndex = snapperLayoutInfo.currentItem?.index
 
-    if(snapperLayoutInfo.currentItem?.offset != 0) {
-        if(currentItemIndex != null) {
+    if (snapperLayoutInfo.currentItem?.offset != 0) {
+        if  (currentItemIndex != null) {
             currentItemIndex ++
         }
     }

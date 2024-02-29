@@ -1,5 +1,7 @@
 package com.commandiron.wheel_picker_compose.core
 
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,6 +24,7 @@ fun WheelTextPicker(
     color: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
     onScrollFinished: (snappedIndex: Int) -> Int? = { null },
+    alignStart: Boolean = false
 ) {
     WheelPicker(
         modifier = modifier,
@@ -32,12 +35,25 @@ fun WheelTextPicker(
         selectorProperties = selectorProperties,
         onScrollFinished = onScrollFinished
     ){ index ->
-        Text(
-            text = texts[index],
-            style = style,
-            color = color,
-            maxLines = 1,
-            textAlign = TextAlign.Start
-        )
+        if (alignStart) {
+            Row {
+                Text(
+                    text = texts[index],
+                    style = style,
+                    color = color,
+                    maxLines = 1,
+                    textAlign = TextAlign.Start
+                )
+                Spacer(Modifier.weight(1f))
+            }
+        } else {
+            Text(
+                text = texts[index],
+                style = style,
+                color = color,
+                maxLines = 1,
+                textAlign = TextAlign.Start
+            )
+        }
     }
 }

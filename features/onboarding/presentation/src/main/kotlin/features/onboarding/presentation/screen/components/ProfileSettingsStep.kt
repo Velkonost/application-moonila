@@ -1,5 +1,7 @@
 package features.onboarding.presentation.screen.components
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,12 +10,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -22,6 +27,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -35,18 +41,9 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun ProfileSettingsStep(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    forceHideButton: MutableState<Boolean>
 ) {
-
-    /**
-     * 6000 msec per 100%
-     * 1% = 60millis
-     * ---
-     * 1% = 50 millis
-     * 0-10, 30-40, 50-60, 70-90
-     * 50% per 80 millis = 4000millis
-     * 50$ per 40 millis = 2000millis
-     */
 
     val scope = rememberCoroutineScope()
     val firstPointProgress = remember { mutableIntStateOf(0) }
@@ -54,54 +51,74 @@ fun ProfileSettingsStep(
     val thirdPointProgress = remember { mutableIntStateOf(0) }
     val forthPointProgress = remember { mutableIntStateOf(0) }
 
+    val firstMarkVisible = remember { mutableStateOf(false) }
+    val secondMarkVisible = remember { mutableStateOf(false) }
+    val thirdMarkVisible = remember { mutableStateOf(false) }
+    val forthMarkVisible = remember { mutableStateOf(false) }
+
+    val longDelay = 90L
+    val shortDelay = 30L
+
     LaunchedEffect(Unit) {
         scope.launch {
+            forceHideButton.value = true
+
             while (firstPointProgress.intValue != 100) {
                 val currentValue = firstPointProgress.intValue
                 if (currentValue in 0..10 || currentValue in 30..40 || currentValue in 50..60 || currentValue in 70..90) {
-                    delay(80)
+                    delay(longDelay)
                     firstPointProgress.intValue += 1
                 } else {
-                    delay(40)
+                    delay(shortDelay)
                     firstPointProgress.intValue += 1
                 }
             }
 
             delay(500)
+            firstMarkVisible.value = true
+
             while (secondPointProgress.intValue != 100) {
                 val currentValue = secondPointProgress.intValue
                 if (currentValue in 0..10 || currentValue in 30..40 || currentValue in 50..60 || currentValue in 70..90) {
-                    delay(80)
+                    delay(longDelay)
                     secondPointProgress.intValue += 1
                 } else {
-                    delay(40)
+                    delay(shortDelay)
                     secondPointProgress.intValue += 1
                 }
             }
 
             delay(500)
+            secondMarkVisible.value = true
+
             while (thirdPointProgress.intValue != 100) {
                 val currentValue = thirdPointProgress.intValue
                 if (currentValue in 0..10 || currentValue in 30..40 || currentValue in 50..60 || currentValue in 70..90) {
-                    delay(80)
+                    delay(longDelay)
                     thirdPointProgress.intValue += 1
                 } else {
-                    delay(40)
+                    delay(shortDelay)
                     thirdPointProgress.intValue += 1
                 }
             }
 
             delay(500)
+            thirdMarkVisible.value = true
+
             while (forthPointProgress.intValue != 100) {
                 val currentValue = forthPointProgress.intValue
                 if (currentValue in 0..10 || currentValue in 30..40 || currentValue in 50..60 || currentValue in 70..90) {
-                    delay(80)
+                    delay(longDelay)
                     forthPointProgress.intValue += 1
                 } else {
-                    delay(40)
+                    delay(shortDelay)
                     forthPointProgress.intValue += 1
                 }
             }
+
+            delay(500)
+            forthMarkVisible.value = true
+            forceHideButton.value = false
         }
     }
 
@@ -127,10 +144,26 @@ fun ProfileSettingsStep(
             fontWeight = FontWeight.Normal
         )
 
-        ProfileSettingsPoint(index = 0, progress = firstPointProgress.intValue)
-        ProfileSettingsPoint(index = 1, progress = secondPointProgress.intValue)
-        ProfileSettingsPoint(index = 2, progress = thirdPointProgress.intValue)
-        ProfileSettingsPoint(index = 3, progress = forthPointProgress.intValue)
+        ProfileSettingsPoint(
+            index = 0,
+            progress = firstPointProgress.intValue,
+            markVisible = firstMarkVisible.value
+        )
+        ProfileSettingsPoint(
+            index = 1,
+            progress = secondPointProgress.intValue,
+            markVisible = secondMarkVisible.value
+        )
+        ProfileSettingsPoint(
+            index = 2,
+            progress = thirdPointProgress.intValue,
+            markVisible = thirdMarkVisible.value
+        )
+        ProfileSettingsPoint(
+            index = 3,
+            progress = forthPointProgress.intValue,
+            markVisible = forthMarkVisible.value
+        )
     }
 }
 
@@ -138,7 +171,8 @@ fun ProfileSettingsStep(
 fun ProfileSettingsPoint(
     modifier: Modifier = Modifier,
     index: Int,
-    progress: Int
+    progress: Int,
+    markVisible: Boolean
 ) {
 
     val text = stringResource(
@@ -147,6 +181,24 @@ fun ProfileSettingsPoint(
             1 -> R.string.profile_settings_point_2
             2 -> R.string.profile_settings_point_3
             else -> R.string.profile_settings_point_4
+        }
+    )
+
+    val gradientStart = colorResource(
+        id = when (index) {
+            0 -> com.moonila.core.compose.R.color.orange_gradient_start
+            1 -> com.moonila.core.compose.R.color.pink_gradient_start
+            2 -> com.moonila.core.compose.R.color.green_gradient_start
+            else -> com.moonila.core.compose.R.color.blue_gradient_start
+        }
+    )
+
+    val gradientEnd = colorResource(
+        id = when (index) {
+            0 -> com.moonila.core.compose.R.color.orange_gradient_end
+            1 -> com.moonila.core.compose.R.color.pink_gradient_end
+            2 -> com.moonila.core.compose.R.color.green_gradient_end
+            else -> com.moonila.core.compose.R.color.blue_gradient_end
         }
     )
 
@@ -160,22 +212,34 @@ fun ProfileSettingsPoint(
             color = colorResource(id = com.moonila.core.compose.R.color.light_color)
         )
         Spacer(modifier.weight(1f))
-        Text(
-            text = "${progress}%",
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
-        )
+
+        AnimatedContent(targetState = markVisible, label = "") {
+            if (it) {
+                Image(
+                    modifier = modifier.size(22.dp),
+                    painter = painterResource(id = R.drawable.ic_check),
+                    contentDescription = null
+                )
+            } else {
+                Text(
+                    text = "${progress}%",
+                    fontFamily = PoppinsFontFamily,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 16.sp,
+                    textAlign = TextAlign.Center,
+                    color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+                )
+            }
+        }
+
     }
 
-    Spacer(modifier.height(12.dp))
+    Spacer(modifier.height(8.dp))
 
     ProfileSettingsProgressBar(
         percent = progress,
-        gradientStart = colorResource(id = com.moonila.core.compose.R.color.orange_gradient_start),
-        gradientEnd = colorResource(id = com.moonila.core.compose.R.color.orange_gradient_end),
+        gradientStart = gradientStart,
+        gradientEnd = gradientEnd,
     )
 }
 

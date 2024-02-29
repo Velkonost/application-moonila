@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -46,6 +48,7 @@ fun OnboardingScreen(
 ) {
 
     val state by viewModel.viewState.collectAsStateWithLifecycle()
+    val forceHideButton = remember { mutableStateOf(false) }
 
     Box {
         BackgroundImage(step = state.step)
@@ -89,12 +92,14 @@ fun OnboardingScreen(
                     viewModel.dispatch(OnboardingAction.GoalSelect(it))
                 }
             )
-            OnboardingStep.ProfileSettings -> ProfileSettingsStep()
+            OnboardingStep.ProfileSettings -> ProfileSettingsStep(
+                forceHideButton = forceHideButton
+            )
         }
 
         Column {
             AnimatedVisibility(
-                visible = state.step.position > OnboardingStep.Text3.position,
+                visible = state.step.position > OnboardingStep.Text3.position && state.step != OnboardingStep.ProfileSettings,
                 enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),
                 exit = fadeOut(animationSpec = tween(1000))
             ) {
@@ -139,7 +144,7 @@ fun OnboardingScreen(
             Spacer(modifier.weight(1f))
 
             AnimatedVisibility(
-                visible = state.step.position >= OnboardingStep.Text3.position,
+                visible = state.step.position >= OnboardingStep.Text3.position && !forceHideButton.value,
                 enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),
                 exit = fadeOut(animationSpec = tween(1000))
             ) {

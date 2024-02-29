@@ -74,6 +74,7 @@ fun TextWithGradientPart(
     }
 
     Text(
+        modifier = modifier,
         text = annotatedText,
         fontFamily = PoppinsFontFamily,
         fontSize = textSize,

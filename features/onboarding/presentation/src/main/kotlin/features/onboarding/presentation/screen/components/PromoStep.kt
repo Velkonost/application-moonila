@@ -74,7 +74,7 @@ fun PromoStep(
 
     Column(
         modifier = modifier
-            .padding(top = 100.dp)
+            .padding(top = 100.dp, bottom = 150.dp)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -100,7 +100,7 @@ fun PromoStep(
             targetState = title,
             label = "",
             transitionSpec = {
-                (fadeIn(animationSpec = tween(300, delayMillis = 300)))
+                (fadeIn(animationSpec = tween(300)))
                     .togetherWith(fadeOut(animationSpec = tween(300)))
             }
         ) {
@@ -119,11 +119,12 @@ fun PromoStep(
             targetState = textOrange,
             label = "",
             transitionSpec = {
-                (fadeIn(animationSpec = tween(300, delayMillis = 300)))
+                (fadeIn(animationSpec = tween(300)))
                     .togetherWith(fadeOut(animationSpec = tween(300)))
             }
         ) {
             TextWithGradientPart(
+                modifier.padding(horizontal = 16.dp),
                 text = textPrefix,
                 suffix = textSuffix,
                 commonTextColor = colorResource(id = com.moonila.core.compose.R.color.common_text_color),

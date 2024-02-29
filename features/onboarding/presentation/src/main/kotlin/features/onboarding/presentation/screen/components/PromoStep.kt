@@ -75,8 +75,7 @@ fun PromoStep(
     Column(
         modifier = modifier
             .padding(top = 100.dp)
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -95,7 +94,7 @@ fun PromoStep(
             )
         }
 
-        Spacer(modifier.height(22.dp))
+        Spacer(modifier.weight(1f))
 
         AnimatedContent(
             targetState = title,

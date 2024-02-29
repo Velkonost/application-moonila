@@ -33,6 +33,7 @@ import features.onboarding.presentation.screen.components.BackgroundImage
 import features.onboarding.presentation.screen.components.GenderStep
 import features.onboarding.presentation.screen.components.NameStep
 import features.onboarding.presentation.screen.components.OnboardingProgressBar
+import features.onboarding.presentation.screen.components.PromoStep
 import features.onboarding.presentation.screen.components.StepText
 
 @Composable
@@ -65,6 +66,9 @@ fun OnboardingScreen(
             )
             OnboardingStep.Age -> AgeStep(
                 userName = state.nameValue
+            )
+            OnboardingStep.Promo1, OnboardingStep.Promo2, OnboardingStep.Promo3 -> PromoStep(
+                step = state.step
             )
             else -> {
 

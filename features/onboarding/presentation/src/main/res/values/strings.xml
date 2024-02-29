@@ -47,7 +47,7 @@
     <string name="promo_1_text_orange">Moonlia</string>
     <string name="promo_1_text_suffix"></string>
 
-    <string name="promo_2_text_prefix">Use the power of the lunar calendar\ </string>
+    <string name="promo_2_text_prefix">Use the power of the lunar calendar\n</string>
     <string name="promo_2_text_orange">to improve</string>
     <string name="promo_2_text_suffix">\ your life</string>
 

@@ -18,7 +18,8 @@
     <string name="improve_2">Finance</string>
     <string name="improve_3">Career</string>
     <string name="improve_4">Relationship</string>
-    <string name="improve_5">Other</string>
+    <string name="improve_5">Advice</string>
+    <string name="improve_6">Other</string>
 
     <string name="goal_1">Personalized lunar calendar</string>
     <string name="goal_2">Recognize yourself</string>
@@ -54,4 +55,10 @@
     <string name="promo_3_text_prefix">Uncover Moon insights and track your life\'s\ </string>
     <string name="promo_3_text_orange">positive transformations</string>
     <string name="promo_3_text_suffix"></string>
+
+    <string name="improve_title">What would you like to\ndiscover about yourself?</string>
+    <string name="improve_text">, tell us what you want to learn new and we\'ll personalize the content for you</string>
+
+    <string name="goals_title">What are your main goals?</string>
+    <string name="goals_text">, tell us what you main goals for you?</string>
 </resources>

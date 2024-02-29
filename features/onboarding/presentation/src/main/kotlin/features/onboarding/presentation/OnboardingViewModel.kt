@@ -7,6 +7,8 @@ import features.onboarding.presentation.contract.OnboardingEvent
 import features.onboarding.presentation.contract.OnboardingNavigation
 import features.onboarding.presentation.contract.OnboardingViewState
 import features.onboarding.presentation.model.Gender
+import features.onboarding.presentation.model.Goal
+import features.onboarding.presentation.model.Improve
 import features.onboarding.presentation.model.OnboardingStep
 import kotlinx.coroutines.delay
 
@@ -25,6 +27,8 @@ internal constructor(
         is OnboardingAction.NextStepClick -> increaseStep()
         is OnboardingAction.NameChanged -> obtainNameChanged(action.value)
         is OnboardingAction.GenderSelect -> obtainGenderSelect(action.value)
+        is OnboardingAction.ImproveSelect -> obtainImproveSelect(action.value)
+        is OnboardingAction.GoalSelect -> obtainGoalSelect(action.value)
     }
 
     private fun processTextSteps() {
@@ -40,7 +44,7 @@ internal constructor(
     private fun increaseStep() {
         val nextStep = OnboardingStep.getNextStep(viewState.value.step)
         if (nextStep != null) {
-            emit(viewState.value.copy(step = nextStep, canGoNextStep = nextStep.canGoNextAfk ))
+            emit(viewState.value.copy(step = nextStep, canGoNextStep = nextStep.canGoNextAfk))
         }
     }
 
@@ -52,6 +56,32 @@ internal constructor(
     private fun obtainGenderSelect(value: Gender) {
         val genderViewState = viewState.value.genderViewState.copy(selectedItem = value)
         emit(viewState.value.copy(genderViewState = genderViewState, canGoNextStep = true))
+    }
+
+    private fun obtainImproveSelect(value: Improve) {
+        val selectedItems = viewState.value.improveViewState.selectedItems.toMutableList()
+        if (value in selectedItems) {
+            selectedItems.remove(value)
+        } else {
+            selectedItems.add(value)
+        }
+
+        val canGoNext = selectedItems.isNotEmpty()
+        val improveViewState = viewState.value.improveViewState.copy(selectedItems = selectedItems)
+        emit(viewState.value.copy(improveViewState = improveViewState, canGoNextStep = canGoNext))
+    }
+
+    private fun obtainGoalSelect(value: Goal) {
+        val selectedItems = viewState.value.goalViewState.selectedItems.toMutableList()
+        if (value in selectedItems) {
+            selectedItems.remove(value)
+        } else {
+            selectedItems.add(value)
+        }
+
+        val canGoNext = selectedItems.isNotEmpty()
+        val goalViewState = viewState.value.goalViewState.copy(selectedItems = selectedItems)
+        emit(viewState.value.copy(goalViewState = goalViewState, canGoNextStep = canGoNext))
     }
 
     companion object {

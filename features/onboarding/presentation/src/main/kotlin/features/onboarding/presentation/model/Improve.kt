@@ -9,5 +9,6 @@ enum class Improve(
     Finance(text = R.string.improve_2),
     Career(text = R.string.improve_3),
     Relationship(text = R.string.improve_4),
-    Other(text = R.string.improve_5),
+    Advice(text = R.string.improve_5),
+    Other(text = R.string.improve_6),
 }

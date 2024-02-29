@@ -315,3 +315,5 @@ S
 +core/compose/wheelpicker/consumer-rules.pro,7/5/759ff3d64abbed529a9a6935f60bdfbf403b4c6b
 [
 +core/compose/wheelpicker/proguard-rules.pro,7/f/7fa79084840bd1816745002a37101600da224569
+ 
+pfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/PromoStep.kt,7/4/743810c31e0e4578ffc99963694b2cb9c5842c41

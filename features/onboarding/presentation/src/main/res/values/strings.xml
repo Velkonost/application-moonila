@@ -38,4 +38,20 @@
 
     <string name="age_title">How old are you?</string>
     <string name="age_text">,\ enter the date of birth, and we will calculate your personal content!</string>
+
+    <string name="promo_1_title">Explore yourself</string>
+    <string name="promo_2_title">Plan your life</string>
+    <string name="promo_3_title">Change your mindset</string>
+
+    <string name="promo_1_text_prefix">Discover your Talents, Soul Tasks and Karmic lessons with your\ </string>
+    <string name="promo_1_text_orange">Moonlia</string>
+    <string name="promo_1_text_suffix"></string>
+
+    <string name="promo_2_text_prefix">Use the power of the lunar calendar\ </string>
+    <string name="promo_2_text_orange">to improve</string>
+    <string name="promo_2_text_suffix">\ your life</string>
+
+    <string name="promo_3_text_prefix">Uncover Moon insights and track your life\'s\ </string>
+    <string name="promo_3_text_orange">positive transformations</string>
+    <string name="promo_3_text_suffix"></string>
 </resources>

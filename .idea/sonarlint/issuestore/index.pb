@@ -329,3 +329,7 @@ cfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentati
 ]features/paywall/presentation/src/main/kotlin/features/paywall/presentation/model/Feedback.kt,e/7/e78bbc5b528cee4a212099f5cc038cf71869d136
 ä
 Zfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/model/Offer.kt,3/b/3b9e7b00d6f768097e25b035d10383eb9f68f16b
+ù
+mfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/screen/components/FeedBackItem.kt,e/c/ec49f9de256d32f1f293e89f126c21d94b4bc2a4
+ö
+jfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/screen/components/OfferItem.kt,9/8/98d9192b36ba9fe9e158efaf349201dea03067ce

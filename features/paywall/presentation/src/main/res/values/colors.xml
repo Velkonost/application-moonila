@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="inactive_offer_bg">#E61C1E4D</color>
+    <color name="active_offer_bg">#F0F0FF</color>
+
+    <color name="inactive_offer_border">#1AFCFBEB</color>
+
+    <color name="discount_gradient_start">#FB30FF</color>
+    <color name="discount_gradient_end">#7684FF</color>
+</resources>

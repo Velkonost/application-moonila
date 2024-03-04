@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -33,9 +34,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.paywall.presentation.R
 import core.compose.theme.PoppinsFontFamily
 import features.paywall.presentation.PaywallViewModel
+import features.paywall.presentation.contract.PaywallAction
 import features.paywall.presentation.model.Feedback
 import features.paywall.presentation.model.Offer
 import features.paywall.presentation.screen.components.FeedBackItem
+import features.paywall.presentation.screen.components.OfferItem
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -95,6 +98,18 @@ fun PaywallScreen(
                 items(state.feedbacks, key = { it.name }) {
                     FeedBackItem(item = it)
                 }
+            }
+
+            Spacer(modifier.weight(1f))
+
+            state.offers.forEach {
+                OfferItem(
+                    item = it,
+                    selected = it == state.selectedOffer,
+                    onClick = {
+                        viewModel.dispatch(PaywallAction.OfferSelect(it))
+                    }
+                )
             }
         }
     }

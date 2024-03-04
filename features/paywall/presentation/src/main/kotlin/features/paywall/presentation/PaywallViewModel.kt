@@ -6,6 +6,7 @@ import features.paywall.presentation.contract.PaywallAction
 import features.paywall.presentation.contract.PaywallEvent
 import features.paywall.presentation.contract.PaywallNavigation
 import features.paywall.presentation.contract.PaywallViewState
+import features.paywall.presentation.model.Offer
 
 
 class PaywallViewModel
@@ -16,7 +17,11 @@ internal constructor(
 ) {
 
     override fun dispatch(action: PaywallAction) = when (action) {
-        else -> {}
+        is PaywallAction.OfferSelect -> obtainOfferSelect(action.value)
+    }
+
+    private fun obtainOfferSelect(value: Offer) {
+        emit(viewState.value.copy(selectedOffer = value))
     }
 
 }

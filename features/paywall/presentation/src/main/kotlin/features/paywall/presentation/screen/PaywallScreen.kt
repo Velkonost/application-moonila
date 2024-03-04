@@ -2,7 +2,6 @@ package features.paywall.presentation.screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +14,6 @@ import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -62,15 +60,17 @@ fun PaywallScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .paint(painterResource(id = R.drawable.ic_bg), contentScale = ContentScale.FillWidth)
+            .paint(painterResource(id = R.drawable.ic_bg), contentScale = ContentScale.Crop)
     ) {
 
-        Column {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             Image(
                 modifier = modifier
-                    .padding(top = 100.dp)
+                    .padding(top = 40.dp)
                     .width(78.dp),
-                painter = painterResource(id = R.drawable.ic_logo),
+                painter = painterResource(id = R.drawable.ic_pw_logo),
                 contentDescription = null
             )
 

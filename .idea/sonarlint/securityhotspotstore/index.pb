@@ -327,3 +327,5 @@ zfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentati
 cfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/model/Feedback.kt,6/b/6b7762bb1244de9d398ab600758ff530579814cc
 ç
 ]features/paywall/presentation/src/main/kotlin/features/paywall/presentation/model/Feedback.kt,e/7/e78bbc5b528cee4a212099f5cc038cf71869d136
+ä
+Zfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/model/Offer.kt,3/b/3b9e7b00d6f768097e25b035d10383eb9f68f16b

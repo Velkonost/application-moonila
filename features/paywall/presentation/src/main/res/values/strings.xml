@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="offer_week_title">3-days Free Trial</string>
+    <string name="offer_week_text">$7.99/week, cancel anytime </string>
+    <string name="offer_week_hint">$7.99/week. Auto-renewable</string>
+
+    <string name="offer_lifetime_title">Billed once</string>
+    <string name="offer_lifetime_text">$49.99/Lifetime</string>
+    <string name="offer_lifetime_discount">Save 90%</string>
+    <string name="offer_lifetime_hint">$49.99/Lifetime. Billed once</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="restore_purchase">Restore Purchases</string>
+    <string name="terms_of_use">Terms of Use</string>
+
+    <string name="feedback_1_title">Super</string>
+    <string name="feedback_1_text">I love how Moonlia provides daily recommendations for different areas of life. From well-being to beauty and relationships, these tips have helped me cultivate positive habits and make better choices. It\'s like having a wise friend giving me expert advice.</string>
+    <string name="feedback_1_author">by EkaMishka</string>
+
+    <string name="feedback_2_title">Perfect App!</string>
+    <string name="feedback_2_text">Moonlia has made me feel more connected to the natural world. I now appreciate the beauty and mystery of the Moon\'s phases and its influence on my life.</string>
+    <string name="feedback_2_author">by Roki..</string>
+
+    <string name="feedback_3_title">Powerful Moon!</string>
+    <string name="feedback_3_text">The daily affirmations on Moonlia are seriously powerful. Starting my day with one puts me in a great headspace and helps me attract positivity throughout my day.</string>
+    <string name="feedback_3_author">by lam26ola</string>
+
+    <string name="feedback_4_title">Luna</string>
+    <string name="feedback_4_text">Moonlia, you\'re a cosmic guide! The accuracy of lunar phases information is awe-inspiring. Exploring the metaphysical depths of the universe through this app is enlightening. Grateful for this exceptional tool</string>
+    <string name="feedback_4_author">by Serpeninova</string>
+
+    <string name="feedback_5_title">Insightful</string>
+    <string name="feedback_5_text">I was skeptical about the Moonlia app at first, but after using it for a few weeks, I am blown away. The daily tips and recommendations are incredibly helpful and have helped me stay focused on my goals.</string>
+    <string name="feedback_5_author">by Ga785)jx</string>
+
+</resources>

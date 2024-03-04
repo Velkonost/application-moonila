@@ -9,7 +9,7 @@ import features.onboarding.presentation.model.OnboardingStep
 
 data class OnboardingViewState(
     val isLoading: Boolean = false,
-    val step: OnboardingStep = OnboardingStep.entries.last(),
+    val step: OnboardingStep = OnboardingStep.entries.first(),
     val canGoNextStep: Boolean = true,
 
     val nameValue: String = "",

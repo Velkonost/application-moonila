@@ -34,6 +34,8 @@ import com.moonila.features.paywall.presentation.R
 import core.compose.theme.PoppinsFontFamily
 import features.paywall.presentation.PaywallViewModel
 import features.paywall.presentation.model.Feedback
+import features.paywall.presentation.model.Offer
+import features.paywall.presentation.screen.components.FeedBackItem
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -98,58 +100,3 @@ fun PaywallScreen(
     }
 }
 
-@Composable
-fun LazyItemScope.FeedBackItem(
-    modifier: Modifier = Modifier,
-    item: Feedback
-) {
-    Column(
-        modifier = modifier
-            .fillParentMaxWidth()
-            .padding(horizontal = 32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-
-        Image(
-            modifier = modifier
-                .height(32.dp),
-            painter = painterResource(id = R.drawable.ic_five_stars),
-            contentDescription = null
-        )
-
-        Text(
-            modifier = modifier
-                .padding(top = 12.dp),
-            text = stringResource(id = item.title),
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 18.sp,
-            textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
-        )
-
-        Text(
-            modifier = modifier
-                .padding(top = 12.dp)
-                .padding(horizontal = 16.dp),
-            text = stringResource(id = item.text),
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.Normal,
-            fontSize = 14.sp,
-            textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
-        )
-
-        Text(
-            modifier = modifier
-                .padding(top = 12.dp)
-                .padding(horizontal = 16.dp),
-            text = stringResource(id = item.author),
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.Medium,
-            fontSize = 12.sp,
-            textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
-        )
-    }
-}

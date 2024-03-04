@@ -10,4 +10,6 @@
 
     <color name="selected_item">#525FFF</color>
     <color name="default_item">#363D8E</color>
+
+    <color name="feedback_bg">#5158BC</color>
 </resources>

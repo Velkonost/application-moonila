@@ -4,11 +4,9 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,10 +14,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -146,8 +146,7 @@ fun ProfileSettingsStep(
     Column(
         modifier = modifier
             .padding(top = 100.dp)
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextWithGradientPart(
@@ -197,12 +196,14 @@ fun ProfileSettingsStep(
         )
 
         LazyRow(
-            modifier = modifier.fillMaxWidth(),
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp),
             state = scrollState,
             flingBehavior = rememberSnapFlingBehavior(lazyListState = scrollState),
-            contentPadding = PaddingValues(horizontal = 32.dp)
-        ){
-            items(feedbacks) {
+            userScrollEnabled = false
+        ) {
+            items(feedbacks, key = { it.name }) {
                 FeedBackItem(item = it)
             }
         }
@@ -210,17 +211,24 @@ fun ProfileSettingsStep(
 }
 
 @Composable
-fun FeedBackItem(
+fun LazyItemScope.FeedBackItem(
     modifier: Modifier = Modifier,
     item: Feedback
 ) {
     Column(
         modifier = modifier
-            .fillMaxWidth(),
+
+            .fillParentMaxWidth()
+            .padding(horizontal = 32.dp)
+            .background(
+                color = colorResource(id = R.color.feedback_bg).copy(alpha = 0.2f),
+                shape = MaterialTheme.shapes.medium
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            modifier = modifier.padding(top = 16.dp),
+            modifier = modifier
+                .padding(top = 16.dp),
             text = stringResource(id = item.title),
             fontFamily = PoppinsFontFamily,
             fontWeight = FontWeight.Medium,
@@ -238,7 +246,9 @@ fun FeedBackItem(
         )
 
         Text(
-            modifier = modifier.padding(top = 8.dp, bottom = 25.dp),
+            modifier = modifier
+                .padding(top = 8.dp, bottom = 24.dp)
+                .padding(horizontal = 16.dp),
             text = stringResource(id = item.text),
             fontFamily = PoppinsFontFamily,
             fontWeight = FontWeight.Normal,
@@ -284,7 +294,11 @@ fun ProfileSettingsPoint(
         }
     )
 
-    Row(modifier = modifier.padding(top = 24.dp)) {
+    Row(
+        modifier = modifier
+            .padding(top = 24.dp)
+            .padding(horizontal = 16.dp)
+    ) {
         Text(
             text = text,
             fontFamily = PoppinsFontFamily,

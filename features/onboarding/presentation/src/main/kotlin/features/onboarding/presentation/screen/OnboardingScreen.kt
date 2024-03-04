@@ -93,7 +93,8 @@ fun OnboardingScreen(
                 }
             )
             OnboardingStep.ProfileSettings -> ProfileSettingsStep(
-                forceHideButton = forceHideButton
+                forceHideButton = forceHideButton,
+                feedbacks = state.profileSettingsViewState.feedbacks
             )
         }
 

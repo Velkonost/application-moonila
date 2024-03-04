@@ -1,10 +1,14 @@
 package features.onboarding.presentation.screen.components
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.FlingBehavior
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +16,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -36,13 +43,16 @@ import androidx.compose.ui.unit.sp
 import com.moonila.features.onboarding.presentation.R
 import core.compose.components.TextWithGradientPart
 import core.compose.theme.PoppinsFontFamily
+import features.onboarding.presentation.model.Feedback
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ProfileSettingsStep(
     modifier: Modifier = Modifier,
-    forceHideButton: MutableState<Boolean>
+    forceHideButton: MutableState<Boolean>,
+    feedbacks: List<Feedback>
 ) {
 
     val scope = rememberCoroutineScope()
@@ -58,6 +68,9 @@ fun ProfileSettingsStep(
 
     val longDelay = 90L
     val shortDelay = 30L
+    val feedbackDuration = 5000L
+
+    val scrollState = rememberLazyListState()
 
     LaunchedEffect(Unit) {
         scope.launch {
@@ -122,6 +135,14 @@ fun ProfileSettingsStep(
         }
     }
 
+    LaunchedEffect(Unit) {
+        while (scrollState.firstVisibleItemIndex < feedbacks.size) {
+            delay(feedbackDuration)
+            val currentPosition = scrollState.firstVisibleItemIndex
+            scrollState.animateScrollToItem(currentPosition + 1)
+        }
+    }
+
     Column(
         modifier = modifier
             .padding(top = 100.dp)
@@ -163,6 +184,67 @@ fun ProfileSettingsStep(
             index = 3,
             progress = forthPointProgress.intValue,
             markVisible = forthMarkVisible.value
+        )
+
+        Text(
+            modifier = modifier.padding(top = 24.dp),
+            text = stringResource(id = R.string.feedbacks_title),
+            fontFamily = PoppinsFontFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center,
+            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+        )
+
+        LazyRow(
+            modifier = modifier.fillMaxWidth(),
+            state = scrollState,
+            flingBehavior = rememberSnapFlingBehavior(lazyListState = scrollState),
+            contentPadding = PaddingValues(horizontal = 32.dp)
+        ){
+            items(feedbacks) {
+                FeedBackItem(item = it)
+            }
+        }
+    }
+}
+
+@Composable
+fun FeedBackItem(
+    modifier: Modifier = Modifier,
+    item: Feedback
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            modifier = modifier.padding(top = 16.dp),
+            text = stringResource(id = item.title),
+            fontFamily = PoppinsFontFamily,
+            fontWeight = FontWeight.Medium,
+            fontSize = 16.sp,
+            textAlign = TextAlign.Center,
+            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+        )
+
+        Image(
+            modifier = modifier
+                .padding(top = 8.dp)
+                .height(24.dp),
+            painter = painterResource(id = R.drawable.ic_five_stars),
+            contentDescription = null
+        )
+
+        Text(
+            modifier = modifier.padding(top = 8.dp, bottom = 25.dp),
+            text = stringResource(id = item.text),
+            fontFamily = PoppinsFontFamily,
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp,
+            textAlign = TextAlign.Center,
+            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
         )
     }
 }

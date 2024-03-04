@@ -323,3 +323,5 @@ rfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentati
 pfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/GoalsStep.kt,f/3/f3b40ec5e9a763e27576b3b12b60cae98d96f9d3
 ª
 zfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/screen/components/ProfileSettingsStep.kt,e/7/e72ec1ccc396020ff98074eb7edefabbf52aa9e4
+“
+cfeatures/onboarding/presentation/src/main/kotlin/features/onboarding/presentation/model/Feedback.kt,6/b/6b7762bb1244de9d398ab600758ff530579814cc

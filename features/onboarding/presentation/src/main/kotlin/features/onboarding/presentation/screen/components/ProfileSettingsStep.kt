@@ -68,7 +68,7 @@ fun ProfileSettingsStep(
 
     val longDelay = 90L
     val shortDelay = 30L
-    val feedbackDuration = 5000L
+    val feedbackDuration = 4000L
 
     val scrollState = rememberLazyListState()
 

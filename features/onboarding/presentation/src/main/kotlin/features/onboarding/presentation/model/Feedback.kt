@@ -36,6 +36,18 @@ enum class Feedback(
         title = R.string.feedback_5_title,
         text = R.string.feedback_5_text,
         author = R.string.feedback_5_author,
-    )
+    ),
+
+    Sixth(
+        title = R.string.feedback_6_title,
+        text = R.string.feedback_6_text,
+        author = R.string.feedback_6_author,
+    ),
+
+    Seventh(
+        title = R.string.feedback_7_title,
+        text = R.string.feedback_7_text,
+        author = R.string.feedback_7_author,
+    ),
 
 }

@@ -72,23 +72,31 @@
 
     <string name="feedbacks_title">Feedback by our users</string>
 
-    <string name="feedback_1_title">Good</string>
-    <string name="feedback_1_text">Moonlia, you\'ve created a cosmic masterpiece! Unraveling the metaphysical mysteries of the universe through this app has been an eye-opener. Thanks for this celestial gift.</string>
+    <string name="feedback_1_title">Best lunar kalendar app</string>
+    <string name="feedback_1_text">I love how Moonlia provides daily recommendations for different areas of life. From well-being to beauty and relationships, these tips have helped me cultivate positive habits and make better choices. It\'s like having a wise friend giving me expert advice.</string>
     <string name="feedback_1_author">by spsjdoslsjid</string>
 
-    <string name="feedback_2_title">Cool</string>
-    <string name="feedback_2_text">Thrue the Moon, Delving into the metaphysical intricacies of the universe through this app has been a transformative experience. Thank you for this lunar tool.</string>
+    <string name="feedback_2_title">⭐Perfect App!⭐</string>
+    <string name="feedback_2_text">Moonlia has made me feel more connected to the natural world. I now appreciate the beauty and mystery of the Moon\'s phases and its influence on my life.</string>
     <string name="feedback_2_author">by AYunosheva95</string>
 
-    <string name="feedback_3_title">Moonlia</string>
-    <string name="feedback_3_text">This moon calendar app is a gem. The interface is intuitive, and the information provided is comprehensive. A big shoutout to the developers for making it free, too!</string>
+    <string name="feedback_3_title">Powerful Moon!</string>
+    <string name="feedback_3_text">The daily affirmations on Moonlia are seriously powerful. Starting my day with one puts me in a great headspace and helps me attract positivity throughout my day.</string>
     <string name="feedback_3_author">by Viktoriya222222</string>
 
-    <string name="feedback_4_title">moooon</string>
-    <string name="feedback_4_text">The Daily Affirmations on the Moonlia app have completely transformed my mindset! Starting my day with powerful words of positivity has helped me attract more positivity into my life. I feel unstoppable with the help of Moon energy.</string>
+    <string name="feedback_4_title">Luna🌕</string>
+    <string name="feedback_4_text">Moonlia, you\'re a cosmic guide! The accuracy of lunar phases information is awe-inspiring. Exploring the metaphysical depths of the universe through this app is enlightening. Grateful for this exceptional tool</string>
     <string name="feedback_4_author">by cinema time</string>
 
-    <string name="feedback_5_title">like it!</string>
-    <string name="feedback_5_text">Thank you for your work! Amazing! It helps me to understanding myself with influence of Moon!</string>
+    <string name="feedback_5_title">Insightful!</string>
+    <string name="feedback_5_text">I was skeptical about the Moonlia app at first, but after using it for a few weeks, I am blown away. The daily tips and recommendations are incredibly helpful and have helped me stay focused on my goals.</string>
     <string name="feedback_5_author">by Roman Shampanskii</string>
+
+    <string name="feedback_6_title">I am so impressed!</string>
+    <string name="feedback_6_text">The lunar days section is my favorite feature of Moonlia. The interpretations are spot on, and I always find something useful or inspiring in each one. It\'s like having a personalized horoscope for my emotions and energies.</string>
+    <string name="feedback_6_author"></string>
+
+    <string name="feedback_7_title">MUST HAVE APP!!!!🌜</string>
+    <string name="feedback_7_text">The Moonlia app has revolutionized my approach to self-care. I now understand the importance of aligning my actions with the lunar cycles. The app has helped me establish a more harmonious and balanced lifestyle.</string>
+    <string name="feedback_7_author"></string>
 </resources>

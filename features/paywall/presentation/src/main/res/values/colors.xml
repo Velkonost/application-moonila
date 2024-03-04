@@ -7,4 +7,6 @@
 
     <color name="discount_gradient_start">#FB30FF</color>
     <color name="discount_gradient_end">#7684FF</color>
+
+    <color name="offer_hint_color">#BFBAFF</color>
 </resources>

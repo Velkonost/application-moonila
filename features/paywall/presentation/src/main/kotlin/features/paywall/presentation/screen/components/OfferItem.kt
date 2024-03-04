@@ -1,14 +1,20 @@
 package features.paywall.presentation.screen.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -31,6 +37,18 @@ fun OfferItem(
     onClick: () -> Unit
 ) {
 
+    val borderGradientList = if (selected) {
+        listOf(
+            colorResource(id = com.moonila.core.compose.R.color.orange_gradient_start),
+            colorResource(id = com.moonila.core.compose.R.color.orange_gradient_end)
+        )
+    } else {
+        listOf(
+            colorResource(id = R.color.inactive_offer_border),
+            colorResource(id = R.color.inactive_offer_border),
+        )
+    }
+
     Row(
         modifier = modifier
             .padding(top = 8.dp)
@@ -42,15 +60,26 @@ fun OfferItem(
                 ),
                 shape = MaterialTheme.shapes.medium
             )
+            .border(
+                width = 1.dp,
+                shape = MaterialTheme.shapes.medium,
+                brush = Brush.horizontalGradient(colors = borderGradientList)
+            )
             .padding(vertical = 10.dp)
-            .padding(end = 10.dp, start = 12.dp),
+            .padding(end = 10.dp, start = 12.dp)
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick
+            ),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
         Column(
-            modifier = modifier
         ) {
 
+            Spacer(modifier = modifier.height(4.dp))
+            
             if (selected) {
                 Text(
                     text = stringResource(id = item.title),
@@ -71,7 +100,6 @@ fun OfferItem(
             }
 
             Text(
-                modifier = modifier.padding(top = 4.dp),
                 text = stringResource(id = item.text),
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.Medium,
@@ -106,9 +134,11 @@ fun DiscountView(
                         colorResource(id = R.color.discount_gradient_start),
                         colorResource(id = R.color.discount_gradient_end)
                     )
-                )
+                ),
+                shape = RoundedCornerShape(10.dp)
             )
-            .padding(horizontal = 7.dp, vertical = 11.dp),
+            .padding(horizontal = 7.dp)
+            .padding(top = 7.dp, bottom = 6.dp),
         text = text,
         fontFamily = PoppinsFontFamily,
         fontWeight = FontWeight.SemiBold,

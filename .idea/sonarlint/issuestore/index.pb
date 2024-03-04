@@ -333,3 +333,7 @@ Zfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/mod
 mfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/screen/components/FeedBackItem.kt,e/c/ec49f9de256d32f1f293e89f126c21d94b4bc2a4
 š
 jfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/screen/components/OfferItem.kt,9/8/98d9192b36ba9fe9e158efaf349201dea03067ce
+y
+Icore/compose/src/main/kotlin/core/compose/components/AppGradientButton.kt,7/7/772b1d827105674afb0fe3f58ccba18899da956d
+›
+kfeatures/paywall/presentation/src/main/kotlin/features/paywall/presentation/screen/components/FooterView.kt,d/f/dfe94c352918c1bb46ae89f8b246fb0c1deee463

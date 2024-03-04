@@ -5,13 +5,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -32,12 +33,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.paywall.presentation.R
+import core.compose.components.AppGradientButton
 import core.compose.theme.PoppinsFontFamily
 import features.paywall.presentation.PaywallViewModel
 import features.paywall.presentation.contract.PaywallAction
-import features.paywall.presentation.model.Feedback
-import features.paywall.presentation.model.Offer
 import features.paywall.presentation.screen.components.FeedBackItem
+import features.paywall.presentation.screen.components.FooterView
 import features.paywall.presentation.screen.components.OfferItem
 import kotlinx.coroutines.delay
 
@@ -69,11 +70,12 @@ fun PaywallScreen(
     ) {
 
         Column(
+            modifier = modifier.padding(horizontal = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
                 modifier = modifier
-                    .padding(top = 40.dp)
+                    .padding(top = 50.dp)
                     .width(78.dp),
                 painter = painterResource(id = R.drawable.ic_pw_logo),
                 contentDescription = null
@@ -111,7 +113,51 @@ fun PaywallScreen(
                     }
                 )
             }
+
+            Text(
+                modifier = modifier
+                    .padding(top = 18.dp),
+                text = stringResource(id = state.selectedOffer.hint),
+                fontFamily = PoppinsFontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center,
+                color = colorResource(id = R.color.offer_hint_color)
+            )
+
+            AppGradientButton(
+                modifier = modifier
+                    .padding(top = 18.dp),
+                label = stringResource(id = com.moonila.core.compose.R.string.continue_btn),
+                onClick = {
+
+                }
+            )
+
+            Spacer(modifier.height(16.dp))
+
+            FooterView(
+                onPrivacyClick = { },
+                onTermsClick = {
+
+                },
+                onRestoreClick = {
+
+                }
+            )
+
+            Spacer(modifier.weight(1f))
         }
+    }
+    
+    Box(modifier = modifier.fillMaxSize()) {
+        Image(
+            modifier = modifier
+                .padding(top = 40.dp, start = 16.dp)
+                .size(24.dp),
+            painter = painterResource(id = R.drawable.ic_pw_close),
+            contentDescription = null 
+        )
     }
 }
 

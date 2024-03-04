@@ -27,8 +27,7 @@ fun LazyItemScope.FeedBackItem(
 ) {
     Column(
         modifier = modifier
-            .fillParentMaxWidth()
-            .padding(horizontal = 32.dp),
+            .fillParentMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -58,6 +57,8 @@ fun LazyItemScope.FeedBackItem(
             fontFamily = PoppinsFontFamily,
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
+            minLines = 4,
+            maxLines = 4,
             textAlign = TextAlign.Center,
             color = colorResource(id = com.moonila.core.compose.R.color.light_color)
         )

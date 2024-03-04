@@ -1,6 +1,7 @@
 package features.onboarding.presentation.contract
 
 import core.vm.contracts.UIContract
+import features.onboarding.presentation.model.Feedback
 import features.onboarding.presentation.model.Gender
 import features.onboarding.presentation.model.Goal
 import features.onboarding.presentation.model.Improve
@@ -15,7 +16,8 @@ data class OnboardingViewState(
     val genderViewState: GenderViewState = GenderViewState(),
     val dateValue: String = "",
     val improveViewState: ImproveViewState = ImproveViewState(),
-    val goalViewState: GoalViewState = GoalViewState()
+    val goalViewState: GoalViewState = GoalViewState(),
+    val profileSettingsViewState: ProfileSettingsViewState = ProfileSettingsViewState()
 ): UIContract.State
 
 data class GenderViewState(
@@ -31,4 +33,8 @@ data class ImproveViewState(
 data class GoalViewState(
     val items: List<Goal> = Goal.entries,
     val selectedItems: List<Goal> = emptyList()
+)
+
+data class ProfileSettingsViewState(
+    val feedbacks: List<Feedback> = Feedback.entries
 )

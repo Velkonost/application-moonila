@@ -69,4 +69,26 @@
     <string name="profile_settings_point_2">Creating a natal chart</string>
     <string name="profile_settings_point_3">Personalized tips</string>
     <string name="profile_settings_point_4">Lunar phases</string>
+
+    <string name="feedbacks_title">Feedback by our users</string>
+
+    <string name="feedback_1_title">Good</string>
+    <string name="feedback_1_text">Moonlia, you\'ve created a cosmic masterpiece! Unraveling the metaphysical mysteries of the universe through this app has been an eye-opener. Thanks for this celestial gift.</string>
+    <string name="feedback_1_author">by spsjdoslsjid</string>
+
+    <string name="feedback_2_title">Cool</string>
+    <string name="feedback_2_text">Thrue the Moon, Delving into the metaphysical intricacies of the universe through this app has been a transformative experience. Thank you for this lunar tool.</string>
+    <string name="feedback_2_author">by AYunosheva95</string>
+
+    <string name="feedback_3_title">Moonlia</string>
+    <string name="feedback_3_text">This moon calendar app is a gem. The interface is intuitive, and the information provided is comprehensive. A big shoutout to the developers for making it free, too!</string>
+    <string name="feedback_3_author">by Viktoriya222222</string>
+
+    <string name="feedback_4_title">moooon</string>
+    <string name="feedback_4_text">The Daily Affirmations on the Moonlia app have completely transformed my mindset! Starting my day with powerful words of positivity has helped me attract more positivity into my life. I feel unstoppable with the help of Moon energy.</string>
+    <string name="feedback_4_author">by cinema time</string>
+
+    <string name="feedback_5_title">like it!</string>
+    <string name="feedback_5_text">Thank you for your work! Amazing! It helps me to understanding myself with influence of Moon!</string>
+    <string name="feedback_5_author">by Roman Shampanskii</string>
 </resources>

@@ -53,7 +53,6 @@ fun OnboardingScreen(
     Box {
         BackgroundImage(step = state.step)
 
-
         when (state.step) {
             OnboardingStep.Text1, OnboardingStep.Text2, OnboardingStep.Text3 -> StepText(step = state.step)
             OnboardingStep.Name -> NameStep(

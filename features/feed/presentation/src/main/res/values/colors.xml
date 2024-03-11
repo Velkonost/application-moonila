@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="date_bg">#80251F52</color>
+
+    <color name="slider_point_bg">#4D251F52</color>
+
+    <color name="cloudy_color">#F0F0FF</color>
+    <color name="secondary_color">#AEAEFB</color>
 </resources>

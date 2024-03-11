@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="new_moon">New Moon</string>
+    <string name="full_moon">Full Moon</string>
+
+    <string name="lunar_eclipse">Lunar Eclipse</string>
+    <string name="solar_eclipse">Solar Eclipse</string>
+
+</resources>

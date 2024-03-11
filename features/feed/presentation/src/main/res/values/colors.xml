@@ -6,4 +6,11 @@
 
     <color name="cloudy_color">#F0F0FF</color>
     <color name="secondary_color">#AEAEFB</color>
+
+    <color name="selected_dot">#A98DDD</color>
+    <color name="unselected_dot">#4D7E7EFF</color>
+
+    <color name="main_bg">#2E3582</color>
+
+    <color name="divider_color">#804650BF</color>
 </resources>

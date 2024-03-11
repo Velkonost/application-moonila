@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,43 +24,25 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moonila.features.feed.presentation.R
-import core.compose.composable.orangeTextGradient
-import core.compose.theme.BonaNovaFontFamily
 import core.compose.theme.PoppinsFontFamily
 import features.feed.presentation.contract.MoonState
 
 @Composable
-fun SliderItem(
+fun LazyItemScope.SliderItem(
     modifier: Modifier = Modifier,
     index: Int,
-    text: String,
     moonState: MoonState
 ) {
 
     Column(
         modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .fillParentMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Image(
-            modifier = modifier.size(100.dp),
-            painter = painterResource(id = R.drawable.ic_slider_moon),
-            contentDescription = null
-        )
-
-        Text(
-            modifier = modifier.padding(top = 20.dp),
-            text = text,
-            fontFamily = BonaNovaFontFamily,
-            fontWeight = FontWeight.Bold,
-            style = orangeTextGradient(fontSize = 32.sp)
-        )
-
         Row(
             modifier = modifier
-                .padding(top = 24.dp)
+                .padding(top = 30.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
@@ -105,7 +88,7 @@ fun SliderItemPoint(
         )
 
         Column(
-            modifier = modifier.padding(start = 8.dp)
+            modifier = modifier.padding(start = 8.dp, top = 8.dp)
         ) {
             Text(
                 text = title,

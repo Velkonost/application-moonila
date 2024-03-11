@@ -16,6 +16,9 @@ dependencies {
     implementation(projects.features.onboarding.presentation)
     implementation(projects.features.paywall.presentation)
 
+    implementation(projects.features.feed.presentation)
+    implementation(projects.features.mooninsight.presentation)
+
     implementation(projects.core.vm)
     implementation(projects.core.util)
 

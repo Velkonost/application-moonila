@@ -16,8 +16,8 @@ sealed interface SplashNavigation : UIContract.Navigation {
 //
     data object NavigateToOnboarding : SplashNavigation {
         override val event: NavigationEvent = NavigationEvent.NavigateAndPopUpToRoute(
-            route = NavigationScreen.OnboardingNavScreen.route,
-//            route = NavigationScreen.PaywallNavScreen.route,
+//            route = NavigationScreen.OnboardingNavScreen.route,
+            route = NavigationScreen.FeedNavScreen.route,
             popUpTo = NavigationScreen.SplashNavScreen.route,
             rootRoute = false
         )

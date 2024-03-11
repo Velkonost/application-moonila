@@ -6,6 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import core.compose.provide
 import core.vm.navigation.NavigationScreen
+import features.feed.presentation.screen.FeedNavRoute
+import features.mooninsight.presentation.screen.MoonInsightNavRoute
 import features.onboarding.presentation.screen.OnboardingNavRoute
 import features.paywall.presentation.screen.PaywallNavRoute
 import features.splash.presentation.screen.SplashNavRoute
@@ -38,5 +40,18 @@ fun NavGraphBuilder.addSplashRoute(
     ) {
         SplashNavRoute.provide(this, navController, forceHideBottomBar)
         OnboardingNavRoute.provide(this, navController, forceHideBottomBar)
+    }
+}
+
+fun NavGraphBuilder.addFeedRoute(
+    navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
+) {
+    navigation(
+        route = "${NavigationScreen.FeedNavScreen.route}_root",
+        startDestination = NavigationScreen.FeedNavScreen.route
+    ) {
+        FeedNavRoute.provide(this, navController, forceHideBottomBar)
+        MoonInsightNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

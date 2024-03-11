@@ -153,7 +153,7 @@ fun MoonInsightItem(
                         Image(
                             modifier = modifier
                                 .align(Alignment.Center)
-                                .size(24.dp),
+                                .size(20.dp),
                             painter = painterResource(id = item.iconId),
                             contentDescription = null
                         )

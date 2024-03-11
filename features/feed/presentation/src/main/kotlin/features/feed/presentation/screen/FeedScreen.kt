@@ -32,6 +32,7 @@ fun FeedScreen(
     ) {
         Header(
             dateLabel = "8 Nov, Wed",
+            moonState = state.moonState,
             prevDayClick = { /*TODO*/ },
             nextDayClick = { /*TODO*/ },
             calendarClick = {}

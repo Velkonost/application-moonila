@@ -58,7 +58,9 @@ fun SliderItem(
         )
 
         Row(
-            modifier = modifier.fillMaxWidth(),
+            modifier = modifier
+                .padding(top = 24.dp)
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {

@@ -8,7 +8,8 @@ import com.moonila.features.feed.presentation.R
 data class FeedViewState(
     val isLoading: Boolean = false,
     val moonState: MoonState = MoonState(),
-    val moonInsightState: MoonInsightState = MoonInsightState()
+    val moonInsightState: MoonInsightState = MoonInsightState(),
+    val quoteState: QuoteState = QuoteState()
 ): UIContract.State
 
 data class MoonState(
@@ -35,4 +36,9 @@ data class MoonInsightState(
             previewText = "The 25th moon day is a perfect day to take a break and enjoy some leisure time. With the lunar energy waning, it's best to avoid starting anything new and instead focus on self-care and reflection. Take the time to nurture your mind, body, and soul, and engage in activities that bring you joy and",
         )
     )
+)
+
+data class QuoteState(
+    val text: String = "“If you want others to be happy, practice compassion. If you want to be happy, practice compassion”",
+    val author: String = "-Dalai Lama"
 )

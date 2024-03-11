@@ -17,6 +17,7 @@ import com.moonila.features.feed.presentation.R
 import features.feed.presentation.FeedViewModel
 import features.feed.presentation.screen.components.Header
 import features.feed.presentation.screen.components.MoonInsight
+import features.feed.presentation.screen.components.QuoteForToday
 
 @Composable
 fun FeedScreen(
@@ -44,6 +45,7 @@ fun FeedScreen(
         )
 
         MoonInsight(moonInsightState = state.moonInsightState)
+        QuoteForToday(text = state.quoteState.text, author = state.quoteState.author)
     }
 
 }

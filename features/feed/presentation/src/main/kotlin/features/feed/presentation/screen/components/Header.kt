@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -57,12 +59,12 @@ fun ColumnScope.Header(
             modifier = modifier.fillMaxWidth(),
             painter = painterResource(id = R.drawable.ic_header_bg),
             contentDescription = null,
-            contentScale = ContentScale.Crop
+            contentScale = ContentScale.FillWidth
         )
 
         Column(
             modifier = modifier
-                .padding(top = 50.dp)
+                .padding(top = 40.dp)
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

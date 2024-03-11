@@ -13,4 +13,8 @@
     <color name="main_bg">#2E3582</color>
 
     <color name="divider_color">#804650BF</color>
+
+    <color name="moon_day_bg">#4650BF</color>
+    <color name="moon_sign_bg">#9139A7</color>
+    <color name="moon_phase_bg">#242768</color>
 </resources>

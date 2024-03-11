@@ -1,9 +1,7 @@
 package features.feed.presentation.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -15,9 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.moonila.features.feed.presentation.R
 import features.feed.presentation.FeedViewModel
 import features.feed.presentation.screen.components.Header
-import com.moonila.features.feed.presentation.R
+import features.feed.presentation.screen.components.MoonInsight
 
 @Composable
 fun FeedScreen(
@@ -31,9 +30,8 @@ fun FeedScreen(
         modifier = modifier
             .fillMaxWidth()
             .background(color = colorResource(id = R.color.main_bg))
-            .padding(bottom = 100.dp)
             .verticalScroll(rememberScrollState())
-        ,
+            .padding(bottom = 100.dp),
 
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -44,6 +42,8 @@ fun FeedScreen(
             nextDayClick = { /*TODO*/ },
             calendarClick = {}
         )
+
+        MoonInsight(moonInsightState = state.moonInsightState)
     }
 
 }

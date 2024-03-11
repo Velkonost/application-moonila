@@ -375,3 +375,11 @@ afeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/co
 nfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/header/DateSelector.kt,5/0/50ca47f845d903dd13ad83b5818240ba61e750cf
 œ
 lfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/header/SliderItem.kt,5/2/52060a0092e45f0a5574cc6f8bda5a92443f717f
+–
+ffeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/MoonInsight.kt,f/f/ffbc15950342fcca0d0f2f95bfa30435a7dad2c1
+•
+efeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/BlockTitle.kt,3/9/3974ea0c594690d9a2e69966593ba534e3f89e01
+h
+8core/model/src/main/kotlin/core/model/MoonInsightType.kt,8/c/8cca7e9f10d344d16d389a18c4a80c193f5744f9
+Ž
+^features/feed/presentation/src/main/kotlin/features/feed/presentation/model/MoonInsightItem.kt,e/c/ec614f160e320b41d133a71d6802b71f6ec2c50a

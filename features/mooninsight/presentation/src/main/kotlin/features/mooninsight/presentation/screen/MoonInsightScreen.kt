@@ -20,6 +20,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -69,23 +71,27 @@ fun MoonInsightScreen(
 
     val buttonText = stringResource(
         id = when (state.type) {
-            MoonInsightType.MoonDay -> R.string.moon_day
-            MoonInsightType.MoonSign -> R.string.moon_sign
-            MoonInsightType.MoonPhase -> R.string.moon_phase
+            MoonInsightType.MoonDay -> R.string.moon_day_button
+            MoonInsightType.MoonSign -> R.string.moon_sign_button
+            MoonInsightType.MoonPhase -> R.string.moon_phase_button
         }
     )
 
-    Box {
+    Box(
+        modifier = modifier.background(color = bgColor)
+    ){
         Image(
             modifier = modifier.fillMaxWidth(),
             painter = icon,
-            contentDescription = null
+            contentDescription = null,
+            contentScale = ContentScale.Crop
         )
 
         Row(modifier = modifier.padding(top = 40.dp, start = 16.dp, end = 16.dp)) {
             Image(
                 modifier = modifier
                     .size(24.dp)
+                    .padding(4.dp)
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
@@ -101,7 +107,6 @@ fun MoonInsightScreen(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .background(color = bgColor)
                 .verticalScroll(rememberScrollState())
                 .padding(bottom = 100.dp, top = 40.dp, start = 16.dp, end = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -113,6 +118,7 @@ fun MoonInsightScreen(
                     fontFamily = PoppinsFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 16.sp,
+                    color = Color.White
                 )
                 Spacer(modifier.weight(1f))
             }
@@ -120,7 +126,7 @@ fun MoonInsightScreen(
 
         Column(modifier = modifier.fillMaxSize()) {
             Spacer(modifier.weight(1f))
-            AppButton(label = buttonText) {
+            AppButton(label = buttonText, enabled = true) {
                 viewModel.dispatch(MoonInsightAction.NextStepClick)
             }
         }

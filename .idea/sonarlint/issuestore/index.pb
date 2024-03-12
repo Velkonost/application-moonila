@@ -385,3 +385,5 @@ h
 ^features/feed/presentation/src/main/kotlin/features/feed/presentation/model/MoonInsightItem.kt,e/c/ec614f160e320b41d133a71d6802b71f6ec2c50a
 ò
 hfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/QuoteForToday.kt,d/a/daa1234b274c9dc95aed67f504d2612c626fc1d4
+ù
+mfeatures/mooninsight/presentation/src/main/kotlin/features/mooninsight/presentation/SavedStateHandleMapper.kt,0/f/0f5360e40aed673843423d62b6d16277c323e250

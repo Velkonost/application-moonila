@@ -1,5 +1,6 @@
 package features.mooninsight.presentation.screen.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ColumnScope
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -29,7 +31,10 @@ fun ColumnScope.ContentItem(
     item: ContentBlock
 ) {
 
-    Row(modifier = modifier.padding(top = 24.dp)) {
+    Row(
+        modifier = modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Text(
             text = item.title,
             fontFamily = PoppinsFontFamily,
@@ -46,6 +51,7 @@ fun ColumnScope.ContentItem(
                         color = colorResource(id = R.color.content_hint_bg),
                         shape = RoundedCornerShape(4.dp)
                     )
+                    .padding(horizontal = 4.dp)
             ) {
                 Text(
                     text = item.hint,
@@ -64,7 +70,7 @@ fun ColumnScope.ContentItem(
                 modifier = modifier
                     .size(30.dp)
                     .background(
-                        color = colorResource(id = R.color.moon_day_bg),
+                        color = colorResource(id = com.moonila.core.compose.R.color.blue_color),
                         shape = CircleShape
                     )
             ) {
@@ -82,11 +88,28 @@ fun ColumnScope.ContentItem(
                 )
 
             }
+        } else if (item.iconId != null) {
+            Box(
+                modifier = modifier
+                    .size(30.dp)
+                    .background(
+                        color = colorResource(id = R.color.content_zodiak_bg),
+                        shape = CircleShape
+                    )
+            ) {
+                Image(
+                    modifier = modifier
+                        .align(Alignment.Center)
+                        .size(18.dp),
+                    painter = painterResource(id = item.iconId),
+                    contentDescription = null
+                )
+            }
         }
     }
 
     Text(
-        modifier = modifier.padding(top = 10.dp),
+        modifier = modifier.padding(top = 10.dp, start = 16.dp, end = 16.dp),
         text = item.text,
         fontFamily = PoppinsFontFamily,
         fontWeight = FontWeight.Normal,

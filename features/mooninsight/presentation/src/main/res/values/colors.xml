@@ -7,4 +7,6 @@
     <color name="content_title_color">#F0F0FF</color>
     <color name="content_hint_bg">#80AEAEFB</color>
     <color name="content_text_color">#F0F0FF</color>
+
+    <color name="content_zodiak_bg">#74128D</color>
 </resources>

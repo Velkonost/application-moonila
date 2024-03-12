@@ -3,4 +3,8 @@
     <color name="moon_day_bg">#4650BF</color>
     <color name="moon_sign_bg">#9139A7</color>
     <color name="moon_phase_bg">#242768</color>
+
+    <color name="content_title_color">#F0F0FF</color>
+    <color name="content_hint_bg">#80AEAEFB</color>
+    <color name="content_text_color">#F0F0FF</color>
 </resources>

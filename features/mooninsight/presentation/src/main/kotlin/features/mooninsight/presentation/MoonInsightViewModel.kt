@@ -8,6 +8,9 @@ import features.mooninsight.presentation.contract.MoonInsightAction
 import features.mooninsight.presentation.contract.MoonInsightEvent
 import features.mooninsight.presentation.contract.MoonInsightNavigation
 import features.mooninsight.presentation.contract.MoonInsightViewState
+import features.mooninsight.presentation.model.MoonDayContent
+import features.mooninsight.presentation.model.MoonPhaseContent
+import features.mooninsight.presentation.model.MoonSignContent
 import kotlinx.coroutines.flow.collectLatest
 
 class MoonInsightViewModel
@@ -23,10 +26,16 @@ internal constructor(
     init {
         launchJob {
             type.collectLatest { typeName ->
+                val selectedType = MoonInsightType.entries.firstOrNull { it.name == typeName }
+                    ?: MoonInsightType.MoonDay
                 emit(
                     viewState.value.copy(
-                        type = MoonInsightType.entries.firstOrNull { it.name == typeName }
-                            ?: MoonInsightType.MoonDay
+                        type = selectedType,
+                        content = when (selectedType) {
+                            MoonInsightType.MoonDay -> MoonDayContent
+                            MoonInsightType.MoonSign -> MoonSignContent
+                            MoonInsightType.MoonPhase -> MoonPhaseContent
+                        }
                     )
                 )
             }
@@ -43,7 +52,16 @@ internal constructor(
         if (nextStep == null) {
             emit(MoonInsightNavigation.NavigateBack)
         } else {
-            emit(viewState.value.copy(type = nextStep))
+            emit(
+                viewState.value.copy(
+                    type = nextStep,
+                    content = when (nextStep) {
+                        MoonInsightType.MoonDay -> MoonDayContent
+                        MoonInsightType.MoonSign -> MoonSignContent
+                        MoonInsightType.MoonPhase -> MoonPhaseContent
+                    }
+                )
+            )
         }
     }
 

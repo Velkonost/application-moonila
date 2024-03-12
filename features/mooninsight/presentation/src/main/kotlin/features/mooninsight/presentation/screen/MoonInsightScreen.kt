@@ -36,6 +36,7 @@ import core.model.MoonInsightType
 import features.mooninsight.presentation.MoonInsightViewModel
 import features.mooninsight.presentation.contract.MoonInsightAction
 import features.mooninsight.presentation.contract.MoonInsightNavigation
+import features.mooninsight.presentation.screen.components.ContentItem
 
 @Composable
 fun MoonInsightScreen(
@@ -63,9 +64,9 @@ fun MoonInsightScreen(
 
     val icon = painterResource(
         id = when (state.type) {
-            MoonInsightType.MoonDay -> R.drawable.ic_moon_day
-            MoonInsightType.MoonSign -> R.drawable.ic_moon_sign
-            MoonInsightType.MoonPhase -> R.drawable.ic_moon_phase
+            MoonInsightType.MoonDay -> R.drawable.ic_moon_day_full
+            MoonInsightType.MoonSign -> R.drawable.ic_moon_sign_full
+            MoonInsightType.MoonPhase -> R.drawable.ic_moon_phase_full
         }
     )
 
@@ -80,12 +81,38 @@ fun MoonInsightScreen(
     Box(
         modifier = modifier.background(color = bgColor)
     ){
-        Image(
-            modifier = modifier.fillMaxWidth(),
-            painter = icon,
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
+
+        Row(modifier = modifier.padding(top = 40.dp)) {
+            Spacer(modifier.weight(1f))
+            Text(
+                text = title,
+                fontFamily = PoppinsFontFamily,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 16.sp,
+                color = Color.White
+            )
+            Spacer(modifier.weight(1f))
+        }
+
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState())
+                .padding(bottom = 100.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                modifier = modifier.fillMaxWidth(),
+                painter = icon,
+                contentDescription = null,
+                contentScale = ContentScale.FillWidth
+            )
+
+            state.content.forEach {
+                ContentItem(item = it)
+            }
+
+        }
 
         Row(modifier = modifier.padding(top = 40.dp, start = 16.dp, end = 16.dp)) {
             Image(
@@ -104,25 +131,6 @@ fun MoonInsightScreen(
             )
         }
 
-        Column(
-            modifier = modifier
-                .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(bottom = 100.dp, top = 40.dp, start = 16.dp, end = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row {
-                Spacer(modifier.weight(1f))
-                Text(
-                    text = title,
-                    fontFamily = PoppinsFontFamily,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 16.sp,
-                    color = Color.White
-                )
-                Spacer(modifier.weight(1f))
-            }
-        }
 
         Column(modifier = modifier.fillMaxSize()) {
             Spacer(modifier.weight(1f))

@@ -29,7 +29,7 @@ data class MoonInsightState(
         MoonInsightItem(
             type = MoonInsightType.MoonSign,
             previewText = "The 25th moon day is a perfect day to take a break and enjoy some leisure time. With the lunar energy waning, it's best to avoid starting anything new and instead focus on self-care and reflection. Take the time to nurture your mind, body, and soul, and engage in activities that bring you joy and",
-            iconId = R.drawable.ic_zodiac_aquarius
+            iconId = com.moonila.core.compose.R.drawable.ic_zodiac_aquarius
         ),
         MoonInsightItem(
             type = MoonInsightType.MoonPhase,

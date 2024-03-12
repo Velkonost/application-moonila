@@ -1,5 +1,6 @@
 package features.feed.presentation
 
+import core.model.MoonInsightType
 import core.vm.BaseViewModel
 import features.feed.presentation.contract.FeedAction
 import features.feed.presentation.contract.FeedEvent
@@ -11,8 +12,8 @@ internal constructor(
 ) : BaseViewModel<FeedViewState, FeedAction, FeedNavigation, FeedEvent>(
     initialState = FeedViewState()
 ) {
-    override fun dispatch(action: FeedAction) {
-        TODO("Not yet implemented")
+    override fun dispatch(action: FeedAction) = when(action) {
+        is FeedAction.MoonInsightClick -> emit(FeedNavigation.NavigateToMoonInsight(action.value))
     }
 
 }

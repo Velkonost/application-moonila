@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.feed.presentation.R
 import features.feed.presentation.FeedViewModel
+import features.feed.presentation.contract.FeedAction
 import features.feed.presentation.screen.components.Header
 import features.feed.presentation.screen.components.MoonInsight
 import features.feed.presentation.screen.components.QuoteForToday
@@ -43,7 +44,12 @@ fun FeedScreen(
             calendarClick = {}
         )
 
-        MoonInsight(moonInsightState = state.moonInsightState)
+        MoonInsight(
+            moonInsightState = state.moonInsightState,
+            onItemClick = {
+                viewModel.dispatch(FeedAction.MoonInsightClick(it))
+            }
+        )
         QuoteForToday(text = state.quoteState.text, author = state.quoteState.author)
     }
 

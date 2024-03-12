@@ -32,6 +32,8 @@ import core.compose.components.AppButton
 import core.compose.theme.PoppinsFontFamily
 import core.model.MoonInsightType
 import features.mooninsight.presentation.MoonInsightViewModel
+import features.mooninsight.presentation.contract.MoonInsightAction
+import features.mooninsight.presentation.contract.MoonInsightNavigation
 
 @Composable
 fun MoonInsightScreen(
@@ -88,7 +90,7 @@ fun MoonInsightScreen(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null,
                         onClick = {
-
+                            viewModel.dispatch(MoonInsightNavigation.NavigateBack)
                         }
                     ),
                 painter = painterResource(id = R.drawable.ic_cross),
@@ -119,7 +121,7 @@ fun MoonInsightScreen(
         Column(modifier = modifier.fillMaxSize()) {
             Spacer(modifier.weight(1f))
             AppButton(label = buttonText) {
-
+                viewModel.dispatch(MoonInsightAction.NextStepClick)
             }
         }
     }

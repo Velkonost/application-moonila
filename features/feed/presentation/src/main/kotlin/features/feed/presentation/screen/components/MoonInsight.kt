@@ -3,7 +3,9 @@ package features.feed.presentation.screen.components
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -24,6 +26,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -45,8 +48,8 @@ import features.feed.presentation.model.MoonInsightItem
 @Composable
 fun ColumnScope.MoonInsight(
     modifier: Modifier = Modifier,
-    moonInsightState: MoonInsightState
-
+    moonInsightState: MoonInsightState,
+    onItemClick: (MoonInsightType) -> Unit
 ) {
     val scrollState = rememberLazyListState()
 
@@ -63,7 +66,7 @@ fun ColumnScope.MoonInsight(
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(moonInsightState.items) {
-            MoonInsightItem(item = it)
+            MoonInsightItem(item = it, onClick = { onItemClick(it.type) })
         }
 
     }
@@ -73,7 +76,8 @@ fun ColumnScope.MoonInsight(
 @Composable
 fun MoonInsightItem(
     modifier: Modifier = Modifier,
-    item: MoonInsightItem
+    item: MoonInsightItem,
+    onClick: () -> Unit
 ) {
 
     val headerShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
@@ -104,7 +108,13 @@ fun MoonInsightItem(
     )
 
     Column(
-        modifier = modifier.width(280.dp),
+        modifier = modifier
+            .width(280.dp)
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="moon_day">Moon Day</string>
+    <string name="moon_sign">Moon Sign</string>
+    <string name="moon_phase">Moon Phase</string>
+
+    <string name="moon_day_button">To Moon Sign</string>
+    <string name="moon_sign_button">To Moon Phase</string>
+    <string name="moon_phase_button">Go back to Home</string>
+</resources>

@@ -138,7 +138,7 @@ fun MoonInsightScreen(
 
             Box(
                 modifier = modifier
-                    .height(180.dp)
+                    .height(220.dp)
                     .fillMaxWidth()
                     .background(
                         brush = Brush.verticalGradient(

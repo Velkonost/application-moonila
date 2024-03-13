@@ -22,6 +22,7 @@ import features.feed.presentation.screen.components.Header
 import features.feed.presentation.screen.components.MoonInsight
 import features.feed.presentation.screen.components.MoonTips
 import features.feed.presentation.screen.components.QuoteForToday
+import features.feed.presentation.screen.components.SignsOfTheDay
 
 @Composable
 fun FeedScreen(
@@ -65,6 +66,7 @@ fun FeedScreen(
 
         DailyTip(dailyTipState = state.dailyTipState)
         Affirmation(affirmationState = state.affirmationState)
+        SignsOfTheDay(signsOfTheDayState = state.signsOfTheDayState)
     }
 
 }

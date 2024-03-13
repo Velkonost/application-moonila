@@ -27,4 +27,6 @@
     <color name="daily_tip_bg">#4650BF</color>
     <color name="affirmation_bg">#4646A3</color>
     <color name="affirmation_text_color">#FFF7CD</color>
+
+    <color name="signs_of_the_day_bg">#11153F</color>
 </resources>

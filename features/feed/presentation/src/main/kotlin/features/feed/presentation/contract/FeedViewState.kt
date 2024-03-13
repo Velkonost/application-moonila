@@ -3,14 +3,16 @@ package features.feed.presentation.contract
 import core.model.MoonInsightType
 import core.vm.contracts.UIContract
 import features.feed.presentation.model.MoonInsightItem
-import com.moonila.features.feed.presentation.R
+import features.feed.presentation.model.MoonTipContent
+import features.feed.presentation.model.MoonTipsItem
 
 data class FeedViewState(
     val isLoading: Boolean = false,
     val moonState: MoonState = MoonState(),
     val moonInsightState: MoonInsightState = MoonInsightState(),
-    val quoteState: QuoteState = QuoteState()
-): UIContract.State
+    val quoteState: QuoteState = QuoteState(),
+    val moonTipsState: MoonTipsState = MoonTipsState()
+) : UIContract.State
 
 data class MoonState(
     val newMoonDate: String = "13 Nov at 13:29",
@@ -41,4 +43,12 @@ data class MoonInsightState(
 data class QuoteState(
     val text: String = "“If you want others to be happy, practice compassion. If you want to be happy, practice compassion”",
     val author: String = "-Dalai Lama"
+)
+
+data class MoonTipsState(
+    val items: List<MoonTipsItem> = MoonTipsItem.entries,
+    val selectedItem: MoonTipContent? = MoonTipContent(
+        type = items.first(),
+        text = "Scelerisque quam egestas dictum vulputate etiam at. Purus porttitor sed nulla in dui felis urna arcu eget. Lectus fermentum pharetra ut in fermentum. Arcu faucibus viverra gravida sed pellentesque pharetra dolor. Dolor laoreet dolor arcu augue molestie ac platea. Neque ac tortor."
+    )
 )

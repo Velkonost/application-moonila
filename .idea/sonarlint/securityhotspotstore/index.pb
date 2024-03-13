@@ -391,3 +391,7 @@ mfeatures/mooninsight/presentation/src/main/kotlin/features/mooninsight/presenta
 tfeatures/mooninsight/presentation/src/main/kotlin/features/mooninsight/presentation/screen/components/ContentItem.kt,9/8/9801833d16408bba2a28467f843ff6f1be1f47a7
 š
 jfeatures/mooninsight/presentation/src/main/kotlin/features/mooninsight/presentation/model/ContentSample.kt,d/a/da2a35212d95d103cf654cd21e5a9d7a574d0b92
+“
+cfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/MoonTips.kt,e/f/efc54db9b53c3e9d0ed327dc697cc4f4ec83b10e
+‹
+[features/feed/presentation/src/main/kotlin/features/feed/presentation/model/MoonTipsItem.kt,b/c/bce91a2d7375ede14dd7a9086b54061324a3eeca

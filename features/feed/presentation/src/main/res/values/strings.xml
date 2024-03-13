@@ -22,4 +22,12 @@
     <string name="moon_sign">Moon Sign</string>
     <string name="moon_phase">Moon Phase</string>
     <!--  Moon Insight  -->
+
+    <!--  Moon Tips  -->
+    <string name="moon_tips_health">Health</string>
+    <string name="moon_tips_business">Business</string>
+    <string name="moon_tips_beauty">Beauty</string>
+    <string name="moon_tips_nutrition">Nutrition</string>
+    <string name="moon_tips_relations">Relations</string>
+    <!--  Moon Tips  -->
 </resources>

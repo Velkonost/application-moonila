@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,7 +19,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -39,24 +41,27 @@ fun Affirmation(
 
     Box(
         modifier = modifier
-            .padding(top = 12.dp)
+            .padding(top = 12.dp, start = 16.dp, end = 16.dp)
+            .height(440.dp)
+            .fillMaxWidth()
             .background(
                 color = colorResource(id = R.color.affirmation_bg),
                 shape = RoundedCornerShape(16.dp)
             )
     ) {
+        Image(
+            modifier = modifier
+                .fillMaxHeight()
+                .align(Alignment.Center)
+                .padding(vertical = 60.dp),
+            painter = painterResource(id = R.drawable.ic_affirmation_bg),
+            contentDescription = null
+        )
 
-        Column {
-            Spacer(modifier.weight(1f))
-            Image(
-                modifier = modifier.height(50.dp),
-                painter = painterResource(id = R.drawable.ic_affirmation_bg),
-                contentDescription = null
-            )
-            Spacer(modifier.weight(1f))
-        }
-
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            modifier = modifier.padding(20.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Spacer(modifier.weight(1f))
             Image(
                 modifier = modifier.size(20.dp),
@@ -97,8 +102,7 @@ fun Affirmation(
                 Image(
                     modifier = modifier.height(36.dp),
                     painter = painterResource(id = R.drawable.ic_affirmation_share_instagram),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop
+                    contentDescription = null
                 )
                 Spacer(modifier.weight(1f))
             }

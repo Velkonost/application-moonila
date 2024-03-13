@@ -18,6 +18,7 @@ import features.feed.presentation.FeedViewModel
 import features.feed.presentation.contract.FeedAction
 import features.feed.presentation.screen.components.Header
 import features.feed.presentation.screen.components.MoonInsight
+import features.feed.presentation.screen.components.MoonTips
 import features.feed.presentation.screen.components.QuoteForToday
 
 @Composable
@@ -50,7 +51,15 @@ fun FeedScreen(
                 viewModel.dispatch(FeedAction.MoonInsightClick(it))
             }
         )
+
         QuoteForToday(text = state.quoteState.text, author = state.quoteState.author)
+
+        MoonTips(
+            moonTipsState = state.moonTipsState,
+            onItemClick = {
+                viewModel.dispatch(FeedAction.MoonTipsClick(it))
+            }
+        )
     }
 
 }

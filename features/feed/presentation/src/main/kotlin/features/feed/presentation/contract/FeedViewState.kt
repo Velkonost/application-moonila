@@ -47,7 +47,7 @@ data class QuoteState(
 
 data class MoonTipsState(
     val items: List<MoonTipsItem> = MoonTipsItem.entries,
-    val selectedItem: MoonTipContent? = MoonTipContent(
+    val selectedItem: MoonTipContent = MoonTipContent(
         type = items.first(),
         text = "Scelerisque quam egestas dictum vulputate etiam at. Purus porttitor sed nulla in dui felis urna arcu eget. Lectus fermentum pharetra ut in fermentum. Arcu faucibus viverra gravida sed pellentesque pharetra dolor. Dolor laoreet dolor arcu augue molestie ac platea. Neque ac tortor."
     )

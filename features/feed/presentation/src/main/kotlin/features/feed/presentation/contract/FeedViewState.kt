@@ -5,13 +5,15 @@ import core.vm.contracts.UIContract
 import features.feed.presentation.model.MoonInsightItem
 import features.feed.presentation.model.MoonTipContent
 import features.feed.presentation.model.MoonTipsItem
+import com.moonila.features.feed.presentation.R
 
 data class FeedViewState(
     val isLoading: Boolean = false,
     val moonState: MoonState = MoonState(),
     val moonInsightState: MoonInsightState = MoonInsightState(),
     val quoteState: QuoteState = QuoteState(),
-    val moonTipsState: MoonTipsState = MoonTipsState()
+    val moonTipsState: MoonTipsState = MoonTipsState(),
+    val dailyTipState: DailyTipState = DailyTipState()
 ) : UIContract.State
 
 data class MoonState(
@@ -51,4 +53,10 @@ data class MoonTipsState(
         type = items.first(),
         text = "Scelerisque quam egestas dictum vulputate etiam at. Purus porttitor sed nulla in dui felis urna arcu eget. Lectus fermentum pharetra ut in fermentum. Arcu faucibus viverra gravida sed pellentesque pharetra dolor. Dolor laoreet dolor arcu augue molestie ac platea. Neque ac tortor."
     )
+)
+
+data class DailyTipState(
+    val iconId: Int = R.drawable.ic_daily_tip,
+    val title: String = "Wednesday",
+    val text: String = "Wednesday is favorable for meeting friends and business partners, signing contracts, resolving financial matters, and taking exams. It's a good day for networking and communication; new acquaintances might turn into lasting friendships."
 )

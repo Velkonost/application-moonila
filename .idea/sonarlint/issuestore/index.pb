@@ -403,3 +403,7 @@ wfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/co
 cfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/DailyTip.kt,0/e/0edf4af5ed1fa63db5eba031a9d92702fa9536a9
 ñ
 ffeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/Affirmation.kt,6/5/6508c0b27ce6d4ec69cfe7e03e8830bcd64460e1
+ò
+hfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/SignsOfTheDay.kt,4/5/45da4e84116c773206d83e4d321bb3927b4821b1
+ê
+`features/feed/presentation/src/main/kotlin/features/feed/presentation/model/SignsOfTheDayItem.kt,6/f/6f3a7d4fb02d9a2717e0b66e4c2320bd7837f544

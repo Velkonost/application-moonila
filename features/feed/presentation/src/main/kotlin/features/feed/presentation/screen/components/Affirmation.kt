@@ -70,7 +70,7 @@ fun Affirmation(
             )
             Text(
                 modifier = modifier
-                    .padding(start = 8.dp)
+                    .padding(start = 8.dp, top = 2.dp)
                     .alpha(0.7f),
                 text = affirmationState.title,
                 fontFamily = PoppinsFontFamily,

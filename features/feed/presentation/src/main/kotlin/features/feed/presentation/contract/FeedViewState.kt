@@ -6,6 +6,7 @@ import features.feed.presentation.model.MoonInsightItem
 import features.feed.presentation.model.MoonTipContent
 import features.feed.presentation.model.MoonTipsItem
 import com.moonila.features.feed.presentation.R
+import features.feed.presentation.model.SignsOfTheDayItem
 
 data class FeedViewState(
     val isLoading: Boolean = false,
@@ -14,7 +15,8 @@ data class FeedViewState(
     val quoteState: QuoteState = QuoteState(),
     val moonTipsState: MoonTipsState = MoonTipsState(),
     val dailyTipState: DailyTipState = DailyTipState(),
-    val affirmationState: AffirmationState = AffirmationState()
+    val affirmationState: AffirmationState = AffirmationState(),
+    val signsOfTheDayState: SignsOfTheDayState = SignsOfTheDayState()
 ) : UIContract.State
 
 data class MoonState(
@@ -66,4 +68,28 @@ data class AffirmationState(
     val titleIconId: Int = R.drawable.ic_slider_moon,
     val title: String = "Affirmation for Moon in Virgo",
     val text: String = "I feel connected to nature and the universe. They fill me with energy and strength"
+)
+
+data class SignsOfTheDayState(
+    val items: List<SignsOfTheDayItem> = listOf(
+        SignsOfTheDayItem(
+            titleId = R.string.color_of_the_day,
+            subtitle = "Yellow, Purple & Blue",
+            text = "Every day according to the lunar calendar has its own color that will bring luck. For this, it must be present either in clothing or in jewelry.",
+        ),
+
+        SignsOfTheDayItem(
+            titleId = R.string.lucky_minerals,
+            subtitle = "Red granite",
+            text = "Specific minerals effectively transform and convey the energy of a particular lunar day to a person. They have maximum potency on that lunar day. It's recommended to wear amulets and jewelry corresponding to the lunar day for luck and a favorable day.",
+            icon1Id = R.drawable.ic_lucky_mineral_redgranite,
+        ),
+
+        SignsOfTheDayItem(
+            titleId = R.string.planet_of_the_day,
+            subtitle = "Venus",
+            text = "Venus embodies beauty, creativity, harmony, and love. Friday is an excellent day for self-care, focusing on your health, and cleansing your body. Postpone serious tasks and important events to another day. Dedicate your time to socializing with friends and loved ones. It's a wonderful day for parties, declarations of feelings, romantic dates, and expressing love to the world. Treat yourself and your loved ones with gifts. Embrace the beautiful things in life: attend the theater, museum, or an art exhibition, or watch a great movie.",
+            icon1Id = R.drawable.ic_planet_of_the_day_venus,
+        ),
+    )
 )

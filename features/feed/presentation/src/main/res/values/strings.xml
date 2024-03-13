@@ -30,4 +30,10 @@
     <string name="moon_tips_nutrition">Nutrition</string>
     <string name="moon_tips_relations">Relations</string>
     <!--  Moon Tips  -->
+
+    <!--  Signs Of The Day  -->
+    <string name="color_of_the_day">Color of the Day</string>
+    <string name="lucky_minerals">Lucky Minerals</string>
+    <string name="planet_of_the_day">Planet of the Day</string>
+    <!--  Signs Of The Day  -->
 </resources>

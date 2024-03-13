@@ -407,3 +407,9 @@ ffeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/co
 hfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/SignsOfTheDay.kt,4/5/45da4e84116c773206d83e4d321bb3927b4821b1
 ê
 `features/feed/presentation/src/main/kotlin/features/feed/presentation/model/SignsOfTheDayItem.kt,6/f/6f3a7d4fb02d9a2717e0b66e4c2320bd7837f544
+¶
+vfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/signsoftheday/LuckyMinerals.kt,0/0/003bf4f98bd59d114b966a0a37616affc11083f1
+ß
+wfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/signsoftheday/PlanetOfTheDay.kt,3/f/3f96def4ec5ac5da0d94e89345b98d53823f35cc
+¶
+vfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/signsoftheday/ColorOfTheDay.kt,6/9/695a6a4084af6bb4ebd34366b8d07d77dc645f9d

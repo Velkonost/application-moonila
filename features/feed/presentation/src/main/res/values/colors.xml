@@ -29,4 +29,9 @@
     <color name="affirmation_text_color">#FFF7CD</color>
 
     <color name="signs_of_the_day_bg">#11153F</color>
+
+    <color name="color_of_the_day_1">#FFCF35</color>
+    <color name="color_of_the_day_2">#DA47FF</color>
+    <color name="color_of_the_day_3">#007ED9</color>
+    <color name="color_of_the_day_border">#11153F</color>
 </resources>

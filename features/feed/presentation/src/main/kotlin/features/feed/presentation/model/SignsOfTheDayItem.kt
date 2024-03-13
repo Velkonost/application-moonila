@@ -5,4 +5,5 @@ data class SignsOfTheDayItem(
     val subtitle: String,
     val text: String,
     val icon1Id: Int? = null,
+    val colors: List<Int>? = null
 )

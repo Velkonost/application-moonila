@@ -37,7 +37,7 @@ fun FeedScreen(
             .fillMaxWidth()
             .background(color = colorResource(id = R.color.main_bg))
             .verticalScroll(rememberScrollState())
-            .padding(bottom = 100.dp),
+            .padding(bottom = 200.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Header(

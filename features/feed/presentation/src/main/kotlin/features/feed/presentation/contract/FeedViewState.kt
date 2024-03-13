@@ -1,11 +1,11 @@
 package features.feed.presentation.contract
 
+import com.moonila.features.feed.presentation.R
 import core.model.MoonInsightType
 import core.vm.contracts.UIContract
 import features.feed.presentation.model.MoonInsightItem
 import features.feed.presentation.model.MoonTipContent
 import features.feed.presentation.model.MoonTipsItem
-import com.moonila.features.feed.presentation.R
 import features.feed.presentation.model.SignsOfTheDayItem
 
 data class FeedViewState(
@@ -76,6 +76,11 @@ data class SignsOfTheDayState(
             titleId = R.string.color_of_the_day,
             subtitle = "Yellow, Purple & Blue",
             text = "Every day according to the lunar calendar has its own color that will bring luck. For this, it must be present either in clothing or in jewelry.",
+            colors = listOf(
+                R.color.color_of_the_day_1,
+                R.color.color_of_the_day_2,
+                R.color.color_of_the_day_3,
+            )
         ),
 
         SignsOfTheDayItem(

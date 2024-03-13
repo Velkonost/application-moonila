@@ -401,3 +401,5 @@ xfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/co
 wfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/moontips/MoonTipContentBlock.kt,7/e/7e31029fdd1fa8686afe149c1fcf8c1e4c75b1c9
 “
 cfeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/DailyTip.kt,0/e/0edf4af5ed1fa63db5eba031a9d92702fa9536a9
+–
+ffeatures/feed/presentation/src/main/kotlin/features/feed/presentation/screen/components/Affirmation.kt,6/5/6508c0b27ce6d4ec69cfe7e03e8830bcd64460e1

@@ -13,7 +13,8 @@ data class FeedViewState(
     val moonInsightState: MoonInsightState = MoonInsightState(),
     val quoteState: QuoteState = QuoteState(),
     val moonTipsState: MoonTipsState = MoonTipsState(),
-    val dailyTipState: DailyTipState = DailyTipState()
+    val dailyTipState: DailyTipState = DailyTipState(),
+    val affirmationState: AffirmationState = AffirmationState()
 ) : UIContract.State
 
 data class MoonState(
@@ -59,4 +60,10 @@ data class DailyTipState(
     val iconId: Int = R.drawable.ic_daily_tip,
     val title: String = "Wednesday",
     val text: String = "Wednesday is favorable for meeting friends and business partners, signing contracts, resolving financial matters, and taking exams. It's a good day for networking and communication; new acquaintances might turn into lasting friendships."
+)
+
+data class AffirmationState(
+    val titleIconId: Int = R.drawable.ic_slider_moon,
+    val title: String = "Affirmation for Moon in Virgo",
+    val text: String = "I feel connected to nature and the universe. They fill me with energy and strength"
 )

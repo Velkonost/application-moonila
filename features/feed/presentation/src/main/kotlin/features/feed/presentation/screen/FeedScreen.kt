@@ -16,6 +16,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.feed.presentation.R
 import features.feed.presentation.FeedViewModel
 import features.feed.presentation.contract.FeedAction
+import features.feed.presentation.screen.components.Affirmation
 import features.feed.presentation.screen.components.DailyTip
 import features.feed.presentation.screen.components.Header
 import features.feed.presentation.screen.components.MoonInsight
@@ -63,6 +64,7 @@ fun FeedScreen(
         )
 
         DailyTip(dailyTipState = state.dailyTipState)
+        Affirmation(affirmationState = state.affirmationState)
     }
 
 }

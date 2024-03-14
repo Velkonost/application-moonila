@@ -33,9 +33,7 @@ fun LazyGridItemScope.CalendarFooter(
     modifier: Modifier = Modifier
 ) {
 
-    Column(modifier = modifier.fillMaxWidth()) {
-
-
+    Column(modifier = modifier.fillMaxWidth().animateItemPlacement()) {
         Row(
             modifier = modifier
                 .fillMaxWidth()

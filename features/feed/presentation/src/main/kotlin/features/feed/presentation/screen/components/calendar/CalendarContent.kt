@@ -70,7 +70,7 @@ fun ColumnScope.CalendarContent(
 }
 
 @Composable
-fun EmptyDateView(
+fun LazyGridItemScope.EmptyDateView(
     modifier: Modifier = Modifier
 ) {
     Spacer(modifier = modifier.size(40.dp))

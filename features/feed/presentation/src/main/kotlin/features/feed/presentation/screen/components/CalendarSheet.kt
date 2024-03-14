@@ -67,8 +67,7 @@ fun CalendarSheet(
             Column(
                 modifier = modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(0.95f)
-                    .animateContentSize(),
+                    .fillMaxHeight(0.95f),
             ) {
 
                 CalendarHeader {
@@ -81,7 +80,8 @@ fun CalendarSheet(
                     modifier = modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
-                        .animateContentSize(),
+                        .animateContentSize()
+                    ,
                     columns = GridCells.Fixed(7),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly,
@@ -120,7 +120,7 @@ fun CalendarSheet(
                         CalendarFooter()
                     }
 
-                    item(span = { GridItemSpan(7) }, key = { "spacer2" }) {
+                    item(span = { GridItemSpan(7) }, key = "spacer2") {
                         Spacer(modifier.height(60.dp))
                     }
                 }

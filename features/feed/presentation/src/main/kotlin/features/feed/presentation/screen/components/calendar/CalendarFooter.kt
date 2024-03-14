@@ -82,15 +82,15 @@ fun RowScope.CalendarFooterItem(
     Row(
         modifier = modifier
             .weight(1f)
-            .height(52.dp)
             .background(
                 color = colorResource(id = R.color.calendar_footer_bg),
                 shape = MaterialTheme.shapes.medium
             )
-            .padding(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 10.dp)
+            .padding(start = 12.dp, end = 8.dp, top = 8.dp, bottom = 10.dp)
     ) {
         Box(
             modifier = modifier
+                .padding(top = 1.dp)
                 .size(18.dp)
                 .background(
                     color = color,
@@ -98,7 +98,7 @@ fun RowScope.CalendarFooterItem(
                 )
         )
 
-        Column(modifier = modifier.padding(start = 8.dp)) {
+        Column(modifier = modifier.padding(start = 6.dp)) {
             Text(
                 text = title,
                 fontFamily = PoppinsFontFamily,
@@ -109,6 +109,7 @@ fun RowScope.CalendarFooterItem(
 
             Text(
                 text = subtitle,
+                maxLines = 1,
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.Normal,
                 color = colorResource(id = R.color.secondary_color),

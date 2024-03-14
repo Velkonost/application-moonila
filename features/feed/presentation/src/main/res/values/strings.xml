@@ -46,5 +46,14 @@
     <string name="lunar_eclipse_subtitle">Moon in Earth\'s shadow</string>
     <string name="solar_eclipse_subtitle">Moon covers the Sun</string>
 
+    <string-array name="days_of_week">
+        <item>SUN</item>
+        <item>MON</item>
+        <item>TUE</item>
+        <item>WED</item>
+        <item>THU</item>
+        <item>FRI</item>
+        <item>SAT</item>
+    </string-array>
     <!--  Calendar  -->
 </resources>

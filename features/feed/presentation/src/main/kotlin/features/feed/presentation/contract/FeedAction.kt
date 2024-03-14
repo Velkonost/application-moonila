@@ -2,6 +2,7 @@ package features.feed.presentation.contract
 
 import core.model.MoonInsightType
 import core.vm.contracts.UIContract
+import features.feed.presentation.model.CalendarDate
 import features.feed.presentation.model.MoonTipsItem
 
 sealed interface FeedAction: UIContract.Action {
@@ -17,5 +18,7 @@ sealed interface FeedAction: UIContract.Action {
     data object NextDayClick : FeedAction
 
     data object PrevDayClick : FeedAction
+
+    data class DateSelect(val value: CalendarDate) : FeedAction
 
 }

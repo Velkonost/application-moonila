@@ -1,9 +1,9 @@
 package features.feed.presentation
 
-import android.util.Log
 import com.moonila.features.feed.presentation.R
 import core.vm.BaseViewModel
 import features.feed.api.FeedRepository
+import features.feed.api.model.DateInfo
 import features.feed.presentation.contract.FeedAction
 import features.feed.presentation.contract.FeedEvent
 import features.feed.presentation.contract.FeedNavigation
@@ -20,16 +20,18 @@ internal constructor(
 ) {
 
     init {
+        setupCurrentDate()
         generateCalendarDates()
     }
 
     override fun dispatch(action: FeedAction) = when (action) {
         is FeedAction.MoonInsightClick -> emit(FeedNavigation.NavigateToMoonInsight(action.value))
         is FeedAction.MoonTipsClick -> obtainMoonTipsClick(action.value)
-        is FeedAction.PrevDayClick -> TODO()
-        is FeedAction.NextDayClick -> TODO()
+        is FeedAction.PrevDayClick -> obtainPrevDayClick()
+        is FeedAction.NextDayClick -> obtainNextDayClick()
         is FeedAction.PrevMonthClick -> obtainPrevMonthClick()
         is FeedAction.NextMonthClick -> obtainNextMonthClick()
+        is FeedAction.DateSelect -> obtainDateSelect(action.value)
     }
 
     private fun generateCalendarDates() {
@@ -37,8 +39,11 @@ internal constructor(
             val dates = feedRepository.getCurrentDates().map {
                 CalendarDate(
                     iconId = R.drawable.ic_slider_moon,
-                    number = it.first.run { if (it.first < 10) "0${it.first}" else it.first.toString() },
-                    dayOfWeek = it.second
+                    number = if (it.dayOfMonth < 10) "0${it.dayOfMonth}" else it.dayOfMonth.toString(),
+                    dayOfWeek = it.dayOfWeek,
+                    year = it.year,
+                    month = it.month,
+                    selected = it.selected
                 )
             }
 
@@ -48,11 +53,41 @@ internal constructor(
                 items = dates
             )
             emit(viewState.value.copy(calendarState = calendarState))
-
-            Log.d("ekke", "keke")
-            // 1 - sunday, 7 - saturday
-            // 2 - march
         }
+    }
+
+    private fun setupCurrentDate() {
+        val calendarState =
+            viewState.value.calendarState.copy(selectedDateLabel = feedRepository.getDateName())
+        emit(viewState.value.copy(calendarState = calendarState))
+    }
+
+    private fun obtainDateSelect(value: CalendarDate) {
+        launchJob {
+            with(value) {
+                val dateInfo = DateInfo(
+                    dayOfMonth = number.toInt(),
+                    dayOfWeek = dayOfWeek,
+                    month, year, selected
+                )
+
+                feedRepository.setDay(dateInfo)
+                setupCurrentDate()
+                generateCalendarDates()
+            }
+        }
+    }
+
+    private fun obtainNextDayClick() {
+        feedRepository.increaseDay()
+        setupCurrentDate()
+        generateCalendarDates()
+    }
+
+    private fun obtainPrevDayClick() {
+        feedRepository.decreaseDay()
+        setupCurrentDate()
+        generateCalendarDates()
     }
 
     private fun obtainNextMonthClick() {

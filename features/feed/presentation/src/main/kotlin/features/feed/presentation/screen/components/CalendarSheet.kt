@@ -28,6 +28,7 @@ import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.unit.dp
 import com.moonila.features.feed.presentation.R
 import features.feed.presentation.contract.CalendarState
+import features.feed.presentation.model.CalendarDate
 import features.feed.presentation.screen.components.calendar.CalendarFooter
 import features.feed.presentation.screen.components.calendar.CalendarHeader
 import features.feed.presentation.screen.components.calendar.CalendarMonthBlock
@@ -46,7 +47,8 @@ fun CalendarSheet(
     modalSheetState: ModalBottomSheetState,
     calendarState: CalendarState,
     prevMonthClick: () -> Unit,
-    nextMonthClick: () -> Unit
+    nextMonthClick: () -> Unit,
+    dateClick: (CalendarDate) -> Unit
 ) {
     val scope = rememberCoroutineScope()
 
@@ -104,7 +106,9 @@ fun CalendarSheet(
                     }
 
                     items(calendarState.items, key = { it.number }) {
-                        DateView(item = it)
+                        DateView(item = it) {
+                            dateClick(it)
+                        }
                     }
 
                     item(span = { GridItemSpan(7) }, key = "spacer") {

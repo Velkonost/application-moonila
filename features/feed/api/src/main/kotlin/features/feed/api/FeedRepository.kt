@@ -1,13 +1,23 @@
 package features.feed.api
 
+import features.feed.api.model.DateInfo
+
 interface FeedRepository {
 
     fun increaseMonth()
 
     fun decreaseMonth()
 
+    fun increaseDay()
+
+    fun decreaseDay()
+
+    fun setDay(dateInfo: DateInfo)
+
     fun getMonthName(): String
 
-    fun getCurrentDates(): List<Pair<Int, Int>>
+    fun getDateName(): String
+
+    fun getCurrentDates(): List<DateInfo>
 
 }

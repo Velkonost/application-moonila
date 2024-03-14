@@ -1,5 +1,6 @@
 package features.feed.presentation.screen.components.header
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -95,14 +96,16 @@ fun DateSelector(
                     contentDescription = null
                 )
 
-                Text(
-                    modifier = modifier.padding(start = 4.dp, top = 4.dp),
-                    text = dateLabel,
-                    fontFamily = PoppinsFontFamily,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 14.sp,
-                    color = Color.White
-                )
+                AnimatedContent(targetState = dateLabel, label = "") {
+                    Text(
+                        modifier = modifier.padding(start = 4.dp, top = 4.dp),
+                        text = it,
+                        fontFamily = PoppinsFontFamily,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 14.sp,
+                        color = Color.White
+                    )
+                }
             }
 
         }

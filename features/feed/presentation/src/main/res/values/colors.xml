@@ -43,4 +43,5 @@
     <color name="ekadashi_color">#72A1E5</color>
     <color name="lunar_eclipse_color">#E63F86</color>
     <color name="solar_eclipse_color">#ACACAE</color>
+    <color name="selected_date_bg">#181A4E</color>
 </resources>

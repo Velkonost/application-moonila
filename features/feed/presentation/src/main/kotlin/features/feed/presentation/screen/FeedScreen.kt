@@ -99,6 +99,9 @@ fun FeedScreen(
         },
         nextMonthClick = {
             viewModel.dispatch(FeedAction.NextMonthClick)
+        },
+        dateClick = {
+            viewModel.dispatch(FeedAction.DateSelect(it))
         }
     )
 }

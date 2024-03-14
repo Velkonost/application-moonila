@@ -4,6 +4,8 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,8 +21,10 @@ import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -36,38 +40,6 @@ import com.moonila.features.feed.presentation.R
 import core.compose.theme.PoppinsFontFamily
 import features.feed.presentation.model.CalendarDate
 
-@Composable
-fun ColumnScope.CalendarContent(
-    modifier: Modifier = Modifier,
-    emptyDates: Int,
-    dates: List<CalendarDate>
-) {
-
-    val daysOfWeek = stringArrayResource(id = R.array.days_of_week)
-
-    LazyVerticalGrid(
-        modifier = modifier
-            .padding(top = 24.dp)
-            .padding(horizontal = 20.dp)
-            .fillMaxWidth()
-            .animateContentSize(),
-        columns = GridCells.Fixed(7),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        items(daysOfWeek) {
-            DayOfWeek(text = it)
-        }
-
-        items(emptyDates) {
-            EmptyDateView()
-        }
-
-        items(dates, key = { it.number }) {
-            DateView(item = it)
-        }
-    }
-}
 
 @Composable
 fun LazyGridItemScope.EmptyDateView(
@@ -80,11 +52,25 @@ fun LazyGridItemScope.EmptyDateView(
 @Composable
 fun LazyGridItemScope.DateView(
     modifier: Modifier = Modifier,
-    item: CalendarDate
+    item: CalendarDate,
+    onClick: () -> Unit
 ) {
 
     Column(
-        modifier = modifier.width(40.dp).animateItemPlacement(),
+        modifier = modifier
+            .width(36.dp)
+            .padding(horizontal = 4.dp)
+            .background(
+                color = if (item.selected) colorResource(id = R.color.selected_date_bg) else Color.Transparent,
+                shape = RoundedCornerShape(33.dp)
+            )
+            .padding(vertical = 4.dp)
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick
+            )
+            .animateItemPlacement(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(

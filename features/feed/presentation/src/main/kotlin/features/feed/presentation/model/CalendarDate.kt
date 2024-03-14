@@ -5,4 +5,6 @@ data class CalendarDate(
     val number: String,
     val selected: Boolean = false,
     val dayOfWeek: Int,
+    val year: Int,
+    val month: Int
 )

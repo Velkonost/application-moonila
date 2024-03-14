@@ -90,7 +90,11 @@ fun FeedScreen(
     CalendarSheet(
         modalSheetState = calendarSheetState,
         calendarState = state.calendarState,
-        prevDayClick = {},
-        nextDayClick = {}
+        prevMonthClick = {
+            viewModel.dispatch(FeedAction.PrevMonthClick)
+        },
+        nextMonthClick = {
+            viewModel.dispatch(FeedAction.NextMonthClick)
+        }
     )
 }

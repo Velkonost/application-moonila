@@ -4,5 +4,5 @@ data class CalendarDate(
     val iconId: Int,
     val number: String,
     val selected: Boolean = false,
-    val dayOfWeek: Int
+    val dayOfWeek: Int,
 )

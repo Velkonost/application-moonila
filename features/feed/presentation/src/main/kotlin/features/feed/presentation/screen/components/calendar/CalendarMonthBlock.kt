@@ -1,5 +1,6 @@
 package features.feed.presentation.screen.components.calendar
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -30,20 +31,23 @@ import core.compose.theme.PoppinsFontFamily
 fun CalendarMonthBlock(
     modifier: Modifier = Modifier,
     monthLabel: String,
-    prevDayClick: () -> Unit,
-    nextDayClick: () -> Unit
+    prevMonthClick: () -> Unit,
+    nextMonthClick: () -> Unit
 ) {
     Row(
-        modifier = modifier.padding(top = 24.dp, start = 16.dp, end = 16.dp),
+        modifier = modifier.padding(top = 24.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Text(
-            text = monthLabel,
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.SemiBold,
-            color = colorResource(id = R.color.light_color),
-            fontSize = 24.sp,
-        )
+        AnimatedContent(targetState = monthLabel, label = "") {
+            Text(
+                text = it,
+                fontFamily = PoppinsFontFamily,
+                fontWeight = FontWeight.SemiBold,
+                color = colorResource(id = R.color.light_color),
+                fontSize = 24.sp,
+            )
+        }
+
         Spacer(modifier.weight(1f))
 
         Box(
@@ -58,7 +62,7 @@ fun CalendarMonthBlock(
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null,
-                    onClick = prevDayClick
+                    onClick = prevMonthClick
                 ),
             contentAlignment = Alignment.Center
         ) {
@@ -84,7 +88,7 @@ fun CalendarMonthBlock(
                 .clickable(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null,
-                    onClick = nextDayClick
+                    onClick = nextMonthClick
                 ),
             contentAlignment = Alignment.Center
         ) {

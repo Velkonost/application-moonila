@@ -10,4 +10,12 @@ sealed interface FeedAction: UIContract.Action {
 
     data class MoonTipsClick(val value: MoonTipsItem) : FeedAction
 
+    data object NextMonthClick : FeedAction
+
+    data object PrevMonthClick : FeedAction
+
+    data object NextDayClick : FeedAction
+
+    data object PrevDayClick : FeedAction
+
 }

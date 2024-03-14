@@ -1,12 +1,21 @@
 package features.feed.presentation.screen.components
 
-import android.widget.Space
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
@@ -15,25 +24,33 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.unit.dp
 import com.moonila.features.feed.presentation.R
 import features.feed.presentation.contract.CalendarState
-import features.feed.presentation.screen.components.calendar.CalendarContent
 import features.feed.presentation.screen.components.calendar.CalendarFooter
 import features.feed.presentation.screen.components.calendar.CalendarHeader
 import features.feed.presentation.screen.components.calendar.CalendarMonthBlock
+import features.feed.presentation.screen.components.calendar.DateView
+import features.feed.presentation.screen.components.calendar.DayOfWeek
+import features.feed.presentation.screen.components.calendar.EmptyDateView
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(
+    ExperimentalMaterialApi::class, ExperimentalLayoutApi::class,
+    ExperimentalFoundationApi::class
+)
 @Composable
 fun CalendarSheet(
     modifier: Modifier = Modifier,
     modalSheetState: ModalBottomSheetState,
     calendarState: CalendarState,
-    prevDayClick: () -> Unit,
-    nextDayClick: () -> Unit
+    prevMonthClick: () -> Unit,
+    nextMonthClick: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
+
+    val daysOfWeek = stringArrayResource(id = R.array.days_of_week)
 
     BackHandler {
         scope.launch {
@@ -50,7 +67,8 @@ fun CalendarSheet(
             Column(
                 modifier = modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(0.9f)
+                    .fillMaxHeight(0.95f)
+                    .animateContentSize(),
             ) {
 
                 CalendarHeader {
@@ -59,20 +77,77 @@ fun CalendarSheet(
                     }
                 }
 
-                CalendarMonthBlock(
-                    monthLabel = calendarState.monthLabel,
-                    prevDayClick = prevDayClick,
-                    nextDayClick = nextDayClick
-                )
+                LazyVerticalGrid(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .animateContentSize(),
+                    columns = GridCells.Fixed(7),
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    state = rememberLazyGridState()
+                ) {
 
-                CalendarContent()
+                    item(span = { GridItemSpan(7) }, key = "month_block") {
+                        CalendarMonthBlock(
+                            monthLabel = calendarState.monthLabel,
+                            prevMonthClick = prevMonthClick,
+                            nextMonthClick = nextMonthClick
+                        )
+                    }
 
-                Spacer(modifier.weight(1f))
+                    items(daysOfWeek, key = { it }) {
+                        DayOfWeek(text = it)
+                    }
 
-                CalendarFooter()
+                    items(calendarState.missedDaysAmount, key = { it }) {
+                        EmptyDateView()
+                    }
 
-                Spacer(modifier.height(60.dp))
+                    items(calendarState.items, key = { it.number }) {
+                        DateView(item = it)
+                    }
+
+                    item(span = { GridItemSpan(7) }, key = "spacer") {
+                        Spacer(
+                            modifier
+                                .height(30.dp)
+                                .animateItemPlacement()
+                        )
+                    }
+
+                    item(span = { GridItemSpan(7) }, key = "footer") {
+                        CalendarFooter()
+                    }
+
+                    item(span = { GridItemSpan(7) }, key = { "spacer2" }) {
+                        Spacer(modifier.height(60.dp))
+                    }
+                }
             }
+
+//            Column(
+//                modifier = modifier
+//                    .fillMaxWidth()
+//                    .fillMaxHeight(0.95f)
+//                    .verticalScroll(rememberScrollState())
+//            ) {
+//
+//
+//
+//
+//
+//                CalendarContent(
+//                    emptyDates = calendarState.missedDaysAmount,
+//                    dates = calendarState.items
+//                )
+//
+//
+//
+//
+//
+//                Spacer(modifier.height(60.dp))
+//            }
         }) {}
 
 }

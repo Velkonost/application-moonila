@@ -37,4 +37,10 @@
 
     <color name="calendar_sheet_bg">#24296C</color>
     <color name="calendar_header_bg">#FFEBC9</color>
+    <color name="calendar_footer_bg">#4D4D477A</color>
+
+    <color name="holidays_color">#FFD8AA</color>
+    <color name="ekadashi_color">#72A1E5</color>
+    <color name="lunar_eclipse_color">#E63F86</color>
+    <color name="solar_eclipse_color">#ACACAE</color>
 </resources>

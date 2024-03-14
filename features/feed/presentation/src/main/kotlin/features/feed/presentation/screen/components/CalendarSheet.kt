@@ -34,10 +34,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.launch
 import com.moonila.features.feed.presentation.R
 import core.compose.theme.PoppinsFontFamily
 import features.feed.presentation.contract.CalendarState
+import features.feed.presentation.screen.components.calendar.CalendarFooter
+import features.feed.presentation.screen.components.calendar.CalendarHeader
+import features.feed.presentation.screen.components.calendar.CalendarMonthBlock
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -67,106 +70,20 @@ fun CalendarSheet(
                     .fillMaxWidth()
                     .fillMaxHeight(0.9f)
             ) {
-                Row(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .background(
-                            color = colorResource(id = R.color.calendar_header_bg)
-                        )
-                        .padding(top = 16.dp, bottom = 10.dp, start = 16.dp, end = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Image(
-                        modifier = modifier
-                            .size(16.dp)
-                            .padding(1.dp)
-                            .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = null,
-                                onClick = {
-                                    scope.launch {
-                                        modalSheetState.hide()
-                                    }
-                                }
-                            ),
-                        painter = painterResource(id = R.drawable.ic_calendar_cross),
-                        contentDescription = null
-                    )
-                    Spacer(modifier.weight(1f))
-                    Text(
-                        text = stringResource(id = R.string.calendar),
-                        fontFamily = PoppinsFontFamily,
-                        fontWeight = FontWeight.SemiBold,
-                        color = colorResource(id = com.moonila.core.compose.R.color.blue_color),
-                        fontSize = 16.sp,
-                    )
-                    Spacer(modifier.weight(1f))
-                    Spacer(modifier.size(16.dp))
-                }
 
-                Row(
-                    modifier = modifier.padding(top = 24.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = calendarState.monthLabel,
-                        fontFamily = PoppinsFontFamily,
-                        fontWeight = FontWeight.SemiBold,
-                        color = colorResource(id = com.moonila.core.compose.R.color.light_color),
-                        fontSize = 24.sp,
-                    )
-                    Spacer(modifier.weight(1f))
-
-                    Box(
-                        modifier = modifier
-                            .size(32.dp)
-                            .clip(CircleShape)
-                            .border(
-                                width = 1.dp,
-                                color = Color.White.copy(alpha = 0.2f),
-                                shape = CircleShape
-                            )
-                            .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = null,
-                                onClick = prevDayClick
-                            ),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Image(
-                            modifier = modifier
-                                .size(14.dp)
-                                .rotate(180f),
-                            painter = painterResource(id = R.drawable.ic_calendar_arrow),
-                            contentDescription = null,
-                        )
-                    }
-
-                    Box(
-                        modifier = modifier
-                            .padding(start = 8.dp)
-                            .size(32.dp)
-                            .clip(CircleShape)
-                            .border(
-                                width = 1.dp,
-                                color = Color.White.copy(alpha = 0.2f),
-                                shape = CircleShape
-                            )
-                            .clickable(
-                                interactionSource = remember { MutableInteractionSource() },
-                                indication = null,
-                                onClick = nextDayClick
-                            ),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Image(
-                            modifier = modifier
-                                .size(14.dp),
-                            painter = painterResource(id = R.drawable.ic_calendar_arrow),
-                            contentDescription = null,
-                        )
+                CalendarHeader {
+                    scope.launch {
+                        modalSheetState.hide()
                     }
                 }
+
+                CalendarMonthBlock(
+                    monthLabel = calendarState.monthLabel,
+                    prevDayClick = prevDayClick,
+                    nextDayClick = nextDayClick
+                )
+
+                CalendarFooter()
             }
         }) {}
 

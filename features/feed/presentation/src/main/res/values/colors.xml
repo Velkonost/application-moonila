@@ -34,4 +34,7 @@
     <color name="color_of_the_day_2">#DA47FF</color>
     <color name="color_of_the_day_3">#007ED9</color>
     <color name="color_of_the_day_border">#11153F</color>
+
+    <color name="calendar_sheet_bg">#24296C</color>
+    <color name="calendar_header_bg">#FFEBC9</color>
 </resources>

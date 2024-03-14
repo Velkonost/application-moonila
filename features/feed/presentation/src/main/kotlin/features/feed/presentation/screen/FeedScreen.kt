@@ -6,8 +6,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -17,13 +22,16 @@ import com.moonila.features.feed.presentation.R
 import features.feed.presentation.FeedViewModel
 import features.feed.presentation.contract.FeedAction
 import features.feed.presentation.screen.components.Affirmation
+import features.feed.presentation.screen.components.CalendarSheet
 import features.feed.presentation.screen.components.DailyTip
 import features.feed.presentation.screen.components.Header
 import features.feed.presentation.screen.components.MoonInsight
 import features.feed.presentation.screen.components.MoonTips
 import features.feed.presentation.screen.components.QuoteForToday
 import features.feed.presentation.screen.components.SignsOfTheDay
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun FeedScreen(
     modifier: Modifier = Modifier,
@@ -31,6 +39,12 @@ fun FeedScreen(
 ) {
 
     val state by viewModel.viewState.collectAsStateWithLifecycle()
+
+    val scope = rememberCoroutineScope()
+    val calendarSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
+        initialValue = ModalBottomSheetValue.Hidden,
+        skipHalfExpanded = true,
+    )
 
     Column(
         modifier = modifier
@@ -45,7 +59,11 @@ fun FeedScreen(
             moonState = state.moonState,
             prevDayClick = { /*TODO*/ },
             nextDayClick = { /*TODO*/ },
-            calendarClick = {}
+            calendarClick = {
+                scope.launch {
+                    calendarSheetState.show()
+                }
+            }
         )
 
         MoonInsight(
@@ -69,4 +87,10 @@ fun FeedScreen(
         SignsOfTheDay(signsOfTheDayState = state.signsOfTheDayState)
     }
 
+    CalendarSheet(
+        modalSheetState = calendarSheetState,
+        calendarState = state.calendarState,
+        prevDayClick = {},
+        nextDayClick = {}
+    )
 }

@@ -36,4 +36,15 @@
     <string name="lucky_minerals">Lucky Minerals</string>
     <string name="planet_of_the_day">Planet of the Day</string>
     <!--  Signs Of The Day  -->
+
+    <!--  Calendar  -->
+    <string name="calendar">Calendar</string>
+    <string name="holidays">Holidays</string>
+    <string name="holidays_subtitle">By your country</string>
+    <string name="ekadashi">Ekadashi</string>
+    <string name="ekadashi_subtitle">The eleventh day</string>
+    <string name="lunar_eclipse_subtitle">Moon in Earth\'s shadow</string>
+    <string name="solar_eclipse_subtitle">Moon covers the Sun</string>
+
+    <!--  Calendar  -->
 </resources>

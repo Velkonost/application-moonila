@@ -16,7 +16,8 @@ data class FeedViewState(
     val moonTipsState: MoonTipsState = MoonTipsState(),
     val dailyTipState: DailyTipState = DailyTipState(),
     val affirmationState: AffirmationState = AffirmationState(),
-    val signsOfTheDayState: SignsOfTheDayState = SignsOfTheDayState()
+    val signsOfTheDayState: SignsOfTheDayState = SignsOfTheDayState(),
+    val calendarState: CalendarState = CalendarState()
 ) : UIContract.State
 
 data class MoonState(
@@ -97,4 +98,8 @@ data class SignsOfTheDayState(
             icon1Id = R.drawable.ic_planet_of_the_day_venus,
         ),
     )
+)
+
+data class CalendarState(
+    val monthLabel: String = "November"
 )

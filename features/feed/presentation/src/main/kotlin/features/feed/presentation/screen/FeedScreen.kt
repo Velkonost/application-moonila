@@ -55,10 +55,14 @@ fun FeedScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Header(
-            dateLabel = "8 Nov, Wed",
+            dateLabel = state.calendarState.selectedDateLabel,
             moonState = state.moonState,
-            prevDayClick = { /*TODO*/ },
-            nextDayClick = { /*TODO*/ },
+            prevDayClick = {
+                viewModel.dispatch(FeedAction.PrevDayClick)
+            },
+            nextDayClick = {
+                viewModel.dispatch(FeedAction.NextDayClick)
+            },
             calendarClick = {
                 scope.launch {
                     calendarSheetState.show()

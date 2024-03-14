@@ -103,6 +103,8 @@ data class SignsOfTheDayState(
 
 data class CalendarState(
     val monthLabel: String = "November",
+    val selectedDateLabel: String = "",
+
     val missedDaysAmount: Int = 0,
-    val items: List<CalendarDate> = emptyList()
+    val items: List<CalendarDate> = emptyList(),
 )

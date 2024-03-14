@@ -8,6 +8,7 @@ import java.util.Locale
 class FeedRepositoryImpl : FeedRepository {
 
     private val calendar: Calendar = Calendar.getInstance()
+    private val dayCalendar: Calendar = Calendar.getInstance()
 
     init {
     }

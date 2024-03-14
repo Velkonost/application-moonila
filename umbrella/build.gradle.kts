@@ -23,6 +23,7 @@ dependencies {
     implementation(projects.features.paywall.data)
     implementation(projects.features.paywall.presentation)
 
+    implementation(projects.features.feed.data)
     implementation(projects.features.feed.presentation)
     implementation(projects.features.mooninsight.presentation)
     implementation(projects.features.compatibility.presentation)

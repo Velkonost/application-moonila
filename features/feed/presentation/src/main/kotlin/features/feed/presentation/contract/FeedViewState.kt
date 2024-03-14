@@ -3,6 +3,7 @@ package features.feed.presentation.contract
 import com.moonila.features.feed.presentation.R
 import core.model.MoonInsightType
 import core.vm.contracts.UIContract
+import features.feed.presentation.model.CalendarDate
 import features.feed.presentation.model.MoonInsightItem
 import features.feed.presentation.model.MoonTipContent
 import features.feed.presentation.model.MoonTipsItem
@@ -101,5 +102,6 @@ data class SignsOfTheDayState(
 )
 
 data class CalendarState(
-    val monthLabel: String = "November"
+    val monthLabel: String = "November",
+    val items: List<CalendarDate> = emptyList()
 )

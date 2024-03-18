@@ -1,6 +1,5 @@
 package features.selfknowledge.presentation.screen
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,11 +10,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import features.selfknowledge.presentation.SelfKnowledgeViewModel
 import com.moonila.features.selfknowledge.presentation.R
+import features.selfknowledge.presentation.SelfKnowledgeViewModel
 import features.selfknowledge.presentation.screen.components.Header
 
 @Composable
@@ -30,9 +31,13 @@ fun SelfKnowledgeScreen(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.main_bg))
             .verticalScroll(rememberScrollState())
-            .padding(bottom = 200.dp),
+            .paint(
+                painterResource(id = R.drawable.ic_selfknowledge_bg),
+                contentScale = ContentScale.FillWidth
+            )
+
+            .padding(bottom = 1200.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Header(

@@ -12,12 +12,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moonila.features.selfknowledge.presentation.R
@@ -32,12 +36,6 @@ fun Header(
     subtitle: String
 ) {
     Box {
-        Image(
-            modifier = modifier.fillMaxWidth(),
-            painter = painterResource(id = R.drawable.ic_selfknowledge_header_bg),
-            contentDescription = null,
-            contentScale = ContentScale.FillWidth
-        )
 
         Column(
             modifier = modifier
@@ -60,7 +58,19 @@ fun Header(
                 text = name,
                 fontFamily = BonaNovaFontFamily,
                 fontWeight = FontWeight.Bold,
-                style = orangeTextGradient(fontSize = 32.sp)
+                style = TextStyle(
+                    brush = Brush.linearGradient(
+                        colors = listOf(
+                            colorResource(id = R.color.name_gradient_1),
+                            colorResource(id = R.color.name_gradient_2),
+                            colorResource(id = R.color.name_gradient_3),
+//                            colorResource(id = R.color.name_gradient_4),
+//                            colorResource(id = R.color.name_gradient_5),
+                        ),
+                        tileMode = TileMode.Clamp
+                    ),
+                    fontSize = 32.sp
+                ),
             )
 
             Text(
@@ -69,7 +79,8 @@ fun Header(
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.Normal,
                 color = Color.White,
-                fontSize = 16.sp
+                fontSize = 16.sp,
+                textAlign = TextAlign.Center
             )
 
             Box(

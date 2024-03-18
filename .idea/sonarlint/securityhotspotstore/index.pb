@@ -461,3 +461,5 @@ zfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/pres
 ufeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/SelfKnowledgeScreen.kt,a/0/a0d695850cd3278c3d3272b21e462e77bb922d60
 §
 wfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/SelfKnowledgeNavRoute.kt,2/7/2771a762ac2509d865804e6791034659483fe407
+£
+sfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/Header.kt,0/5/05a7cac162bb0cb76746099d9bac1db644ebc164

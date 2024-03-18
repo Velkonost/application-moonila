@@ -1,0 +1,5 @@
+package features.selfknowledge.data
+
+import features.selfknowledge.api.SelfKnowledgeRepository
+
+class SelfKnowledgeRepositoryImpl: SelfKnowledgeRepository

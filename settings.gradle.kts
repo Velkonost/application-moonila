@@ -52,4 +52,8 @@ include(
     ":features:compatibility:api",
     ":features:compatibility:data",
     ":features:compatibility:presentation",
+
+    ":features:selfknowledge:api",
+    ":features:selfknowledge:data",
+    ":features:selfknowledge:presentation",
 )

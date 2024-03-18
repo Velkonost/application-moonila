@@ -10,6 +10,7 @@ import features.feed.presentation.screen.FeedNavRoute
 import features.mooninsight.presentation.screen.MoonInsightNavRoute
 import features.onboarding.presentation.screen.OnboardingNavRoute
 import features.paywall.presentation.screen.PaywallNavRoute
+import features.selfknowledge.presentation.screen.SelfKnowledgeNavRoute
 import features.splash.presentation.screen.SplashNavRoute
 
 val AppScreens = setOf(
@@ -53,5 +54,17 @@ fun NavGraphBuilder.addFeedRoute(
     ) {
         FeedNavRoute.provide(this, navController, forceHideBottomBar)
         MoonInsightNavRoute.provide(this, navController, forceHideBottomBar)
+    }
+}
+
+fun NavGraphBuilder.addSelfKnowledgeRoute(
+    navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
+) {
+    navigation(
+        route = "${NavigationScreen.SelfKnowledgeNavScreen.route}_root",
+        startDestination = NavigationScreen.SelfKnowledgeNavScreen.route
+    ) {
+        SelfKnowledgeNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

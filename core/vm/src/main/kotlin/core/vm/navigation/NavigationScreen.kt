@@ -12,6 +12,8 @@ sealed class NavigationScreen(val route: String) {
     data object MoonInsightNavScreen : NavigationScreen(
         "$MOON_INSIGHT_DESTINATION/?$ARG_MOON_INSIGHT_TYPE={$ARG_MOON_INSIGHT_TYPE}"
     )
+
+    data object SelfKnowledgeNavScreen : NavigationScreen(SELF_KNOWLEDGE_DESTINATION)
 }
 
 const val NAV_PREFIX: String = "com.moonila"
@@ -22,5 +24,7 @@ const val PAYWALL_DESTINATION: String = "$NAV_PREFIX.paywall/PaywallScreen"
 
 const val FEED_DESTINATION: String = "$NAV_PREFIX.feed/FeedScreen"
 const val MOON_INSIGHT_DESTINATION: String = "$NAV_PREFIX.feed/MoonInsightScreen"
+
+const val SELF_KNOWLEDGE_DESTINATION: String = "$NAV_PREFIX.selfknowledge/SelfKnowledgeScreen"
 
 const val ARG_MOON_INSIGHT_TYPE: String = "arg_moon_insight_type"

@@ -2,10 +2,8 @@ package features.feed.presentation.screen.components
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,10 +35,7 @@ import features.feed.presentation.screen.components.calendar.DayOfWeek
 import features.feed.presentation.screen.components.calendar.EmptyDateView
 import kotlinx.coroutines.launch
 
-@OptIn(
-    ExperimentalMaterialApi::class, ExperimentalLayoutApi::class,
-    ExperimentalFoundationApi::class
-)
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CalendarSheet(
     modifier: Modifier = Modifier,
@@ -124,29 +119,5 @@ fun CalendarSheet(
                     }
                 }
             }
-
-//            Column(
-//                modifier = modifier
-//                    .fillMaxWidth()
-//                    .fillMaxHeight(0.95f)
-//                    .verticalScroll(rememberScrollState())
-//            ) {
-//
-//
-//
-//
-//
-//                CalendarContent(
-//                    emptyDates = calendarState.missedDaysAmount,
-//                    dates = calendarState.items
-//                )
-//
-//
-//
-//
-//
-//                Spacer(modifier.height(60.dp))
-//            }
         }) {}
-
 }

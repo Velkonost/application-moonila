@@ -5,6 +5,7 @@ import activity.components.MainSnackBarHost
 import activity.components.rememberSnackBarHostState
 import activity.di.AppScreens
 import activity.di.addFeedRoute
+import activity.di.addSelfKnowledgeRoute
 import activity.di.addSplashRoute
 import android.annotation.SuppressLint
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -71,6 +72,7 @@ internal fun MainContent() {
                 AppScreens.provide(this@AnimatedNavHost, navController, forceHideBottomBar)
                 addSplashRoute(navController, forceHideBottomBar)
                 addFeedRoute(navController, forceHideBottomBar)
+                addSelfKnowledgeRoute(navController, forceHideBottomBar)
             }
         }
     }

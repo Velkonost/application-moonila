@@ -52,6 +52,10 @@
             <option value="$PROJECT_DIR$/features/paywall/api" />
             <option value="$PROJECT_DIR$/features/paywall/data" />
             <option value="$PROJECT_DIR$/features/paywall/presentation" />
+            <option value="$PROJECT_DIR$/features/selfknowledge" />
+            <option value="$PROJECT_DIR$/features/selfknowledge/api" />
+            <option value="$PROJECT_DIR$/features/selfknowledge/data" />
+            <option value="$PROJECT_DIR$/features/selfknowledge/presentation" />
             <option value="$PROJECT_DIR$/features/splash" />
             <option value="$PROJECT_DIR$/features/splash/api" />
             <option value="$PROJECT_DIR$/features/splash/data" />

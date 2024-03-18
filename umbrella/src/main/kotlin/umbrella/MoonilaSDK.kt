@@ -9,6 +9,8 @@ import features.onboarding.data.di.OnboardingDataModule
 import features.onboarding.presentation.di.OnboardingPresentationModule
 import features.paywall.data.di.PaywallDataModule
 import features.paywall.presentation.di.PaywallPresentationModule
+import features.selfknowledge.data.di.SelfKnowledgeDataModule
+import features.selfknowledge.presentation.di.SelfKnowledgePresentationModule
 import features.splash.data.di.SplashDataModule
 import features.splash.presentation.di.SplashPresentationModule
 import org.koin.core.context.startKoin
@@ -39,7 +41,10 @@ object MoonilaSDK {
 
             FeedDataModule,
             FeedPresentationModule,
-            MoonInsightPresentationModule
+            MoonInsightPresentationModule,
+
+            SelfKnowledgeDataModule,
+            SelfKnowledgePresentationModule
         )
 
         modules?.let(::modules)

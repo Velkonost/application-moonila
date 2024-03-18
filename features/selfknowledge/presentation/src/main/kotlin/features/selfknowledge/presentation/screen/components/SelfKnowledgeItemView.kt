@@ -1,0 +1,10 @@
+package features.selfknowledge.presentation.screen.components
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+
+@Composable
+fun SelfKnowledgeItemView(
+    modifier: Modifier = Modifier,
+) {
+}

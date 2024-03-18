@@ -8,4 +8,9 @@
     <color name="name_gradient_3">#FEE2BB</color>
     <color name="name_gradient_4">#FFCD8E</color>
     <color name="name_gradient_5">#FFBC72</color>
+
+    <color name="bg_selfknowledge_item_1">#4650BF</color>
+    <color name="bg_selfknowledge_item_2">#9139A7</color>
+    <color name="bg_selfknowledge_item_3">#5639A7</color>
+    <color name="bg_selfknowledge_item_4">#004A8E</color>
 </resources>

@@ -1,7 +1,9 @@
 package features.selfknowledge.presentation.screen
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -18,6 +20,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.selfknowledge.presentation.R
 import features.selfknowledge.presentation.SelfKnowledgeViewModel
 import features.selfknowledge.presentation.screen.components.Header
+import features.selfknowledge.presentation.screen.components.SelfKnowledgeItemView
 
 @Composable
 fun SelfKnowledgeScreen(
@@ -34,16 +37,22 @@ fun SelfKnowledgeScreen(
             .verticalScroll(rememberScrollState())
             .paint(
                 painterResource(id = R.drawable.ic_selfknowledge_bg),
-                contentScale = ContentScale.FillWidth
+                contentScale = ContentScale.Crop
             )
-
-            .padding(bottom = 1200.dp),
+            .padding(bottom = 100.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Header(
             name = state.userName,
             subtitle = state.userData
         )
+
+        Spacer(modifier.height(20.dp))
+
+        state.items.map {
+            SelfKnowledgeItemView(item = it)
+            Spacer(modifier.height(24.dp))
+        }
     }
 
 }

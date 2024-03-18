@@ -36,7 +36,6 @@ fun Header(
     subtitle: String
 ) {
     Box {
-
         Column(
             modifier = modifier
                 .padding(top = 40.dp)

@@ -7,7 +7,8 @@ data class SelfKnowledgeItem(
     val secondaryText: String,
     val points: List<SelfKnowledgeItemPoint>,
     val previewText: String,
-    val colorResId: Int
+    val colorResId: Int,
+    val dividerColorResId: Int
 )
 
 data class SelfKnowledgeItemPoint(

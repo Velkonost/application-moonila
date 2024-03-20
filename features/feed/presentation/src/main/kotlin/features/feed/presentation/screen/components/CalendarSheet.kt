@@ -60,7 +60,6 @@ fun CalendarSheet(
         sheetShape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp),
         sheetBackgroundColor = colorResource(id = R.color.calendar_sheet_bg),
         sheetContent = {
-
             Column(
                 modifier = modifier
                     .fillMaxWidth()

@@ -2,6 +2,8 @@ package features.selfknowledge.presentation.screen.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,7 +17,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.colorResource
@@ -34,7 +36,8 @@ import features.selfknowledge.presentation.model.SelfKnowledgeItemPoint
 @Composable
 fun SelfKnowledgeItemView(
     modifier: Modifier = Modifier,
-    item: SelfKnowledgeItem
+    item: SelfKnowledgeItem,
+    onClick: () -> Unit
 ) {
 
     Box(
@@ -44,6 +47,11 @@ fun SelfKnowledgeItemView(
             .background(
                 color = colorResource(id = item.colorResId),
                 shape = RoundedCornerShape(16.dp)
+            )
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick
             )
     ) {
 
@@ -86,10 +94,7 @@ fun SelfKnowledgeItemView(
                 fontSize = 12.sp
             )
 
-            Row(
-                modifier = modifier.padding(top = 16.dp),
-//                verticalAlignment = Alignment.CenterVertically
-            ) {
+            Row(modifier = modifier.padding(top = 16.dp)) {
                 item.points.forEach {
                     PointView(item = it)
                 }

@@ -467,3 +467,5 @@ sfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/pres
 ‚features/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/SelfKnowledgeItemView.kt,d/0/d0fc3a4098602b8233c75cb5137d4aaef6fef2fc
 ¢
 rfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/model/SelfKnowledgeItem.kt,1/f/1ffc49328439baac2034e7561b97ea2fc64d5181
+·
+†features/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/SelfKnowledgeDetailsSheet.kt,4/3/43d8108e2cf79e652007e8f71f1e80bb9ed20d80

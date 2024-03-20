@@ -3,6 +3,10 @@ package features.selfknowledge.presentation.model
 data class SelfKnowledgeItem(
     val titleResId: Int,
     val iconId: Int,
+
+    val detailsIconId: Int,
+    val content: List<SelfKnowledgeItemContent>,
+
     val generalText: String,
     val secondaryText: String,
     val points: List<SelfKnowledgeItemPoint>,
@@ -15,4 +19,9 @@ data class SelfKnowledgeItemPoint(
     val iconId: Int,
     val titleResId: Int,
     val text: String
+)
+
+data class SelfKnowledgeItemContent(
+    val title: String? = null,
+    val text: String? = null
 )

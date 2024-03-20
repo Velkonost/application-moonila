@@ -1,19 +1,43 @@
 package features.selfknowledge.presentation.screen.components
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
+import com.moonila.features.selfknowledge.presentation.R
+import core.compose.theme.BonaNovaFontFamily
+import core.compose.theme.PoppinsFontFamily
 import features.selfknowledge.presentation.model.SelfKnowledgeItem
+import features.selfknowledge.presentation.screen.components.details.DetailsHeader
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -42,6 +66,88 @@ fun SelfKnowledgeDetailsSheet(
                     .fillMaxHeight(0.95f),
             ) {
 
+                DetailsHeader(title = stringResource(id = item.titleResId)) {
+                    scope.launch {
+                        modalSheetState.hide()
+                    }
+                }
+
+                Box {
+                    Image(
+                        modifier = modifier
+                            .align(Alignment.TopCenter)
+                            .size(300.dp)
+                            .offset(y = (-50).dp)
+                            .zIndex(0f),
+                        painter = painterResource(id = item.detailsIconId),
+                        contentDescription = null
+                    )
+
+                    Column(
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .align(Alignment.Center)
+                            .padding(top = 180.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = item.generalText,
+                            fontFamily = BonaNovaFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            style = TextStyle(
+                                brush = Brush.linearGradient(
+                                    colors = listOf(
+                                        colorResource(id = R.color.name_gradient_1),
+                                        colorResource(id = R.color.name_gradient_2),
+                                        colorResource(id = R.color.name_gradient_3),
+                                    ),
+                                    tileMode = TileMode.Clamp
+                                ),
+                                fontSize = 24.sp
+                            ),
+                        )
+
+                        Text(
+                            modifier = modifier.padding(top = 2.dp),
+                            text = item.secondaryText,
+                            fontFamily = PoppinsFontFamily,
+                            fontWeight = FontWeight.Normal,
+                            color = colorResource(id = com.moonila.core.compose.R.color.light_color),
+                            fontSize = 12.sp,
+                            textAlign = TextAlign.Center
+                        )
+
+                        Box(
+                            modifier = modifier
+                                .padding(top = 16.dp)
+                                .padding(horizontal = 16.dp)
+                                .fillMaxWidth()
+                                .height(1.dp)
+                                .background(
+                                    color = colorResource(id = item.dividerColorResId),
+                                    shape = MaterialTheme.shapes.medium
+                                )
+                        )
+
+                        Row(modifier = modifier.padding(top = 20.dp).padding(horizontal = 16.dp)) {
+                            item.points.forEach {
+                                PointView(item = it)
+                            }
+                        }
+
+                        Box(
+                            modifier = modifier
+                                .padding(top = 20.dp)
+                                .padding(horizontal = 16.dp)
+                                .fillMaxWidth()
+                                .height(1.dp)
+                                .background(
+                                    color = colorResource(id = item.dividerColorResId),
+                                    shape = MaterialTheme.shapes.medium
+                                )
+                        )
+                    }
+                }
             }
         }
     ) {}

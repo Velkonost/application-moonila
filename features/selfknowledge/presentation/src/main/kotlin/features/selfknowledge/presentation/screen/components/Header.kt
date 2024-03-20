@@ -63,8 +63,6 @@ fun Header(
                             colorResource(id = R.color.name_gradient_1),
                             colorResource(id = R.color.name_gradient_2),
                             colorResource(id = R.color.name_gradient_3),
-//                            colorResource(id = R.color.name_gradient_4),
-//                            colorResource(id = R.color.name_gradient_5),
                         ),
                         tileMode = TileMode.Clamp
                     ),

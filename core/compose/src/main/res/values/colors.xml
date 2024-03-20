@@ -22,4 +22,6 @@
     <color name="unfocused_tf_border">#33FFFFFF</color>
 
     <color name="common_text_color">#AEAEFB</color>
+
+    <color name="sheet_header_bg">#FFEBC9</color>
 </resources>

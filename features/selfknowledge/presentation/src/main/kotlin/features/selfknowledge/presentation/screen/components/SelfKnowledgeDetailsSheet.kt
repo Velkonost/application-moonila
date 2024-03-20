@@ -5,14 +5,18 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetState
@@ -22,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.colorResource
@@ -37,6 +42,7 @@ import com.moonila.features.selfknowledge.presentation.R
 import core.compose.theme.BonaNovaFontFamily
 import core.compose.theme.PoppinsFontFamily
 import features.selfknowledge.presentation.model.SelfKnowledgeItem
+import features.selfknowledge.presentation.model.SelfKnowledgeItemContent
 import features.selfknowledge.presentation.screen.components.details.DetailsHeader
 import kotlinx.coroutines.launch
 
@@ -72,7 +78,11 @@ fun SelfKnowledgeDetailsSheet(
                     }
                 }
 
-                Box {
+                Box(
+                    modifier = modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(bottom = 100.dp)
+                ) {
                     Image(
                         modifier = modifier
                             .align(Alignment.TopCenter)
@@ -87,7 +97,8 @@ fun SelfKnowledgeDetailsSheet(
                         modifier = modifier
                             .fillMaxWidth()
                             .align(Alignment.Center)
-                            .padding(top = 180.dp),
+                            .padding(top = 180.dp)
+                            .padding(horizontal = 16.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
@@ -119,8 +130,8 @@ fun SelfKnowledgeDetailsSheet(
 
                         Box(
                             modifier = modifier
+                                .alpha(0.5f)
                                 .padding(top = 16.dp)
-                                .padding(horizontal = 16.dp)
                                 .fillMaxWidth()
                                 .height(1.dp)
                                 .background(
@@ -129,7 +140,10 @@ fun SelfKnowledgeDetailsSheet(
                                 )
                         )
 
-                        Row(modifier = modifier.padding(top = 20.dp).padding(horizontal = 16.dp)) {
+                        Row(
+                            modifier = modifier
+                                .padding(top = 20.dp)
+                        ) {
                             item.points.forEach {
                                 PointView(item = it)
                             }
@@ -137,8 +151,8 @@ fun SelfKnowledgeDetailsSheet(
 
                         Box(
                             modifier = modifier
+                                .alpha(0.5f)
                                 .padding(top = 20.dp)
-                                .padding(horizontal = 16.dp)
                                 .fillMaxWidth()
                                 .height(1.dp)
                                 .background(
@@ -146,9 +160,52 @@ fun SelfKnowledgeDetailsSheet(
                                     shape = MaterialTheme.shapes.medium
                                 )
                         )
+
+                        Spacer(modifier.height(4.dp))
+
+                        item.content.forEach {
+                            SelfKnowledgeItemContentView(item = it)
+                        }
                     }
                 }
             }
         }
     ) {}
+}
+
+@Composable
+fun ColumnScope.SelfKnowledgeItemContentView(
+    modifier: Modifier = Modifier,
+    item: SelfKnowledgeItemContent
+) {
+
+    Spacer(modifier.height(20.dp))
+
+    item.title?.let {
+        Text(
+            modifier = modifier.align(Alignment.Start),
+            text = it,
+            fontFamily = PoppinsFontFamily,
+            fontWeight = FontWeight.SemiBold,
+            color = colorResource(id = R.color.cloudy_color),
+            fontSize = 20.sp,
+            textAlign = TextAlign.Start
+        )
+    }
+
+    if (item.title.isNullOrEmpty().not() && item.text.isNullOrEmpty().not()) {
+        Spacer(modifier.height(12.dp))
+    }
+
+    item.text?.let {
+        Text(
+            modifier = modifier.align(Alignment.Start),
+            text = it,
+            fontFamily = PoppinsFontFamily,
+            fontWeight = FontWeight.Normal,
+            color = colorResource(id = R.color.cloudy_color),
+            fontSize = 16.sp,
+            textAlign = TextAlign.Start
+        )
+    }
 }

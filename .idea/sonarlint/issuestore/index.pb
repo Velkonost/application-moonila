@@ -471,3 +471,9 @@ rfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/pres
 †features/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/SelfKnowledgeDetailsSheet.kt,4/3/43d8108e2cf79e652007e8f71f1e80bb9ed20d80
 ³
 ‚features/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/details/DetailsHeader.kt,b/8/b83bddc88d312357bbcef3e962a7bf19fc8d37fa
+¶
+…features/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/details/DetailsDataBlock.kt,6/b/6bdd1f08723e9493bc683a23f54fa5ace9f864e3
+Â
+‘features/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/details/SelfKnowledgeItemContentView.kt,3/e/3e509dca30e5bd186dbe2886d3444a8c8059e192
+´
+ƒfeatures/selfknowledge/presentation/src/main/kotlin/features/selfknowledge/presentation/screen/components/details/DetailsDivider.kt,f/8/f8a21e94d68cc04d4854aca5c6bb64d221540dd6

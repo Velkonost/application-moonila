@@ -43,7 +43,9 @@ import core.compose.theme.BonaNovaFontFamily
 import core.compose.theme.PoppinsFontFamily
 import features.selfknowledge.presentation.model.SelfKnowledgeItem
 import features.selfknowledge.presentation.model.SelfKnowledgeItemContent
+import features.selfknowledge.presentation.screen.components.details.DetailsDivider
 import features.selfknowledge.presentation.screen.components.details.DetailsHeader
+import features.selfknowledge.presentation.screen.components.details.SelfKnowledgeItemContentView
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -78,11 +80,9 @@ fun SelfKnowledgeDetailsSheet(
                     }
                 }
 
-                Box(
-                    modifier = modifier
-                        .verticalScroll(rememberScrollState())
-                        .padding(bottom = 100.dp)
-                ) {
+                Box(modifier = modifier
+                    .verticalScroll(rememberScrollState())
+                    .padding(bottom = 100.dp)) {
                     Image(
                         modifier = modifier
                             .align(Alignment.TopCenter)
@@ -128,38 +128,15 @@ fun SelfKnowledgeDetailsSheet(
                             textAlign = TextAlign.Center
                         )
 
-                        Box(
-                            modifier = modifier
-                                .alpha(0.5f)
-                                .padding(top = 16.dp)
-                                .fillMaxWidth()
-                                .height(1.dp)
-                                .background(
-                                    color = colorResource(id = item.dividerColorResId),
-                                    shape = MaterialTheme.shapes.medium
-                                )
-                        )
+                       DetailsDivider(color = colorResource(id = item.dividerColorResId))
 
-                        Row(
-                            modifier = modifier
-                                .padding(top = 20.dp)
-                        ) {
+                        Row(modifier = modifier.padding(top = 20.dp)) {
                             item.points.forEach {
                                 PointView(item = it)
                             }
                         }
 
-                        Box(
-                            modifier = modifier
-                                .alpha(0.5f)
-                                .padding(top = 20.dp)
-                                .fillMaxWidth()
-                                .height(1.dp)
-                                .background(
-                                    color = colorResource(id = item.dividerColorResId),
-                                    shape = MaterialTheme.shapes.medium
-                                )
-                        )
+                        DetailsDivider(color = colorResource(id = item.dividerColorResId))
 
                         Spacer(modifier.height(4.dp))
 
@@ -171,41 +148,4 @@ fun SelfKnowledgeDetailsSheet(
             }
         }
     ) {}
-}
-
-@Composable
-fun ColumnScope.SelfKnowledgeItemContentView(
-    modifier: Modifier = Modifier,
-    item: SelfKnowledgeItemContent
-) {
-
-    Spacer(modifier.height(20.dp))
-
-    item.title?.let {
-        Text(
-            modifier = modifier.align(Alignment.Start),
-            text = it,
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.SemiBold,
-            color = colorResource(id = R.color.cloudy_color),
-            fontSize = 20.sp,
-            textAlign = TextAlign.Start
-        )
-    }
-
-    if (item.title.isNullOrEmpty().not() && item.text.isNullOrEmpty().not()) {
-        Spacer(modifier.height(12.dp))
-    }
-
-    item.text?.let {
-        Text(
-            modifier = modifier.align(Alignment.Start),
-            text = it,
-            fontFamily = PoppinsFontFamily,
-            fontWeight = FontWeight.Normal,
-            color = colorResource(id = R.color.cloudy_color),
-            fontSize = 16.sp,
-            textAlign = TextAlign.Start
-        )
-    }
 }

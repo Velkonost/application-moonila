@@ -32,7 +32,7 @@ internal constructor(
 //            val startDestination = if (shouldShowOnboarding) SplashNavigation.NavigateToOnboarding
 //            else NavigateToAuth
 
-            emit(SplashNavigation.NavigateToOnboarding)
+            emit(SplashNavigation.NavigateToMainFlow)
         }
     }
 

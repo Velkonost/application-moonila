@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bottom_bar_bg">#161C5F</color>
+    <color name="menu_item_inactive_color">#6161B7</color>
+
+    <color name="menu_item_calendar_color">#F8A5FF</color>
+    <color name="menu_item_compatibility_color">#FF9781</color>
+    <color name="menu_item_knowledge_color">#FFE39C</color>
+    <color name="menu_item_practice_color">#B48CFF</color>
+    <color name="menu_item_wisdom_color">#FFB14D</color>
+</resources>

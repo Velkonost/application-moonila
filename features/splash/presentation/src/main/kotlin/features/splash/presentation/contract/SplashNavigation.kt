@@ -7,12 +7,12 @@ import core.vm.navigation.NavigationScreen
 sealed interface SplashNavigation : UIContract.Navigation {
 
     data object NavigateToMainFlow : SplashNavigation {
-    override val event: NavigationEvent = NavigationEvent.NavigateAndPopUpToRoute(
-        route = NavigationScreen.FeedNavScreen.route,
-        popUpTo = NavigationScreen.SplashNavScreen.route,
-        rootRoute = true
-    )
-}
+        override val event: NavigationEvent = NavigationEvent.NavigateAndPopUpToRoute(
+            route = NavigationScreen.FeedNavScreen.route,
+            popUpTo = NavigationScreen.SplashNavScreen.route,
+            rootRoute = true
+        )
+    }
 
     data object NavigateToOnboarding : SplashNavigation {
         override val event: NavigationEvent = NavigationEvent.NavigateAndPopUpToRoute(

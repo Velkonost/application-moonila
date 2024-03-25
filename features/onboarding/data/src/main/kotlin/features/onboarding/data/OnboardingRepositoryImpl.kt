@@ -2,6 +2,8 @@ package features.onboarding.data
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import core.datastore.ONBOARDING_SHOWN
 import features.onboarding.api.OnboardingRepository
 
 class OnboardingRepositoryImpl(
@@ -9,6 +11,8 @@ class OnboardingRepositoryImpl(
 ) : OnboardingRepository{
 
     override suspend fun completeOnboarding() {
-        TODO("Not yet implemented")
+        localDataSource.edit { preferences ->
+            preferences[ONBOARDING_SHOWN] = true
+        }
     }
 }

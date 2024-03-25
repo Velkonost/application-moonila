@@ -29,10 +29,10 @@ internal constructor(
 //            else if (shouldShowOnboarding) NavigateToOnboarding
 //            else NavigateToAuth
 
-//            val startDestination = if (shouldShowOnboarding) SplashNavigation.NavigateToOnboarding
-//            else NavigateToAuth
+            val startDestination = if (shouldShowOnboarding) SplashNavigation.NavigateToOnboarding
+            else SplashNavigation.NavigateToMainFlow
 
-            emit(SplashNavigation.NavigateToMainFlow)
+            emit(startDestination)
         }
     }
 

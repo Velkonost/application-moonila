@@ -1,11 +1,6 @@
 package features.splash.presentation.screen
 
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.ExitTransition
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
-import core.compose.AnimatedBackStack
 import core.compose.NavRoute
 import core.vm.navigation.NavigationScreen
 import features.splash.presentation.SplashViewModel
@@ -22,17 +17,4 @@ object SplashNavRoute : NavRoute<SplashViewModel> {
     override val viewModel: SplashViewModel
         @Composable get() = koinViewModel()
 
-    override fun getExitTransition(): (AnimatedBackStack.() -> ExitTransition?) = SplashExitTransition
-
-}
-
-
-val SplashExitTransition: AnimatedBackStack.() -> ExitTransition? = {
-    fadeOut(
-        animationSpec = tween(
-            durationMillis = 500,
-            delayMillis = 400,
-            easing = androidx.compose.animation.core.FastOutSlowInEasing
-        )
-    )
 }

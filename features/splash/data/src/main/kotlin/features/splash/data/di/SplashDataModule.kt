@@ -8,6 +8,6 @@ import org.koin.dsl.module
 
 val SplashDataModule = module {
     single<SplashRepository> {
-        SplashRepositoryImpl()
+        SplashRepositoryImpl(get())
     }
 }

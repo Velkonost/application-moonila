@@ -45,6 +45,8 @@ internal constructor(
         val nextStep = OnboardingStep.getNextStep(viewState.value.step)
         if (nextStep != null) {
             emit(viewState.value.copy(step = nextStep, canGoNextStep = nextStep.canGoNextAfk))
+        } else {
+            completeOnboarding()
         }
     }
 
@@ -82,6 +84,13 @@ internal constructor(
         val canGoNext = selectedItems.isNotEmpty()
         val goalViewState = viewState.value.goalViewState.copy(selectedItems = selectedItems)
         emit(viewState.value.copy(goalViewState = goalViewState, canGoNextStep = canGoNext))
+    }
+
+    private fun completeOnboarding() {
+        launchJob {
+            onboardingRepository.completeOnboarding()
+            emit(OnboardingNavigation.NavigateToMainFlow)
+        }
     }
 
     companion object {

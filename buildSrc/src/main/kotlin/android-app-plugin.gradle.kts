@@ -42,7 +42,7 @@ android {
             .map { it as BaseVariantOutputImpl }
             .forEach { output ->
                 output.outputFileName =
-                    "app-${variant.baseName}-${variant.buildType.name}-${variant.versionName}.apk"
+                    "app-${variant.baseName}-${variant.versionName}.apk"
             }
     }
 

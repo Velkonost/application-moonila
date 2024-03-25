@@ -1,11 +1,6 @@
 package features.onboarding.presentation.screen
 
-import androidx.compose.animation.EnterTransition
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
 import androidx.compose.runtime.Composable
-import core.compose.AnimatedBackStack
 import core.compose.NavRoute
 import core.vm.navigation.NavigationScreen
 import features.onboarding.presentation.OnboardingViewModel
@@ -21,16 +16,4 @@ object OnboardingNavRoute : NavRoute<OnboardingViewModel> {
 
     override val viewModel: OnboardingViewModel
         @Composable get() = koinViewModel()
-
-    override fun getEnterTransition(): (AnimatedBackStack.() -> EnterTransition?)? = OnboardingEnterTransition
-}
-
-val OnboardingEnterTransition: AnimatedBackStack.() -> EnterTransition? = {
-    fadeIn(
-        animationSpec = tween(
-            durationMillis = 500,
-            easing = FastOutSlowInEasing
-        )
-    )
-
 }

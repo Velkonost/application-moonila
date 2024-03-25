@@ -2,6 +2,8 @@ package umbrella
 
 import core.datastore.di.CoreDataStoreModule
 import core.network.di.CoreNetworkModule
+import features.compatibility.data.di.CompatibilityDataModule
+import features.compatibility.presentation.di.CompatibilityPresentationModule
 import features.feed.data.di.FeedDataModule
 import features.feed.presentation.di.FeedPresentationModule
 import features.mooninsight.presentation.di.MoonInsightPresentationModule
@@ -44,7 +46,10 @@ object MoonilaSDK {
             MoonInsightPresentationModule,
 
             SelfKnowledgeDataModule,
-            SelfKnowledgePresentationModule
+            SelfKnowledgePresentationModule,
+
+            CompatibilityDataModule,
+            CompatibilityPresentationModule
         )
 
         modules?.let(::modules)

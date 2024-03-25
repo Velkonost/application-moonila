@@ -29,6 +29,9 @@ dependencies {
     implementation(projects.features.selfknowledge.data)
     implementation(projects.features.selfknowledge.presentation)
 
+    implementation(projects.features.compatibility.data)
+    implementation(projects.features.compatibility.presentation)
+
     implementation(projects.features.mooninsight.presentation)
     implementation(projects.features.compatibility.presentation)
 

@@ -19,6 +19,7 @@ dependencies {
     implementation(projects.features.feed.presentation)
     implementation(projects.features.mooninsight.presentation)
     implementation(projects.features.selfknowledge.presentation)
+    implementation(projects.features.compatibility.presentation)
 
     implementation(projects.core.vm)
     implementation(projects.core.util)

@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.navigation
 import core.compose.provide
 import core.vm.navigation.NavigationScreen
+import features.compatibility.presentation.screen.CompatibilityNavRoute
 import features.feed.presentation.screen.FeedNavRoute
 import features.mooninsight.presentation.screen.MoonInsightNavRoute
 import features.onboarding.presentation.screen.OnboardingNavRoute
@@ -66,5 +67,17 @@ fun NavGraphBuilder.addSelfKnowledgeRoute(
         startDestination = NavigationScreen.SelfKnowledgeNavScreen.route
     ) {
         SelfKnowledgeNavRoute.provide(this, navController, forceHideBottomBar)
+    }
+}
+
+fun NavGraphBuilder.addCompatibilityRoute(
+    navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
+) {
+    navigation(
+        route = "${NavigationScreen.CompatibilityNavScreen.route}_root",
+        startDestination = NavigationScreen.CompatibilityNavScreen.route
+    ) {
+        CompatibilityNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

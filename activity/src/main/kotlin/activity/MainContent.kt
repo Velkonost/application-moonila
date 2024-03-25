@@ -4,6 +4,7 @@ import activity.components.BottomBar
 import activity.components.MainSnackBarHost
 import activity.components.rememberSnackBarHostState
 import activity.di.AppScreens
+import activity.di.addCompatibilityRoute
 import activity.di.addFeedRoute
 import activity.di.addSelfKnowledgeRoute
 import activity.di.addSplashRoute
@@ -73,6 +74,7 @@ internal fun MainContent() {
                 addSplashRoute(navController, forceHideBottomBar)
                 addFeedRoute(navController, forceHideBottomBar)
                 addSelfKnowledgeRoute(navController, forceHideBottomBar)
+                addCompatibilityRoute(navController, forceHideBottomBar)
             }
         }
     }

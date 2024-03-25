@@ -23,6 +23,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -49,6 +50,7 @@ import core.compose.theme.PoppinsFontFamily
 @Composable
 fun BottomBar(
     navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
 ) {
 
     val navStackBackEntry by navController.currentBackStackEntryAsState()
@@ -57,11 +59,10 @@ fun BottomBar(
 
     val isVisible = currentDestination?.route in NavigationScreens.map { it.route }
     AnimatedVisibility(
-        visible = isVisible,
+        visible = isVisible && !forceHideBottomBar.value,
         enter = slideInVertically(
             animationSpec = tween(
-                durationMillis = 500,
-                delayMillis = 10,
+                durationMillis = 100,
                 easing = FastOutSlowInEasing
             ),
             initialOffsetY = { it }
@@ -69,15 +70,13 @@ fun BottomBar(
             fadeIn(
                 animationSpec = tween(
                     durationMillis = 150,
-                    delayMillis = 10,
                     easing = FastOutSlowInEasing
                 )
             )
         ),
         exit = slideOutVertically(
             animationSpec = tween(
-                durationMillis = 500,
-                delayMillis = 10,
+                durationMillis = 100,
                 easing = FastOutSlowInEasing
             ),
             targetOffsetY = { it }

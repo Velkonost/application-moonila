@@ -62,7 +62,7 @@ internal fun MainContent() {
                     })
                 },
             bottomBar = {
-                BottomBar(navController)
+                BottomBar(navController, forceHideBottomBar)
             },
 //            containerColor = colorResource(resource = SharedR.colors.main_background)
         ) {

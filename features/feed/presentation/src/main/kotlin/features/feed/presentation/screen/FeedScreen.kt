@@ -11,7 +11,10 @@ import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,7 +38,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun FeedScreen(
     modifier: Modifier = Modifier,
-    viewModel: FeedViewModel
+    viewModel: FeedViewModel,
+    forceHideBottomBar: MutableState<Boolean> = mutableStateOf(false)
 ) {
 
     val state by viewModel.viewState.collectAsStateWithLifecycle()
@@ -104,4 +108,8 @@ fun FeedScreen(
             viewModel.dispatch(FeedAction.DateSelect(it))
         }
     )
+
+    LaunchedEffect(calendarSheetState.currentValue) {
+        forceHideBottomBar.value = calendarSheetState.isVisible
+    }
 }

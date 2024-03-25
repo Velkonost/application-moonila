@@ -35,8 +35,7 @@ fun EmptyView(
                 painterResource(id = R.drawable.ic_compatibility_bg),
                 contentScale = ContentScale.Crop
             )
-            .padding(bottom = 80.dp),
-//        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(bottom = 60.dp),
     ) {
         Column(
             modifier = modifier

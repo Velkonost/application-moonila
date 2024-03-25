@@ -12,6 +12,8 @@ import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,7 +36,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun SelfKnowledgeScreen(
     modifier: Modifier = Modifier,
-    viewModel: SelfKnowledgeViewModel
+    viewModel: SelfKnowledgeViewModel,
+    forceHideBottomBar: MutableState<Boolean> = mutableStateOf(false)
 ) {
 
     val state by viewModel.viewState.collectAsStateWithLifecycle()
@@ -83,4 +86,7 @@ fun SelfKnowledgeScreen(
         item = selectedItem
     )
 
+    LaunchedEffect(detailsSheetState.currentValue) {
+        forceHideBottomBar.value = detailsSheetState.isVisible
+    }
 }

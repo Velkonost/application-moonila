@@ -134,9 +134,7 @@ fun RowScope.PointView(
     item: SelfKnowledgeItemPoint
 ) {
 
-    Column(
-        modifier = modifier.weight(1f)
-    ) {
+    Column(modifier = modifier.weight(1f)) {
         Image(
             modifier = modifier.size(24.dp),
             painter = painterResource(id = item.iconId),

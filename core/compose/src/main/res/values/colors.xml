@@ -24,4 +24,6 @@
     <color name="common_text_color">#AEAEFB</color>
 
     <color name="sheet_header_bg">#FFEBC9</color>
+
+    <color name="cloudy_color">#F0F0FF</color>
 </resources>

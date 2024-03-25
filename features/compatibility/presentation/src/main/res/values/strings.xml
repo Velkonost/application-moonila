@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="empty_title">Check Your Moon Compatibility</string>
+    <string name="empty_subtitle">Uncover how the Moon shapes your relationships and unlock all the secrets of your cosmic compatibility.</string>
+
+    <string name="empty_button">Test Compatibility</string>
+</resources>

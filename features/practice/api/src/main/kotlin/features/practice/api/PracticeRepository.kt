@@ -1,0 +1,3 @@
+package features.practice.api
+
+interface PracticeRepository

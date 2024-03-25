@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="menu_item_calendar">Calendar</string>
+    <string name="menu_item_compatibility">Compatibility</string>
+    <string name="menu_item_knowledge">Knowledge</string>
+    <string name="menu_item_practice">Practice</string>
+    <string name="menu_item_wisdom">Wisdom</string>
+
+</resources>

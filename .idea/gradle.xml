@@ -52,6 +52,10 @@
             <option value="$PROJECT_DIR$/features/paywall/api" />
             <option value="$PROJECT_DIR$/features/paywall/data" />
             <option value="$PROJECT_DIR$/features/paywall/presentation" />
+            <option value="$PROJECT_DIR$/features/practice" />
+            <option value="$PROJECT_DIR$/features/practice/api" />
+            <option value="$PROJECT_DIR$/features/practice/data" />
+            <option value="$PROJECT_DIR$/features/practice/presentation" />
             <option value="$PROJECT_DIR$/features/selfknowledge" />
             <option value="$PROJECT_DIR$/features/selfknowledge/api" />
             <option value="$PROJECT_DIR$/features/selfknowledge/data" />
@@ -60,6 +64,10 @@
             <option value="$PROJECT_DIR$/features/splash/api" />
             <option value="$PROJECT_DIR$/features/splash/data" />
             <option value="$PROJECT_DIR$/features/splash/presentation" />
+            <option value="$PROJECT_DIR$/features/wisdom" />
+            <option value="$PROJECT_DIR$/features/wisdom/api" />
+            <option value="$PROJECT_DIR$/features/wisdom/data" />
+            <option value="$PROJECT_DIR$/features/wisdom/presentation" />
             <option value="$PROJECT_DIR$/umbrella" />
           </set>
         </option>

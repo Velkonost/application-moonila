@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import features.compatibility.presentation.CompatibilityViewModel
 import com.moonila.features.compatibility.presentation.R
+import features.compatibility.presentation.screen.components.EmptyView
 
 @Composable
 fun CompatibilityScreen(
@@ -27,5 +28,5 @@ fun CompatibilityScreen(
     val state by viewModel.viewState.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
-
+    EmptyView()
 }

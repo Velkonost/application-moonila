@@ -6,8 +6,10 @@ import activity.components.rememberSnackBarHostState
 import activity.di.AppScreens
 import activity.di.addCompatibilityRoute
 import activity.di.addFeedRoute
+import activity.di.addPracticeRoute
 import activity.di.addSelfKnowledgeRoute
 import activity.di.addSplashRoute
+import activity.di.addWisdomRoute
 import android.annotation.SuppressLint
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.fillMaxSize
@@ -75,6 +77,8 @@ internal fun MainContent() {
                 addFeedRoute(navController, forceHideBottomBar)
                 addSelfKnowledgeRoute(navController, forceHideBottomBar)
                 addCompatibilityRoute(navController, forceHideBottomBar)
+                addPracticeRoute(navController, forceHideBottomBar)
+                addWisdomRoute(navController, forceHideBottomBar)
             }
         }
     }

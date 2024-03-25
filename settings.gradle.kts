@@ -56,4 +56,12 @@ include(
     ":features:selfknowledge:api",
     ":features:selfknowledge:data",
     ":features:selfknowledge:presentation",
+
+    ":features:practice:api",
+    ":features:practice:data",
+    ":features:practice:presentation",
+
+    ":features:wisdom:api",
+    ":features:wisdom:data",
+    ":features:wisdom:presentation",
 )

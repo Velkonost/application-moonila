@@ -15,6 +15,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moonila.features.compatibility.presentation.R
@@ -34,13 +35,14 @@ fun EmptyView(
                 painterResource(id = R.drawable.ic_compatibility_bg),
                 contentScale = ContentScale.Crop
             )
-            .padding(bottom = 100.dp),
+            .padding(bottom = 80.dp),
 //        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(top = 90.dp),
+                .padding(top = 90.dp)
+                .padding(horizontal = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier.weight(1f))
@@ -49,7 +51,9 @@ fun EmptyView(
                 fontFamily = BonaNovaFontFamily,
                 fontWeight = FontWeight.Bold,
                 color = colorResource(id = R.color.empty_title_color),
-                fontSize = 36.sp
+                fontSize = 36.sp,
+                lineHeight = 36.sp,
+                textAlign = TextAlign.Center
             )
             Text(
                 modifier = modifier.padding(top = 12.dp),
@@ -57,7 +61,8 @@ fun EmptyView(
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.Normal,
                 color = colorResource(id = com.moonila.core.compose.R.color.cloudy_color),
-                fontSize = 14.sp
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center
             )
             Spacer(modifier.weight(1f))
         }
@@ -67,7 +72,7 @@ fun EmptyView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier.weight(1f))
-            AppButton(label = stringResource(id = R.string.empty_button)) {
+            AppButton(label = stringResource(id = R.string.empty_button), enabled = true) {
 
             }
         }

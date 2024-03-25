@@ -11,8 +11,10 @@ import features.feed.presentation.screen.FeedNavRoute
 import features.mooninsight.presentation.screen.MoonInsightNavRoute
 import features.onboarding.presentation.screen.OnboardingNavRoute
 import features.paywall.presentation.screen.PaywallNavRoute
+import features.practice.presentation.screen.PracticeNavRoute
 import features.selfknowledge.presentation.screen.SelfKnowledgeNavRoute
 import features.splash.presentation.screen.SplashNavRoute
+import features.wisdom.presentation.screen.WisdomNavRoute
 
 val AppScreens = setOf(
     PaywallNavRoute
@@ -25,11 +27,11 @@ val AppScreens = setOf(
 )
 
 val NavigationScreens = setOf(
-    SplashNavRoute,
-//    DiaryNavRoute,
-//    CalendarsNavRoute,
-//    AbilitiesNavRoute,
-//    ProfileNavRoute
+    FeedNavRoute,
+    CompatibilityNavRoute,
+    SelfKnowledgeNavRoute,
+    PracticeNavRoute,
+    WisdomNavRoute
 )
 
 fun NavGraphBuilder.addSplashRoute(
@@ -79,5 +81,29 @@ fun NavGraphBuilder.addCompatibilityRoute(
         startDestination = NavigationScreen.CompatibilityNavScreen.route
     ) {
         CompatibilityNavRoute.provide(this, navController, forceHideBottomBar)
+    }
+}
+
+fun NavGraphBuilder.addPracticeRoute(
+    navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
+) {
+    navigation(
+        route = "${NavigationScreen.PracticeNavScreen.route}_root",
+        startDestination = NavigationScreen.PracticeNavScreen.route
+    ) {
+        PracticeNavRoute.provide(this, navController, forceHideBottomBar)
+    }
+}
+
+fun NavGraphBuilder.addWisdomRoute(
+    navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
+) {
+    navigation(
+        route = "${NavigationScreen.WisdomNavScreen.route}_root",
+        startDestination = NavigationScreen.WisdomNavScreen.route
+    ) {
+        WisdomNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

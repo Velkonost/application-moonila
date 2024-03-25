@@ -16,6 +16,10 @@ sealed class NavigationScreen(val route: String) {
     data object SelfKnowledgeNavScreen : NavigationScreen(SELF_KNOWLEDGE_DESTINATION)
 
     data object CompatibilityNavScreen : NavigationScreen(COMPATIBILITY_DESTINATION)
+
+    data object PracticeNavScreen : NavigationScreen(PRACTICE_DESTINATION)
+
+    data object WisdomNavScreen : NavigationScreen(WISDOM_DESTINATION)
 }
 
 const val NAV_PREFIX: String = "com.moonila"
@@ -29,5 +33,7 @@ const val MOON_INSIGHT_DESTINATION: String = "$NAV_PREFIX.feed/MoonInsightScreen
 
 const val SELF_KNOWLEDGE_DESTINATION: String = "$NAV_PREFIX.selfknowledge/SelfKnowledgeScreen"
 const val COMPATIBILITY_DESTINATION: String = "$NAV_PREFIX.compatibility/CompatibilityScreen"
+const val PRACTICE_DESTINATION: String = "$NAV_PREFIX.practice/PracticeScreen"
+const val WISDOM_DESTINATION: String = "$NAV_PREFIX.wisdom/WisdomScreen"
 
 const val ARG_MOON_INSIGHT_TYPE: String = "arg_moon_insight_type"

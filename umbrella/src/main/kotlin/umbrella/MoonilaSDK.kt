@@ -11,10 +11,14 @@ import features.onboarding.data.di.OnboardingDataModule
 import features.onboarding.presentation.di.OnboardingPresentationModule
 import features.paywall.data.di.PaywallDataModule
 import features.paywall.presentation.di.PaywallPresentationModule
+import features.practice.data.di.PracticeDataModule
+import features.practice.presentation.di.PracticePresentationModule
 import features.selfknowledge.data.di.SelfKnowledgeDataModule
 import features.selfknowledge.presentation.di.SelfKnowledgePresentationModule
 import features.splash.data.di.SplashDataModule
 import features.splash.presentation.di.SplashPresentationModule
+import features.wisdom.data.di.WisdomDataModule
+import features.wisdom.presentation.di.WisdomPresentationModule
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.KoinAppDeclaration
@@ -49,7 +53,13 @@ object MoonilaSDK {
             SelfKnowledgePresentationModule,
 
             CompatibilityDataModule,
-            CompatibilityPresentationModule
+            CompatibilityPresentationModule,
+
+            PracticeDataModule,
+            PracticePresentationModule,
+
+            WisdomDataModule,
+            WisdomPresentationModule
         )
 
         modules?.let(::modules)

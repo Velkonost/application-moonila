@@ -32,8 +32,13 @@ dependencies {
     implementation(projects.features.compatibility.data)
     implementation(projects.features.compatibility.presentation)
 
+    implementation(projects.features.practice.data)
+    implementation(projects.features.practice.presentation)
+
+    implementation(projects.features.wisdom.data)
+    implementation(projects.features.wisdom.presentation)
+
     implementation(projects.features.mooninsight.presentation)
-    implementation(projects.features.compatibility.presentation)
 
     implementation(libs.koin.core)
 }

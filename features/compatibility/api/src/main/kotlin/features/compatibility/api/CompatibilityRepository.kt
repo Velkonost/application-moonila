@@ -1,0 +1,3 @@
+package features.compatibility.api
+
+interface CompatibilityRepository

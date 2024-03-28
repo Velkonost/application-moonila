@@ -1,6 +1,8 @@
 package features.compatibility.presentation.screen.components
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -16,6 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,6 +37,7 @@ import com.moonila.features.compatibility.presentation.R
 import core.compose.theme.PoppinsFontFamily
 import features.compatibility.presentation.model.CompatibilityItem
 import features.compatibility.presentation.screen.components.details.DetailsHeader
+import features.compatibility.presentation.screen.components.details.DetailsMoonPhase
 import features.compatibility.presentation.screen.components.details.DetailsProgressBar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -52,17 +56,20 @@ fun CompatibilityDetailsSheet(
     val shortDelay = 30L
     val progress = remember { mutableIntStateOf(0) }
 
-    LaunchedEffect(Unit) {
-        scope.launch {
+    LaunchedEffect(modalSheetState.currentValue) {
+        if (modalSheetState.isVisible) {
+            scope.launch {
+                progress.intValue = 0
 
-            while (progress.intValue != item.percent.roundToInt()) {
-                val currentValue = progress.intValue
-                if (currentValue in 0..10 || currentValue in 30..40 || currentValue in 50..60 || currentValue in 70..90) {
-                    delay(longDelay)
-                    progress.intValue += 1
-                } else {
-                    delay(shortDelay)
-                    progress.intValue += 1
+                while (progress.intValue != item.percent.roundToInt()) {
+                    val currentValue = progress.intValue
+                    if (currentValue in 0..10 || currentValue in 30..40 || currentValue in 50..60 || currentValue in 70..90) {
+                        delay(longDelay)
+                        progress.intValue += 1
+                    } else {
+                        delay(shortDelay)
+                        progress.intValue += 1
+                    }
                 }
             }
         }
@@ -97,7 +104,7 @@ fun CompatibilityDetailsSheet(
                         .padding(bottom = 100.dp)
                         .padding(horizontal = 16.dp)
                 ) {
-                    FlowRow {
+                    FlowRow(modifier = modifier.padding(top = 24.dp)) {
                         Text(
                             text = item.firstName,
                             fontFamily = PoppinsFontFamily,
@@ -129,13 +136,13 @@ fun CompatibilityDetailsSheet(
                     }
 
                     Row(
-                        modifier = modifier.padding(top = 8.dp),
+                        modifier = modifier.padding(top = 4.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
                             text = stringResource(id = R.string.details_subtitle),
                             fontFamily = PoppinsFontFamily,
-                            fontWeight = FontWeight.Medium,
+                            fontWeight = FontWeight.Normal,
                             color = colorResource(id = com.moonila.core.compose.R.color.common_text_color),
                             fontSize = 14.sp,
                             textAlign = TextAlign.Start
@@ -146,7 +153,7 @@ fun CompatibilityDetailsSheet(
                         Text(
                             text = "${item.percent}%",
                             fontFamily = PoppinsFontFamily,
-                            fontWeight = FontWeight.Medium,
+                            fontWeight = FontWeight.SemiBold,
                             color = colorResource(id = com.moonila.core.compose.R.color.main_green),
                             fontSize = 14.sp,
                             textAlign = TextAlign.Start
@@ -156,6 +163,30 @@ fun CompatibilityDetailsSheet(
                     Spacer(modifier.height(12.dp))
 
                     DetailsProgressBar(percent = progress.intValue)
+
+                    Box(
+                        modifier = modifier
+                            .padding(top = 16.dp)
+                            .fillMaxWidth()
+                            .height(1.dp)
+                            .background(
+                                color = colorResource(id = R.color.compatibility_item_bg),
+                                shape = MaterialTheme.shapes.medium
+                            )
+                    )
+                    
+                    DetailsMoonPhase(
+                        firstIconResId = item.firstMoonIcon,
+                        secondIconResId = item.secondMoonIcon,
+                        firstTitle = "Waxing Cr",
+                        secondTitle = "Waning Gib",
+                        textFirstPart = "At birth, your Moon was in Waxing Crescent\n" +
+                                "phase and your partner's Moon was\n" +
+                                "in Waning Gibbous phase.",
+                        textSecondPart = "The natives born under Waxing Crescent know the value of hard work because getting what they want can feel challenging at times. You are most compatible with Waning Gibbous since the fearless determination from Gibbous can help you feel passionate to continue pursuing your dreams.\n" +
+                                "\n" +
+                                "The rising star (waxing crescent) and the mentor (waning gibbous) share a preference for growth and ease. But in some cases, the thoughtful waning gibbous could grow frustrated with the waxing crescent’s carefree curiosity and spontaneity."
+                    )
                 }
 
             }

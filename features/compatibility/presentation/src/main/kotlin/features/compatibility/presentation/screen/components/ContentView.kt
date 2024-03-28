@@ -13,6 +13,8 @@ import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,6 +34,7 @@ import kotlinx.coroutines.launch
 fun ContentView(
     modifier: Modifier = Modifier,
     items: List<CompatibilityItem>,
+    forceHideBottomBar: MutableState<Boolean>,
     onAdd: () -> Unit,
     onItemRemove: (CompatibilityItem) -> Unit
 ) {
@@ -77,6 +80,10 @@ fun ContentView(
         modalSheetState = detailsSheetState,
         item = selectedItem
     )
+
+    LaunchedEffect(detailsSheetState.currentValue) {
+        forceHideBottomBar.value = detailsSheetState.isVisible
+    }
 
 }
 

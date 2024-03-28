@@ -10,4 +10,6 @@
 
     <string name="details_title">Overview</string>
     <string name="details_subtitle">Your harmony score</string>
+
+    <string name="details_moon_phase">Moon Phase</string>
 </resources>

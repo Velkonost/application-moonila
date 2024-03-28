@@ -3,6 +3,7 @@ package features.compatibility.presentation.screen.components.details
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -32,6 +33,7 @@ fun DetailsProgressBar(
     ) {
         Box(
             modifier = modifier
+                .padding(2.dp)
                 .background(
                     color = colorResource(id = com.moonila.core.compose.R.color.main_green),
                     shape = RoundedCornerShape(12.dp)

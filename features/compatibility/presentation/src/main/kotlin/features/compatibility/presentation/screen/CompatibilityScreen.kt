@@ -1,7 +1,9 @@
 package features.compatibility.presentation.screen
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -13,7 +15,8 @@ import features.compatibility.presentation.screen.components.EmptyView
 @Composable
 fun CompatibilityScreen(
     modifier: Modifier = Modifier,
-    viewModel: CompatibilityViewModel
+    viewModel: CompatibilityViewModel,
+    forceHideBottomBar: MutableState<Boolean> = mutableStateOf(false)
 ) {
 
     val state by viewModel.viewState.collectAsStateWithLifecycle()
@@ -24,6 +27,7 @@ fun CompatibilityScreen(
     } else {
         ContentView(
             items = state.items,
+            forceHideBottomBar = forceHideBottomBar,
             onAdd = {
 
             },

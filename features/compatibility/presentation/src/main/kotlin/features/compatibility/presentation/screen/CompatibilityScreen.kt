@@ -8,6 +8,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import features.compatibility.presentation.CompatibilityViewModel
 import features.compatibility.presentation.contract.CompatibilityAction
 import features.compatibility.presentation.screen.components.ContentView
+import features.compatibility.presentation.screen.components.EmptyView
 
 @Composable
 fun CompatibilityScreen(
@@ -18,16 +19,18 @@ fun CompatibilityScreen(
     val state by viewModel.viewState.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
-//    EmptyView()
+    if (state.items.isEmpty()) {
+        EmptyView()
+    } else {
+        ContentView(
+            items = state.items,
+            onAdd = {
 
-    ContentView(
-        items = state.items,
-        onAdd = {
-
-        },
-        onItemRemove = {
-            viewModel.dispatch(CompatibilityAction.ItemDelete(it))
-        }
-    )
+            },
+            onItemRemove = {
+                viewModel.dispatch(CompatibilityAction.ItemDelete(it))
+            }
+        )
+    }
 
 }

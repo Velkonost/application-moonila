@@ -183,7 +183,18 @@ fun CompatibilityDetailsSheet(
                         textFirstPart = "At birth, your Moon was in Waxing Crescent phase and your partner's Moon was in Waning Gibbous phase.",
                         textSecondPart = "The natives born under Waxing Crescent know the value of hard work because getting what they want can feel challenging at times. You are most compatible with Waning Gibbous since the fearless determination from Gibbous can help you feel passionate to continue pursuing your dreams.\n" +
                                 "\n" +
-                                "The rising star (waxing crescent) and the mentor (waning gibbous) share a preference for growth and ease. But in some cases, the thoughtful waning gibbous could grow frustrated with the waxing crescent’s carefree curiosity and spontaneity."
+                                "The rising star (waxing crescent) and the mentor (waning gibbous) share a preference for growth and ease. But in some cases, the thoughtful waning gibbous could grow frustrated with the waxing crescent’s carefree curiosity and spontaneity.",
+                        bgColor = colorResource(id = R.color.compatibility_item_bg)
+                    )
+
+                    DetailsMoonPhase(
+                        firstIconResId = item.firstSignIcon,
+                        secondIconResId = item.secondSignIcon,
+                        firstTitle = "Waxing Cr",
+                        secondTitle = "Waning Gib",
+                        textFirstPart = "At birth, your Moon was in Waxing Crescent phase and your partner's Moon was in Waning Gibbous phase.",
+                        textSecondPart = "You may have challenges in your relationship and experience a lack of romanticism and passion. You tend to take your partner’s spontaneous behavior and attacks quite seriously, leading to potential conflicts. Therefore, either learn to treat the lunar Aries easier, or your life will turn into a battlefield. Constantly accusing the lunar Aries of not loving and respecting you may create a communication gap.",
+                        bgColor = colorResource(id = com.moonila.core.compose.R.color.main_pink)
                     )
                 }
 

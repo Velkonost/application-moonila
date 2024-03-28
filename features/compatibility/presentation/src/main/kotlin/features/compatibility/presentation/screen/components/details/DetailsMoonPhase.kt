@@ -15,6 +15,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -36,7 +39,8 @@ fun DetailsMoonPhase(
     firstTitle: String,
     secondTitle: String,
     textFirstPart: String,
-    textSecondPart: String
+    textSecondPart: String,
+    bgColor: Color
 ) {
 
     Box(
@@ -44,9 +48,10 @@ fun DetailsMoonPhase(
             .padding(top = 16.dp)
             .fillMaxWidth()
             .background(
-                color = colorResource(id = R.color.compatibility_item_bg),
+                color = bgColor,
                 shape = RoundedCornerShape(16.dp)
-            ),
+            )
+            .clip(RoundedCornerShape(16.dp)),
         contentAlignment = Alignment.TopStart
     ) {
         Image(

@@ -80,9 +80,10 @@ fun SelfKnowledgeDetailsSheet(
                     }
                 }
 
-                Box(modifier = modifier
-                    .verticalScroll(rememberScrollState())
-                    .padding(bottom = 100.dp)) {
+                Box(
+                    modifier = modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(bottom = 100.dp)) {
                     Image(
                         modifier = modifier
                             .align(Alignment.TopCenter)

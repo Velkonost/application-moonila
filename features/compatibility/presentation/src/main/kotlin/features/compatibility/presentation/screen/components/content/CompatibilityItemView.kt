@@ -46,6 +46,7 @@ import kotlinx.coroutines.delay
 fun LazyItemScope.CompatibilityItemView(
     modifier: Modifier = Modifier,
     item: CompatibilityItem,
+    onClick: () -> Unit,
     onRemove: () -> Unit
 ) {
 

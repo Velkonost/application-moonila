@@ -7,4 +7,6 @@
     <string name="content_title">Compatibility</string>
 
     <string name="empty_button">Test Compatibility</string>
+
+    <string name="details_title">Overview</string>
 </resources>

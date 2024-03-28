@@ -8,7 +8,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
@@ -16,7 +25,9 @@ import com.moonila.features.compatibility.presentation.R
 import features.compatibility.presentation.model.CompatibilityItem
 import features.compatibility.presentation.screen.components.content.CompatibilityItemView
 import features.compatibility.presentation.screen.components.content.ContentViewHeader
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ContentView(
     modifier: Modifier = Modifier,
@@ -26,6 +37,13 @@ fun ContentView(
 ) {
 
     val listState = rememberLazyListState()
+    val scope = rememberCoroutineScope()
+
+    val detailsSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
+        initialValue = ModalBottomSheetValue.Hidden,
+        skipHalfExpanded = true,
+    )
+    var selectedItem by remember { mutableStateOf(items.first()) }
 
     Column(
         modifier = modifier
@@ -39,11 +57,26 @@ fun ContentView(
             contentPadding = PaddingValues(bottom = 120.dp)
         ) {
             items(items, key = { it.id }) {
-                CompatibilityItemView(item = it) {
-                    onItemRemove(it)
-                }
+                CompatibilityItemView(
+                    item = it,
+                    onClick = {
+                        selectedItem = it
+                        scope.launch {
+                            detailsSheetState.show()
+                        }
+                    },
+                    onRemove = {
+                        onItemRemove(it)
+                    }
+                )
             }
         }
     }
+
+    CompatibilityDetailsSheet(
+        modalSheetState = detailsSheetState,
+        item = selectedItem
+    )
+
 }
 

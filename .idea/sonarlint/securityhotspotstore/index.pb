@@ -569,3 +569,7 @@ rfeatures/compatibility/presentation/src/main/kotlin/features/compatibility/pres
 Šfeatures/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/content/CompatibilityItemView.kt,a/e/aed2a22476e76c6a2cccd34371e9e8f9f499f032
 ½
 Œfeatures/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/content/CompatibilityItemFooter.kt,0/7/075e19b58786e98fd778841259282e945d0521ff
+·
+†features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/CompatibilityDetailsSheet.kt,b/4/b40911e090884154804409f9bd8d5155b57309ee
+³
+‚features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsHeader.kt,9/b/9b4bb004b0c199a9bfd3ebe4ed6423feee6bb932

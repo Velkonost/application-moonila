@@ -56,7 +56,7 @@ fun LazyItemScope.SliderItem(
             SliderItemPoint(
                 title = stringResource(id = if (index == 0) R.string.full_moon else R.string.solar_eclipse),
                 date = if (index == 0) moonState.fullMoonDate else moonState.solarEclipseDate,
-                icon = painterResource(id = if (index == 0) R.drawable.ic_full_moon else R.drawable.ic_solar_eclipse)
+                icon = painterResource(id = if (index == 0) com.moonila.core.compose.R.drawable.ic_full_moon else R.drawable.ic_solar_eclipse)
             )
         }
     }

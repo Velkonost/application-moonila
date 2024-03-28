@@ -28,6 +28,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -36,7 +37,9 @@ import androidx.compose.ui.unit.sp
 import com.moonila.features.compatibility.presentation.R
 import core.compose.theme.PoppinsFontFamily
 import features.compatibility.presentation.model.CompatibilityItem
+import features.compatibility.presentation.screen.components.details.DetailsAdvice
 import features.compatibility.presentation.screen.components.details.DetailsHeader
+import features.compatibility.presentation.screen.components.details.DetailsImportantPoints
 import features.compatibility.presentation.screen.components.details.DetailsMoonPhase
 import features.compatibility.presentation.screen.components.details.DetailsProgressBar
 import kotlinx.coroutines.delay
@@ -51,6 +54,7 @@ fun CompatibilityDetailsSheet(
     item: CompatibilityItem
 ) {
     val scope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     val longDelay = 90L
     val shortDelay = 30L
@@ -59,6 +63,7 @@ fun CompatibilityDetailsSheet(
     LaunchedEffect(modalSheetState.currentValue) {
         if (modalSheetState.isVisible) {
             scope.launch {
+                scrollState.scrollTo(0)
                 progress.intValue = 0
 
                 while (progress.intValue != item.percent.roundToInt()) {
@@ -100,7 +105,7 @@ fun CompatibilityDetailsSheet(
                 Column(
                     modifier = modifier
                         .fillMaxWidth()
-                        .verticalScroll(rememberScrollState())
+                        .verticalScroll(scrollState)
                         .padding(bottom = 100.dp)
                         .padding(horizontal = 16.dp)
                 ) {
@@ -174,8 +179,9 @@ fun CompatibilityDetailsSheet(
                                 shape = MaterialTheme.shapes.medium
                             )
                     )
-                    
+
                     DetailsMoonPhase(
+                        blockTitle = stringResource(id = R.string.details_moon_phase),
                         firstIconResId = item.firstMoonIcon,
                         secondIconResId = item.secondMoonIcon,
                         firstTitle = "Waxing Cr",
@@ -188,6 +194,7 @@ fun CompatibilityDetailsSheet(
                     )
 
                     DetailsMoonPhase(
+                        blockTitle = stringResource(id = R.string.details_moon_sign),
                         firstIconResId = item.firstSignIcon,
                         secondIconResId = item.secondSignIcon,
                         firstTitle = "Waxing Cr",
@@ -195,6 +202,20 @@ fun CompatibilityDetailsSheet(
                         textFirstPart = "At birth, your Moon was in Waxing Crescent phase and your partner's Moon was in Waning Gibbous phase.",
                         textSecondPart = "You may have challenges in your relationship and experience a lack of romanticism and passion. You tend to take your partner’s spontaneous behavior and attacks quite seriously, leading to potential conflicts. Therefore, either learn to treat the lunar Aries easier, or your life will turn into a battlefield. Constantly accusing the lunar Aries of not loving and respecting you may create a communication gap.",
                         bgColor = colorResource(id = com.moonila.core.compose.R.color.main_pink)
+                    )
+
+                    DetailsAdvice(
+                        image = painterResource(id = R.drawable.ic_compatibility_details_advice_sample),
+                        text = "To find happiness with a lunar Aries, focus on personal growth. Instead of trying to change them, embrace self-transformation. Learn to be more lighthearted, have fun, openly express your emotions, and avoid getting upset over minor issues."
+                    )
+
+                    DetailsImportantPoints(
+                        items = listOf(
+                            "Aries is spontaneous and straightforward in expressing desires and feelings; Capricorn is cautious and reserved, often quite subdued",
+                            "Aries is spontaneous and straightforward in expressing desires and feelings; Capricorn is cautious and reserved, often quite subdued",
+                            "Aries is spontaneous and straightforward in expressing desires and feelings; Capricorn is cautious and reserved, often quite subdued",
+                            "Aries is spontaneous and straightforward in expressing desires and feelings; Capricorn is cautious and reserved, often quite subdued",
+                        )
                     )
                 }
 

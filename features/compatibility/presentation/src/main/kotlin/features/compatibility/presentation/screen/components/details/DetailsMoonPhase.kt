@@ -34,6 +34,7 @@ import core.compose.theme.PoppinsFontFamily
 @Composable
 fun DetailsMoonPhase(
     modifier: Modifier = Modifier,
+    blockTitle: String,
     firstIconResId: Int,
     secondIconResId: Int,
     firstTitle: String,
@@ -65,7 +66,7 @@ fun DetailsMoonPhase(
             modifier = modifier.padding(20.dp)
         ) {
             Text(
-                text = stringResource(id = R.string.details_moon_phase),
+                text = blockTitle,
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 color = colorResource(id = com.moonila.core.compose.R.color.light_color),

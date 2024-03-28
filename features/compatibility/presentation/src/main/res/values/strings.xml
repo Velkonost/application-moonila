@@ -12,4 +12,7 @@
     <string name="details_subtitle">Your harmony score</string>
 
     <string name="details_moon_phase">Moon Phase</string>
+    <string name="details_moon_sign">Moon Sign</string>
+    <string name="details_advice">Advice</string>
+    <string name="details_important_points">Important Points:</string>
 </resources>

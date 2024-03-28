@@ -5,4 +5,6 @@
     <color name="compatibility_item_bg">#4650BF</color>
     <color name="dismiss_bg">#343C94</color>
     <color name="main_bg">#2B317B</color>
+
+    <color name="progress_bg">#13181E</color>
 </resources>

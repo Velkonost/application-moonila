@@ -6,7 +6,7 @@ data class CompatibilityItem(
     val id: String = UUID.randomUUID().toString(),
     val firstName: String,
     val secondName: String,
-    val percent: String,
+    val percent: Float,
     val firstMoonIcon: Int,
     val secondMoonIcon: Int,
     val firstSignIcon: Int,

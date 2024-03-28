@@ -573,3 +573,5 @@ rfeatures/compatibility/presentation/src/main/kotlin/features/compatibility/pres
 †features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/CompatibilityDetailsSheet.kt,b/4/b40911e090884154804409f9bd8d5155b57309ee
 ³
 ‚features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsHeader.kt,9/b/9b4bb004b0c199a9bfd3ebe4ed6423feee6bb932
+¸
+‡features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsProgressBar.kt,b/8/b896300da05c30959eef6bc9e6dce3ef4d71bf04

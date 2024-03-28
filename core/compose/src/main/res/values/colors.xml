@@ -2,6 +2,7 @@
 <resources>
 
     <color name="main_yellow">#FBE787</color>
+    <color name="main_green">#00B84A</color>
 
     <color name="orange_gradient_start">#FFA746</color>
     <color name="orange_gradient_end">#FFEBCE</color>

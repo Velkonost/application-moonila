@@ -5,6 +5,8 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
@@ -70,7 +72,12 @@ fun LazyItemScope.CompatibilityItemView(
             directions = setOf(DismissDirection.EndToStart),
             modifier = modifier
                 .animateItemPlacement()
-                .padding(top = 16.dp),
+                .padding(top = 16.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null,
+                    onClick = onClick
+                ),
             background = {
                 DismissBackground(dismissState = dismissState)
             },
@@ -125,7 +132,7 @@ fun LazyItemScope.CompatibilityItemView(
                         )
                         Text(
                             modifier = modifier.padding(start = 2.dp),
-                            text = item.percent,
+                            text = "${item.percent}%",
                             fontFamily = PoppinsFontFamily,
                             fontWeight = FontWeight.Medium,
                             color = colorResource(id = com.moonila.core.compose.R.color.main_yellow),

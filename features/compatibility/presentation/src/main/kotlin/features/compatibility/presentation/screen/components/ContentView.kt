@@ -6,9 +6,9 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.DismissDirection
 import androidx.compose.material.DismissState
 import androidx.compose.material.DismissValue
 import androidx.compose.material.ExperimentalMaterialApi
@@ -32,9 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -60,14 +59,15 @@ fun ContentView(
 
     Column(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .background(colorResource(id = R.color.main_bg))
+            .padding(horizontal = 16.dp)
     ) {
         ContentViewHeader(onAddClick = onAdd)
         LazyColumn(
             state = listState
         ) {
-            items(items) {
+            items(items, key = { it.id }) {
                 CompatibilityItemView(item = it) {
                     onItemRemove(it)
                 }
@@ -86,7 +86,7 @@ fun LazyItemScope.CompatibilityItemView(
     onRemove: () -> Unit
 ) {
 
-    var show by remember { mutableStateOf(false) }
+    var show by remember { mutableStateOf(true) }
 
     val dismissState = rememberDismissState(
         confirmStateChange = {
@@ -97,10 +97,16 @@ fun LazyItemScope.CompatibilityItemView(
         }
     )
 
-    AnimatedVisibility(show, exit = fadeOut(spring())) {
+    AnimatedVisibility(
+        modifier = modifier.animateItemPlacement(),
+        visible = show, exit = fadeOut(spring())
+    ) {
         SwipeToDismiss(
             state = dismissState,
-            modifier = modifier.animateItemPlacement(),
+            directions = setOf(DismissDirection.EndToStart),
+            modifier = modifier
+                .animateItemPlacement()
+                .padding(top = 16.dp),
             background = {
                 DismissBackground(dismissState = dismissState)
             },
@@ -167,12 +173,18 @@ fun DismissBackground(
     Row(
         modifier = modifier
             .fillMaxSize()
-            .background(color = colorResource(id = R.color.dismiss_bg)),
+            .background(
+                color = colorResource(id = R.color.dismiss_bg),
+                shape = RoundedCornerShape(16.dp)
+            ),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
+        Spacer(modifier.weight(1f))
         Image(
-            modifier = modifier.size(24.dp),
+            modifier = modifier
+                .padding(end = 12.dp)
+                .size(24.dp),
             painter = painterResource(id = R.drawable.ic_compatibility_trash),
             contentDescription = null
         )

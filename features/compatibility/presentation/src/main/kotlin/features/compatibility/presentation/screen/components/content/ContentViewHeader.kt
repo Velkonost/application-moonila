@@ -6,6 +6,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -30,8 +31,8 @@ fun ContentViewHeader(
     Row(
         modifier = modifier
             .padding(top = 40.dp)
-            .padding(horizontal = 16.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .height(44.dp),
     ) {
         Spacer(modifier = modifier.size(28.dp))
         Spacer(modifier.weight(1f))

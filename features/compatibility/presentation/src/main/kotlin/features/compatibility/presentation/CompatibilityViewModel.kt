@@ -24,7 +24,7 @@ internal constructor(
 
     private fun obtainItemDelete(value: CompatibilityItem) {
         val items = viewState.value.items.toMutableList()
-        items.remove(value)
+        items.removeIf { it.id == value.id }
         emit(viewState.value.copy(items = items))
     }
 

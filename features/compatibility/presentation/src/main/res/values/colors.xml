@@ -2,4 +2,7 @@
 <resources>
     <color name="empty_title_color">#FCFBEB</color>
 
+    <color name="compatibility_item_bg">#2A3392</color>
+    <color name="dismiss_bg">#343C94</color>
+    <color name="main_bg">#2B317B</color>
 </resources>

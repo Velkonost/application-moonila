@@ -3,5 +3,8 @@
     <string name="empty_title">Check Your Moon Compatibility</string>
     <string name="empty_subtitle">Uncover how the Moon shapes your relationships and unlock all the secrets of your cosmic compatibility.</string>
 
+    <string name="compatibility_percent">Compatibility:</string>
+    <string name="content_title">Compatibility</string>
+
     <string name="empty_button">Test Compatibility</string>
 </resources>

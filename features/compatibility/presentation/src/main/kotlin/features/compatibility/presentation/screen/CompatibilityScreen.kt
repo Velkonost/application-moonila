@@ -6,7 +6,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import features.compatibility.presentation.CompatibilityViewModel
-import features.compatibility.presentation.screen.components.EmptyView
+import features.compatibility.presentation.contract.CompatibilityAction
+import features.compatibility.presentation.screen.components.ContentView
 
 @Composable
 fun CompatibilityScreen(
@@ -17,5 +18,16 @@ fun CompatibilityScreen(
     val state by viewModel.viewState.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
-    EmptyView()
+//    EmptyView()
+
+    ContentView(
+        items = state.items,
+        onAdd = {
+
+        },
+        onItemRemove = {
+            viewModel.dispatch(CompatibilityAction.ItemDelete(it))
+        }
+    )
+
 }

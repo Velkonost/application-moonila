@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="main_yellow">#FBE787</color>
+
     <color name="orange_gradient_start">#FFA746</color>
     <color name="orange_gradient_end">#FFEBCE</color>
 

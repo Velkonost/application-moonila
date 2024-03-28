@@ -6,17 +6,24 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.DismissDirection
 import androidx.compose.material.DismissState
@@ -65,7 +72,8 @@ fun ContentView(
     ) {
         ContentViewHeader(onAddClick = onAdd)
         LazyColumn(
-            state = listState
+            state = listState,
+            contentPadding = PaddingValues(bottom = 100.dp)
         ) {
             items(items, key = { it.id }) {
                 CompatibilityItemView(item = it) {
@@ -78,7 +86,9 @@ fun ContentView(
 
 }
 
-@OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
+@OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class,
+    ExperimentalLayoutApi::class
+)
 @Composable
 fun LazyItemScope.CompatibilityItemView(
     modifier: Modifier = Modifier,
@@ -120,20 +130,41 @@ fun LazyItemScope.CompatibilityItemView(
                         )
                         .padding(vertical = 20.dp, horizontal = 16.dp)
                 ) {
-                    Text(
-                        text = "${item.firstName} & ${item.secondName}",
-                        fontFamily = PoppinsFontFamily,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.White,
-                        fontSize = 24.sp,
-                        textAlign = TextAlign.Start
-                    )
 
-                    Row(modifier = modifier.padding(top = 8.dp)) {
+                    FlowRow {
+                        Text(
+                            text = item.firstName,
+                            fontFamily = PoppinsFontFamily,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.White,
+                            fontSize = 24.sp,
+                            textAlign = TextAlign.Start
+                        )
+
+                        Text(
+                            text = " & ",
+                            fontFamily = PoppinsFontFamily,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.White.copy(alpha = 0.5f),
+                            fontSize = 24.sp,
+                            textAlign = TextAlign.Start
+                        )
+
+                        Text(
+                            text = item.secondName,
+                            fontFamily = PoppinsFontFamily,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.White,
+                            fontSize = 24.sp,
+                            textAlign = TextAlign.Start
+                        )
+                    }
+
+                    Row(modifier = modifier.padding(top = 4.dp)) {
                         Text(
                             text = stringResource(id = R.string.compatibility_percent),
                             fontFamily = PoppinsFontFamily,
-                            fontWeight = FontWeight.SemiBold,
+                            fontWeight = FontWeight.Medium,
                             color = colorResource(id = com.moonila.core.compose.R.color.light_color),
                             fontSize = 16.sp,
                             textAlign = TextAlign.Start
@@ -142,11 +173,61 @@ fun LazyItemScope.CompatibilityItemView(
                             modifier = modifier.padding(start = 2.dp),
                             text = item.percent,
                             fontFamily = PoppinsFontFamily,
-                            fontWeight = FontWeight.SemiBold,
+                            fontWeight = FontWeight.Medium,
                             color = colorResource(id = com.moonila.core.compose.R.color.main_yellow),
                             fontSize = 16.sp,
                             textAlign = TextAlign.Start
                         )
+                    }
+
+                    Row(
+                        modifier = modifier.padding(top = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Box {
+                            Image(
+                                modifier = modifier
+                                    .offset(x = 20.dp)
+                                    .size(32.dp)
+                                    .border(
+                                        width = 2.dp,
+                                        color = colorResource(id = R.color.compatibility_item_bg),
+                                        shape = CircleShape
+                                    )
+                                    .padding(1.dp),
+                                painter = painterResource(id = item.secondMoonIcon),
+                                contentDescription = null
+                            )
+                            Image(
+                                modifier = modifier
+
+                                    .size(32.dp)
+                                    .border(
+                                        width = 2.dp,
+                                        color = colorResource(id = R.color.compatibility_item_bg),
+                                        shape = CircleShape
+                                    )
+                                    .padding(1.dp),
+                                painter = painterResource(id = item.firstMoonIcon),
+                                contentDescription = null
+                            )
+                        }
+                        Spacer(modifier.weight(1f))
+                        Box {
+                            Image(
+                                modifier = modifier
+                                    .size(32.dp),
+                                painter = painterResource(id = item.secondSignIcon),
+                                contentDescription = null
+                            )
+                            Image(
+                                modifier = modifier
+                                    .offset(x = (-28).dp)
+                                    .size(32.dp),
+                                painter = painterResource(id = item.firstSignIcon),
+                                contentDescription = null
+                            )
+                        }
                     }
 
                 }

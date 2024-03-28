@@ -16,9 +16,6 @@ internal constructor(
 ) {
     override fun dispatch(action: CompatibilityAction) = when(action) {
         is CompatibilityAction.ItemDelete -> obtainItemDelete(action.value)
-        else -> {
-
-        }
     }
 
 

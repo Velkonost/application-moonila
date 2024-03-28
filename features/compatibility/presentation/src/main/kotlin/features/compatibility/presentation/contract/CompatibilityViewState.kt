@@ -14,7 +14,7 @@ val SampleItems: List<CompatibilityItem>
         CompatibilityItem(
             firstName = "Maksim",
             secondName = "Anastasia",
-            percent = "98.9",
+            percent = "98.9%",
             firstMoonIcon = com.moonila.core.compose.R.drawable.ic_loonar,
             secondMoonIcon = com.moonila.core.compose.R.drawable.ic_full_moon,
             firstSignIcon = R.drawable.ic_first_sign,
@@ -22,11 +22,47 @@ val SampleItems: List<CompatibilityItem>
         ),
         CompatibilityItem(
             firstName = "Maksim",
-            secondName = "Anastasia",
-            percent = "98.9",
+            secondName = "AnastasiaAnastasia",
+            percent = "98.9%",
             firstMoonIcon = com.moonila.core.compose.R.drawable.ic_loonar,
             secondMoonIcon = com.moonila.core.compose.R.drawable.ic_full_moon,
             firstSignIcon = R.drawable.ic_first_sign,
             secondSignIcon = R.drawable.ic_second_sign
         ),
+        CompatibilityItem(
+            firstName = "Maksim",
+            secondName = "AnastasiaAnastasia",
+            percent = "98.9%",
+            firstMoonIcon = com.moonila.core.compose.R.drawable.ic_loonar,
+            secondMoonIcon = com.moonila.core.compose.R.drawable.ic_full_moon,
+            firstSignIcon = R.drawable.ic_first_sign,
+            secondSignIcon = R.drawable.ic_second_sign
+        ),
+        CompatibilityItem(
+            firstName = "Maksim",
+            secondName = "AnastasiaAnastasia",
+            percent = "98.9%",
+            firstMoonIcon = com.moonila.core.compose.R.drawable.ic_loonar,
+            secondMoonIcon = com.moonila.core.compose.R.drawable.ic_full_moon,
+            firstSignIcon = R.drawable.ic_first_sign,
+            secondSignIcon = R.drawable.ic_second_sign
+        ),CompatibilityItem(
+            firstName = "Maksim",
+            secondName = "AnastasiaAnastasia",
+            percent = "98.9%",
+            firstMoonIcon = com.moonila.core.compose.R.drawable.ic_loonar,
+            secondMoonIcon = com.moonila.core.compose.R.drawable.ic_full_moon,
+            firstSignIcon = R.drawable.ic_first_sign,
+            secondSignIcon = R.drawable.ic_second_sign
+        ),
+        CompatibilityItem(
+            firstName = "Maksim",
+            secondName = "AnastasiaAnastasia",
+            percent = "98.9%",
+            firstMoonIcon = com.moonila.core.compose.R.drawable.ic_loonar,
+            secondMoonIcon = com.moonila.core.compose.R.drawable.ic_full_moon,
+            firstSignIcon = R.drawable.ic_first_sign,
+            secondSignIcon = R.drawable.ic_second_sign
+        ),
+
     )

@@ -25,7 +25,8 @@ fun TextWithGradientPart(
     colorfulTextAtEnd: String? = null,
     commonTextColor: Color,
     textSize: TextUnit,
-    fontWeight: FontWeight
+    fontWeight: FontWeight,
+    colorfulFontWeight: FontWeight = fontWeight
 ) {
     val annotatedText = buildAnnotatedString {
 
@@ -59,6 +60,7 @@ fun TextWithGradientPart(
                         ),
                         tileMode = TileMode.Mirror
                     ),
+                    fontWeight = colorfulFontWeight
                 )
             ) {
                 append(colorfulTextAtEnd)

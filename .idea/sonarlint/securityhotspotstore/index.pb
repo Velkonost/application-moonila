@@ -577,8 +577,6 @@ rfeatures/compatibility/presentation/src/main/kotlin/features/compatibility/pres
 ‡features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsProgressBar.kt,b/8/b896300da05c30959eef6bc9e6dce3ef4d71bf04
 ¶
 …features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsMoonPhase.kt,b/e/be1f2200811f45e67a9fcac58ebc013bde9cf89f
-µ
-„features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsMoonSign.kt,7/e/7e483a96751e6c11c91db6df4baedbf1be969975
 ³
 ‚features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsAdvice.kt,3/6/36d5e8791c25589e66a6ee5ed084954ec95590c0
 ¼

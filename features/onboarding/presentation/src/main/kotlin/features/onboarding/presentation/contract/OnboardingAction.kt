@@ -9,6 +9,8 @@ sealed interface OnboardingAction: UIContract.Action {
 
     data object NextStepClick : OnboardingAction
 
+    data object SkipClick : OnboardingAction
+
     data class NameChanged(val value: String) : OnboardingAction
 
     data class GenderSelect(val value: Gender) : OnboardingAction

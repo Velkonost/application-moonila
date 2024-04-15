@@ -36,7 +36,7 @@
     <color name="color_of_the_day_border">#11153F</color>
 
     <color name="calendar_sheet_bg">#24296C</color>
-    <color name="calendar_header_bg">#FFEBC9</color>
+    <color name="calendar_header_bg">#FCFBEB</color>
     <color name="calendar_footer_bg">#4D4D477A</color>
 
     <color name="holidays_color">#FFD8AA</color>

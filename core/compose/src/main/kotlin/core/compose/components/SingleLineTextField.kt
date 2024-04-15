@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextFieldDefaults
@@ -30,6 +31,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -62,6 +64,7 @@ fun SingleLineTextField(
                 fontWeight = FontWeight.Normal,
                 color = textColor
             ),
+            keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Sentences),
             cursorBrush = SolidColor(colorResource(id = R.color.light_color)),
             modifier = modifier
                 .fillMaxWidth()
@@ -74,7 +77,7 @@ fun SingleLineTextField(
                     ),
                     shape = MaterialTheme.shapes.medium
                 )
-                .height(54.dp)
+                .height(56.dp)
                 .clip(shape = MaterialTheme.shapes.medium)
                 .background(
                     color = Color.Transparent,

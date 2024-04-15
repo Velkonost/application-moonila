@@ -37,7 +37,8 @@ fun NameStep(
             commonTextColor = colorResource(id = R.color.title_color),
             textSize = 24.sp,
             fontWeight = FontWeight.Medium,
-            colorfulTextAtEnd = stringResource(id = com.moonila.core.compose.R.string.app_name)
+            colorfulTextAtEnd = stringResource(id = com.moonila.core.compose.R.string.app_name),
+            colorfulFontWeight = FontWeight.SemiBold
         )
 
         Text(

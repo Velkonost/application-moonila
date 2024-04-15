@@ -4,6 +4,8 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -61,6 +63,7 @@ fun OnboardingScreen(
                     viewModel.dispatch(OnboardingAction.NameChanged(it))
                 },
             )
+
             OnboardingStep.Gender -> GenderStep(
                 userName = state.nameValue,
                 items = state.genderViewState.items,
@@ -69,12 +72,15 @@ fun OnboardingScreen(
                     viewModel.dispatch(OnboardingAction.GenderSelect(it))
                 }
             )
+
             OnboardingStep.Age -> AgeStep(
                 userName = state.nameValue
             )
+
             OnboardingStep.Promo1, OnboardingStep.Promo2, OnboardingStep.Promo3 -> PromoStep(
                 step = state.step
             )
+
             OnboardingStep.Improve -> ImproveStep(
                 userName = state.nameValue,
                 items = state.improveViewState.items,
@@ -83,6 +89,7 @@ fun OnboardingScreen(
                     viewModel.dispatch(OnboardingAction.ImproveSelect(it))
                 }
             )
+
             OnboardingStep.Goals -> GoalsStep(
                 userName = state.nameValue,
                 items = state.goalViewState.items,
@@ -91,6 +98,7 @@ fun OnboardingScreen(
                     viewModel.dispatch(OnboardingAction.GoalSelect(it))
                 }
             )
+
             OnboardingStep.ProfileSettings -> ProfileSettingsStep(
                 forceHideButton = forceHideButton,
                 feedbacks = state.profileSettingsViewState.feedbacks
@@ -127,6 +135,12 @@ fun OnboardingScreen(
                     ) {
                         Spacer(modifier.weight(1f))
                         Text(
+                            modifier = modifier
+                                .clickable(
+                                    interactionSource = remember { MutableInteractionSource() },
+                                    indication = null,
+                                    onClick = { viewModel.dispatch(OnboardingAction.SkipClick) }
+                                ),
                             text = stringResource(
                                 id = com.moonila.features.onboarding.presentation.R.string.skip_btn
                             ),

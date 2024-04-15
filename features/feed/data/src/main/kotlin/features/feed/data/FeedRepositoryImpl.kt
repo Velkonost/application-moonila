@@ -87,7 +87,7 @@ class FeedRepositoryImpl : FeedRepository {
     }
 
     companion object {
-        private const val MONTH_FULL_NAME_FORMAT = "MMMM"
+        private const val MONTH_FULL_NAME_FORMAT = "MMMM, YYYY"
         private const val DAY_FULL_NAME_FORMAT = "dd MMM, EEE"
 
         private val monthFullNameSDF = SimpleDateFormat(MONTH_FULL_NAME_FORMAT, Locale.US)

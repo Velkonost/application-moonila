@@ -109,7 +109,8 @@ fun PromoStep(
                 commonTextColor = colorResource(id = R.color.title_color),
                 textSize = 24.sp,
                 fontWeight = FontWeight.Medium,
-                colorfulTextAtEnd = ""
+                colorfulTextAtEnd = "",
+                colorfulFontWeight = FontWeight.SemiBold
             )
         }
 

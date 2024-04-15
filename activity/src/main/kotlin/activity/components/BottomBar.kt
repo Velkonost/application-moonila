@@ -85,7 +85,7 @@ fun BottomBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(95.dp)
+                .height(100.dp)
                 .background(
                     color = colorResource(id = com.moonila.activity.R.color.bottom_bar_bg),
                     shape = RoundedCornerShape(

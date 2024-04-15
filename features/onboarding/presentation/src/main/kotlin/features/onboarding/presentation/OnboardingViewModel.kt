@@ -25,6 +25,7 @@ internal constructor(
 
     override fun dispatch(action: OnboardingAction) = when (action) {
         is OnboardingAction.NextStepClick -> increaseStep()
+        is OnboardingAction.SkipClick -> completeOnboarding()
         is OnboardingAction.NameChanged -> obtainNameChanged(action.value)
         is OnboardingAction.GenderSelect -> obtainGenderSelect(action.value)
         is OnboardingAction.ImproveSelect -> obtainImproveSelect(action.value)

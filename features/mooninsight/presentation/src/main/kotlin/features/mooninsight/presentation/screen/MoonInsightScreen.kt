@@ -116,7 +116,7 @@ fun MoonInsightScreen(
 
         }
 
-        Row(modifier = modifier.padding(top = 40.dp, start = 16.dp, end = 16.dp)) {
+        Row(modifier = modifier.padding(top = 60.dp, start = 16.dp, end = 16.dp)) {
             Image(
                 modifier = modifier
                     .size(24.dp)
@@ -138,7 +138,7 @@ fun MoonInsightScreen(
 
             Box(
                 modifier = modifier
-                    .height(220.dp)
+                    .height(180.dp)
                     .fillMaxWidth()
                     .background(
                         brush = Brush.verticalGradient(

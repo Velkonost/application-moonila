@@ -145,7 +145,7 @@ fun ProfileSettingsStep(
 
     Column(
         modifier = modifier
-            .padding(top = 100.dp)
+            .padding(top = 80.dp)
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -186,19 +186,19 @@ fun ProfileSettingsStep(
         )
 
         Text(
-            modifier = modifier.padding(top = 24.dp),
+            modifier = modifier.padding(top = 16.dp),
             text = stringResource(id = R.string.feedbacks_title),
             fontFamily = PoppinsFontFamily,
             fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+            color = colorResource(id = com.moonila.core.compose.R.color.cloudy_color)
         )
 
         LazyRow(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(top = 12.dp),
+                .padding(top = 8.dp),
             state = scrollState,
             flingBehavior = rememberSnapFlingBehavior(lazyListState = scrollState),
             userScrollEnabled = false
@@ -217,7 +217,6 @@ fun LazyItemScope.FeedBackItem(
 ) {
     Column(
         modifier = modifier
-
             .fillParentMaxWidth()
             .padding(horizontal = 32.dp)
             .background(
@@ -228,18 +227,18 @@ fun LazyItemScope.FeedBackItem(
     ) {
         Text(
             modifier = modifier
-                .padding(top = 16.dp),
+                .padding(top = 8.dp),
             text = stringResource(id = item.title),
             fontFamily = PoppinsFontFamily,
             fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+            color = colorResource(id = com.moonila.core.compose.R.color.cloudy_color)
         )
 
         Image(
             modifier = modifier
-                .padding(top = 8.dp)
+                .padding(top = 6.dp)
                 .height(24.dp),
             painter = painterResource(id = R.drawable.ic_five_stars),
             contentDescription = null
@@ -247,14 +246,14 @@ fun LazyItemScope.FeedBackItem(
 
         Text(
             modifier = modifier
-                .padding(top = 8.dp, bottom = 24.dp)
+                .padding(top = 6.dp, bottom = 12.dp)
                 .padding(horizontal = 16.dp),
             text = stringResource(id = item.text),
             fontFamily = PoppinsFontFamily,
             fontWeight = FontWeight.Normal,
             fontSize = 12.sp,
             textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+            color = colorResource(id = com.moonila.core.compose.R.color.cloudy_color)
         )
     }
 }
@@ -296,7 +295,7 @@ fun ProfileSettingsPoint(
 
     Row(
         modifier = modifier
-            .padding(top = 24.dp)
+            .padding(top = 16.dp)
             .padding(horizontal = 16.dp)
     ) {
         Text(
@@ -305,7 +304,7 @@ fun ProfileSettingsPoint(
             fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
-            color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+            color = colorResource(id = com.moonila.core.compose.R.color.cloudy_color)
         )
         Spacer(modifier.weight(1f))
 
@@ -323,7 +322,10 @@ fun ProfileSettingsPoint(
                     fontWeight = FontWeight.Medium,
                     fontSize = 16.sp,
                     textAlign = TextAlign.Center,
-                    color = colorResource(id = com.moonila.core.compose.R.color.light_color)
+                    color = colorResource(
+                        id = if (progress == 0) com.moonila.core.compose.R.color.common_text_color
+                        else com.moonila.core.compose.R.color.light_color
+                    )
                 )
             }
         }

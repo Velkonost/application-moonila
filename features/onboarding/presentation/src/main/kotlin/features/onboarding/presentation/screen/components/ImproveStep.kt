@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.sp
 import com.moonila.features.onboarding.presentation.R
 import core.compose.components.TextWithGradientPart
 import core.compose.theme.PoppinsFontFamily
-import features.onboarding.presentation.model.Gender
 import features.onboarding.presentation.model.Improve
 
 @Composable
@@ -107,12 +106,16 @@ fun ImproveItem(
         ) {
             Spacer(modifier.weight(1f))
             Text(
+                modifier = modifier.padding(top = 2.dp),
                 text = stringResource(id = item.text),
                 fontFamily = PoppinsFontFamily,
-                fontWeight = FontWeight.Normal,
+                fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,
-                color = colorResource(id = com.moonila.core.compose.R.color.common_text_color)
+                color = colorResource(
+                    id = if (selected) com.moonila.core.compose.R.color.cloudy_color
+                    else com.moonila.core.compose.R.color.common_text_color
+                )
             )
             Spacer(modifier.weight(1f))
         }

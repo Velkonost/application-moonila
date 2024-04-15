@@ -129,6 +129,7 @@ fun MoonInsightItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
+                modifier = modifier.padding(top = 2.dp),
                 text = title,
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.SemiBold,

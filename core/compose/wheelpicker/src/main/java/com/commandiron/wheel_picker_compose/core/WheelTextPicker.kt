@@ -30,7 +30,7 @@ fun WheelTextPicker(
         modifier = modifier,
         startIndex = startIndex,
         size = size,
-        count = texts.size,
+        count = 1000,//texts.size,
         rowCount = rowCount,
         selectorProperties = selectorProperties,
         onScrollFinished = onScrollFinished
@@ -38,7 +38,7 @@ fun WheelTextPicker(
         if (alignStart) {
             Row {
                 Text(
-                    text = texts[index],
+                    text = texts[index % texts.size],
                     style = style,
                     color = color,
                     maxLines = 1,
@@ -48,7 +48,7 @@ fun WheelTextPicker(
             }
         } else {
             Text(
-                text = texts[index],
+                text = texts[index % texts.size],
                 style = style,
                 color = color,
                 maxLines = 1,

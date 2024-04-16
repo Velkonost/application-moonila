@@ -76,10 +76,11 @@ internal fun DefaultWheelDatePicker(
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
                 ),
-                startIndex = dayOfMonths.find { it.value== startDate.dayOfMonth }?.index ?: 0,
+                startIndex = dayOfMonths.find { it.value == startDate.dayOfMonth }?.index?.plus(dayOfMonths.size * 10) ?: 0,
                 onScrollFinished = { snappedIndex ->
 
-                    val newDayOfMonth = dayOfMonths.find { it.index == snappedIndex }?.value
+                    val newDayOfMonth = dayOfMonths.find { it.index == snappedIndex || (it.index != 0 && snappedIndex % it.index == 0) }?.value
+//                    val newDayOfMonth = dayOfMonths.find { it.index == snappedIndex }?.value
 
                     newDayOfMonth?.let {
                         val newDate = snappedDate.withDayOfMonth(newDayOfMonth)
@@ -96,10 +97,14 @@ internal fun DefaultWheelDatePicker(
                                     localDate = snappedDate,
                                     index = newIndex
                                 )
-                            )?.let { return@WheelTextPicker it }
+                            )?.let {
+                                return@WheelTextPicker snappedIndex
+                                return@WheelTextPicker it
+                            }
                         }
                     }
 
+                    return@WheelTextPicker snappedIndex
                     return@WheelTextPicker dayOfMonths.find { it.value == snappedDate.dayOfMonth }?.index
                 }
             )
@@ -117,10 +122,11 @@ internal fun DefaultWheelDatePicker(
                     enabled = false
                 ),
                 alignStart = true,
-                startIndex = months.find { it.value== startDate.monthValue }?.index ?: 0,
+                startIndex = months.find { it.value== startDate.monthValue }?.index?.plus(months.size * 10) ?: 0,
                 onScrollFinished = { snappedIndex ->
 
-                    val newMonth = months.find { it.index == snappedIndex }?.value
+                    val newMonth = months.find { it.index == snappedIndex || (it.index != 0 && snappedIndex % it.index == 0) }?.value
+//                    val newMonth = months.find { it.index == snappedIndex }?.value
 
                     newMonth?.let {
 
@@ -140,11 +146,14 @@ internal fun DefaultWheelDatePicker(
                                     localDate = snappedDate,
                                     index = newIndex
                                 )
-                            )?.let { return@WheelTextPicker it }
+                            )?.let {
+                                return@WheelTextPicker snappedIndex
+//                                return@WheelTextPicker it
+                            }
                         }
                     }
 
-
+                    return@WheelTextPicker snappedIndex
                     return@WheelTextPicker months.find { it.value == snappedDate.monthValue }?.index
                 }
             )

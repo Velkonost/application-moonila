@@ -94,7 +94,17 @@ fun MoonTipContentBlock(
                 )
             }
 
-            Row(modifier = modifier.padding(top = 20.dp)) {
+            Row(
+                modifier = modifier.padding(top = 20.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                Image(
+                    modifier = modifier.size(28.dp),
+                    painter = painterResource(id = R.drawable.ic_moon_tips_info),
+                    contentDescription = null
+                )
+
                 Spacer(modifier.weight(1f))
 
                 Image(

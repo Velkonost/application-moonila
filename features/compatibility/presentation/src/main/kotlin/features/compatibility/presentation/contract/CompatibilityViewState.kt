@@ -13,9 +13,16 @@ data class CompatibilityViewState(
 data class CreateCompatibilityViewState(
     val firstPersonName: String = "",
     val firstPersonDate: PersonDate = PersonDate(),
+    val firstPersonGender: PersonGender = PersonGender(),
 
     val secondPersonName: String = "",
-    val secondPersonDate: PersonDate = PersonDate()
+    val secondPersonDate: PersonDate = PersonDate(),
+    val secondPersonGender: PersonGender = PersonGender()
+)
+
+data class PersonGender(
+    val label: String = "",
+    val index: Int = 1
 )
 
 data class PersonDate(

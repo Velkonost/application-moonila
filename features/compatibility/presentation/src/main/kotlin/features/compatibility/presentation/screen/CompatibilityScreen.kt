@@ -70,6 +70,12 @@ fun CompatibilityScreen(
         },
         onSecondPersonDateChanged = { day, month, year ->
             viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.SecondPersonDateChanged(day, month, year))
+        },
+        onFirstPersonGenderChanged = { index, label ->
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.FirstPersonGenderChanged(index, label))
+        },
+        onSecondPersonGenderChanged = { index, label ->
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.SecondPersonGenderChanged(index, label))
         }
     )
 

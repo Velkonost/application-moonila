@@ -18,6 +18,10 @@ sealed interface CompatibilityAction: UIContract.Action {
 
         data class SecondPersonDateChanged(val day: Int, val month: Int, val year: Int) : CreateCompatibilityAction
 
+        data class FirstPersonGenderChanged(val index: Int, val label: String) : CreateCompatibilityAction
+
+        data class SecondPersonGenderChanged(val index: Int, val label: String) : CreateCompatibilityAction
+
         data object CreateClick : CreateCompatibilityAction
     }
 }

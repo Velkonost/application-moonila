@@ -29,10 +29,10 @@ fun ColumnScope.PersonData(
     modifier: Modifier = Modifier,
     title: String,
     name: String,
-//    gender: String,
+    gender: String,
     date: String,
     onNameChanged: (String) -> Unit,
-//    onGenderChanged: (String) -> Unit,
+    onGenderClick: () -> Unit,
     onDateClick: () -> Unit
 ) {
 
@@ -51,6 +51,19 @@ fun ColumnScope.PersonData(
         onValueChanged = onNameChanged,
         onClearClick = {
             onNameChanged("")
+        }
+    )
+
+    SingleLineTextField(
+        modifier = modifier.padding(top = 12.dp),
+        value = gender,
+        placeholderText = stringResource(id = R.string.create_gender_hint),
+        onValueChanged = {  },
+        isEnabled = false,
+        forceShowIcon = true,
+        icon = painterResource(id = R.drawable.ic_create_compatibility_arrow),
+        onClearClick = {
+            onGenderClick()
         }
     )
 

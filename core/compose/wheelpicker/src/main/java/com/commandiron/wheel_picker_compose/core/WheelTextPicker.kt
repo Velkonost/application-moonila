@@ -20,9 +20,11 @@ fun WheelTextPicker(
     size: DpSize = DpSize(128.dp, 128.dp),
     texts: List<String>,
     rowCount: Int,
+    infinite: Boolean = true,
     style: TextStyle = MaterialTheme.typography.titleMedium,
     color: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    forceSelectorSize: DpSize? = null,
     onScrollFinished: (snappedIndex: Int) -> Int? = { null },
     alignStart: Boolean = false
 ) {
@@ -30,7 +32,8 @@ fun WheelTextPicker(
         modifier = modifier,
         startIndex = startIndex,
         size = size,
-        count = 1000,//texts.size,
+        forceSelectorSize = forceSelectorSize,
+        count = if (infinite) 1000 else texts.size,//texts.size,
         rowCount = rowCount,
         selectorProperties = selectorProperties,
         onScrollFinished = onScrollFinished

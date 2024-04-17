@@ -7,6 +7,7 @@ import features.compatibility.presentation.contract.CompatibilityEvent
 import features.compatibility.presentation.contract.CompatibilityNavigation
 import features.compatibility.presentation.contract.CompatibilityViewState
 import features.compatibility.presentation.contract.PersonDate
+import features.compatibility.presentation.contract.PersonGender
 import features.compatibility.presentation.model.CompatibilityItem
 
 class CompatibilityViewModel
@@ -21,6 +22,8 @@ internal constructor(
         is CompatibilityAction.CreateCompatibilityAction.SecondPersonNameChanged -> obtainSecondPersonNameChanged(action.value)
         is CompatibilityAction.CreateCompatibilityAction.FirstPersonDateChanged -> obtainFirstPersonDateChanged(action.day, action.month, action.year)
         is CompatibilityAction.CreateCompatibilityAction.SecondPersonDateChanged -> obtainSecondPersonDateChanged(action.day, action.month, action.year)
+        is CompatibilityAction.CreateCompatibilityAction.FirstPersonGenderChanged -> obtainFirstPersonGenderChanged(action.index, action.label)
+        is CompatibilityAction.CreateCompatibilityAction.SecondPersonGenderChanged -> obtainSecondPersonGenderChanged(action.index, action.label)
         is CompatibilityAction.CreateCompatibilityAction.CreateClick -> TODO()
         else -> {
 
@@ -68,4 +71,17 @@ internal constructor(
         emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
     }
 
+    private fun obtainFirstPersonGenderChanged(index: Int, label: String) {
+        val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
+            firstPersonGender = PersonGender(label, index)
+        )
+        emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
+    }
+
+    private fun obtainSecondPersonGenderChanged(index: Int, label: String) {
+        val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
+            secondPersonGender = PersonGender(label, index)
+        )
+        emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
+    }
 }

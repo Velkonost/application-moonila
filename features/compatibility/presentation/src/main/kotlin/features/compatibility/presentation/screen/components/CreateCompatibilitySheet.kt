@@ -38,6 +38,7 @@ import features.compatibility.presentation.contract.CreateCompatibilityViewState
 import features.compatibility.presentation.screen.components.create.CreateHeader
 import features.compatibility.presentation.screen.components.create.PersonData
 import features.compatibility.presentation.screen.components.create.SelectDateSheet
+import features.compatibility.presentation.screen.components.create.SelectGenderSheet
 import kotlinx.coroutines.launch
 
 @Composable
@@ -49,7 +50,9 @@ fun CreateCompatibilitySheet(
     onFirstPersonNameChanged: (String) -> Unit,
     onSecondPersonNameChanged: (String) -> Unit,
     onFirstPersonDateChanged: (Int, Int, Int) -> Unit,
-    onSecondPersonDateChanged: (Int, Int, Int) -> Unit
+    onSecondPersonDateChanged: (Int, Int, Int) -> Unit,
+    onFirstPersonGenderChanged: (Int, String) -> Unit,
+    onSecondPersonGenderChanged: (Int, String) -> Unit
 ) {
     val scope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
@@ -63,14 +66,15 @@ fun CreateCompatibilitySheet(
         skipHalfExpanded = true,
     )
 
-    val selectDatePersonIndex = remember { mutableIntStateOf(0) }
+    val currentPersonIndex = remember { mutableIntStateOf(0) }
 
     BackHandler {
         scope.launch {
-            modalSheetState.hide()
-
-            selectDateSheetState.hide()
-            selectGenderSheetState.hide()
+            if (selectDateSheetState.isVisible) {
+                selectDateSheetState.hide()
+            } else if (selectGenderSheetState.isVisible) {
+                selectGenderSheetState.hide()
+            } else modalSheetState.hide()
         }
     }
 
@@ -94,7 +98,7 @@ fun CreateCompatibilitySheet(
                     modifier = modifier
                         .fillMaxWidth()
                         .verticalScroll(scrollState)
-                        .padding(bottom = 100.dp)
+                        .padding(bottom = 140.dp)
                         .padding(horizontal = 16.dp)
                 ) {
                     Text(
@@ -132,10 +136,17 @@ fun CreateCompatibilitySheet(
                         title = stringResource(id = R.string.first_person),
                         name = createCompatibilityViewState.firstPersonName,
                         date = createCompatibilityViewState.firstPersonDate.label,
+                        gender = createCompatibilityViewState.firstPersonGender.label,
                         onNameChanged = onFirstPersonNameChanged,
+                        onGenderClick = {
+                            scope.launch {
+                                currentPersonIndex.intValue = 0
+                                selectGenderSheetState.show()
+                            }
+                        },
                         onDateClick = {
                             scope.launch {
-                                selectDatePersonIndex.intValue = 0
+                                currentPersonIndex.intValue = 0
                                 selectDateSheetState.show()
                             }
                         },
@@ -147,10 +158,17 @@ fun CreateCompatibilitySheet(
                         title = stringResource(id = R.string.second_person),
                         name = createCompatibilityViewState.secondPersonName,
                         date = createCompatibilityViewState.secondPersonDate.label,
+                        gender = createCompatibilityViewState.secondPersonGender.label,
                         onNameChanged = onSecondPersonNameChanged,
+                        onGenderClick = {
+                            scope.launch {
+                                currentPersonIndex.intValue = 1
+                                selectGenderSheetState.show()
+                            }
+                        },
                         onDateClick = {
                             scope.launch {
-                                selectDatePersonIndex.intValue = 1
+                                currentPersonIndex.intValue = 1
                                 selectDateSheetState.show()
                             }
                         },
@@ -163,17 +181,30 @@ fun CreateCompatibilitySheet(
 
     SelectDateSheet(
         modalSheetState = selectDateSheetState,
-        year = if (selectDatePersonIndex.intValue == 0) createCompatibilityViewState.firstPersonDate.year
+        year = if (currentPersonIndex.intValue == 0) createCompatibilityViewState.firstPersonDate.year
         else createCompatibilityViewState.secondPersonDate.year,
-        month = if (selectDatePersonIndex.intValue == 0) createCompatibilityViewState.firstPersonDate.month
+        month = if (currentPersonIndex.intValue == 0) createCompatibilityViewState.firstPersonDate.month
         else createCompatibilityViewState.secondPersonDate.month,
-        dayOfMonth = if (selectDatePersonIndex.intValue == 0) createCompatibilityViewState.firstPersonDate.day
+        dayOfMonth = if (currentPersonIndex.intValue == 0) createCompatibilityViewState.firstPersonDate.day
         else createCompatibilityViewState.secondPersonDate.day,
         onSaveClick = { day, month, year ->
-            if (selectDatePersonIndex.intValue == 0) {
+            if (currentPersonIndex.intValue == 0) {
                 onFirstPersonDateChanged(day, month, year)
             } else {
                 onSecondPersonDateChanged(day, month, year)
+            }
+        }
+    )
+
+    SelectGenderSheet(
+        modalSheetState = selectGenderSheetState,
+        index = if (currentPersonIndex.intValue == 0) createCompatibilityViewState.firstPersonGender.index
+        else createCompatibilityViewState.secondPersonGender.index,
+        onSaveClick = { index, label ->
+            if (currentPersonIndex.intValue == 0) {
+                onFirstPersonGenderChanged(index, label)
+            } else {
+                onSecondPersonGenderChanged(index, label)
             }
         }
     )

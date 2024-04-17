@@ -33,26 +33,8 @@ fun ColumnScope.PersonData(
     date: String,
     onNameChanged: (String) -> Unit,
 //    onGenderChanged: (String) -> Unit,
-    onDateChanged: (String) -> Unit
+    onDateClick: () -> Unit
 ) {
-
-    val scope = rememberCoroutineScope()
-
-    val selectDateSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
-        initialValue = ModalBottomSheetValue.Hidden,
-        skipHalfExpanded = true,
-    )
-    val selectGenderSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
-        initialValue = ModalBottomSheetValue.Hidden,
-        skipHalfExpanded = true,
-    )
-
-    BackHandler {
-        scope.launch {
-            selectDateSheetState.hide()
-            selectGenderSheetState.hide()
-        }
-    }
 
     Text(
         modifier = modifier.padding(top = 24.dp),
@@ -76,11 +58,12 @@ fun ColumnScope.PersonData(
         modifier = modifier.padding(top = 12.dp),
         value = date,
         placeholderText = stringResource(id = R.string.create_date_hint),
-        onValueChanged = onDateChanged,
+        onValueChanged = {  },
         isEnabled = false,
+        forceShowIcon = true,
         icon = painterResource(id = R.drawable.ic_create_compatibility_arrow),
         onClearClick = {
-            onNameChanged("")
+            onDateClick()
         }
     )
 

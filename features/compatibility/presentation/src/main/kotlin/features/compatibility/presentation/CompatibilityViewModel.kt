@@ -6,6 +6,7 @@ import features.compatibility.presentation.contract.CompatibilityAction
 import features.compatibility.presentation.contract.CompatibilityEvent
 import features.compatibility.presentation.contract.CompatibilityNavigation
 import features.compatibility.presentation.contract.CompatibilityViewState
+import features.compatibility.presentation.contract.PersonDate
 import features.compatibility.presentation.model.CompatibilityItem
 
 class CompatibilityViewModel
@@ -18,8 +19,8 @@ internal constructor(
         is CompatibilityAction.ItemDelete -> obtainItemDelete(action.value)
         is CompatibilityAction.CreateCompatibilityAction.FirstPersonNameChanged -> obtainFirstPersonNameChanged(action.value)
         is CompatibilityAction.CreateCompatibilityAction.SecondPersonNameChanged -> obtainSecondPersonNameChanged(action.value)
-        is CompatibilityAction.CreateCompatibilityAction.FirstPersonDateChanged -> obtainFirstPersonDateChanged(action.value)
-        is CompatibilityAction.CreateCompatibilityAction.SecondPersonDateChanged -> obtainSecondPersonDateChanged(action.value)
+        is CompatibilityAction.CreateCompatibilityAction.FirstPersonDateChanged -> obtainFirstPersonDateChanged(action.day, action.month, action.year)
+        is CompatibilityAction.CreateCompatibilityAction.SecondPersonDateChanged -> obtainSecondPersonDateChanged(action.day, action.month, action.year)
         is CompatibilityAction.CreateCompatibilityAction.CreateClick -> TODO()
         else -> {
 
@@ -47,16 +48,22 @@ internal constructor(
         emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
     }
 
-    private fun obtainFirstPersonDateChanged(value: String) {
+    private fun obtainFirstPersonDateChanged(day: Int, month: Int, year: Int) {
         val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
-            firstPersonDate = value
+            firstPersonDate = PersonDate(
+                label = "$day.$month.$year",
+                year, month, day
+            )
         )
         emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
     }
 
-    private fun obtainSecondPersonDateChanged(value: String) {
+    private fun obtainSecondPersonDateChanged(day: Int, month: Int, year: Int) {
         val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
-            secondPersonDate = value
+            secondPersonDate = PersonDate(
+                label = "$day.$month.$year",
+                year, month, day
+            )
         )
         emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
     }

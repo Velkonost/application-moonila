@@ -48,6 +48,10 @@ internal fun WheelPicker(
         }
     }
 
+    LaunchedEffect(startIndex) {
+        lazyListState.scrollToItem(startIndex)
+    }
+
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center

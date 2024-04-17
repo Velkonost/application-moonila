@@ -12,4 +12,5 @@
     <color name="details_important_points_bg">#205EA7</color>
     
     <color name="sheet_grabber_color">#5058BC</color>
+    <color name="picker_selector_color">#363D8E</color>
 </resources>

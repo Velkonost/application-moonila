@@ -46,6 +46,7 @@ fun SingleLineTextField(
     isEnabled: Boolean = true,
     placeholderText: String,
     onValueChanged: (String) -> Unit,
+    forceShowIcon: Boolean = false,
     icon: Painter = painterResource(id = R.drawable.ic_cross_round),
     onClearClick: (() -> Unit)? = null
 ) {
@@ -83,7 +84,8 @@ fun SingleLineTextField(
                 .background(
                     color = Color.Transparent,
                     shape = MaterialTheme.shapes.medium
-                )
+                ),
+            enabled = isEnabled
         ) {
             TextFieldDefaults.DecorationBox(
                 value = value,
@@ -98,7 +100,7 @@ fun SingleLineTextField(
                         fontWeight = FontWeight.Normal
                     )
                 },
-                enabled = true,
+                enabled = isEnabled,
                 visualTransformation = VisualTransformation.None,
                 interactionSource = interactionSource,
                 colors = TextFieldDefaults.colors(
@@ -112,7 +114,7 @@ fun SingleLineTextField(
             )
         }
 
-        if (onClearClick != null && value.isNotEmpty()) {
+        if (onClearClick != null && (forceShowIcon || value.isNotEmpty())) {
             Row(
                 modifier = modifier
                     .fillMaxWidth()

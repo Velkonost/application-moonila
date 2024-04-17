@@ -25,7 +25,8 @@ import core.compose.theme.PoppinsFontFamily
 
 @Composable
 fun EmptyView(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onAdd: () -> Unit
 ) {
 
     Box(
@@ -71,9 +72,11 @@ fun EmptyView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier.weight(1f))
-            AppButton(label = stringResource(id = R.string.empty_button), enabled = true) {
-
-            }
+            AppButton(
+                label = stringResource(id = R.string.empty_button),
+                enabled = true,
+                onClick = onAdd
+            )
         }
 
     }

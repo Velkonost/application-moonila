@@ -7,7 +7,13 @@ import features.compatibility.presentation.model.CompatibilityItem
 data class CompatibilityViewState(
     val isLoading: Boolean = false,
     val items: List<CompatibilityItem> = SampleItems,
+    val createCompatibilityViewState: CreateCompatibilityViewState = CreateCompatibilityViewState()
 ): UIContract.State
+
+data class CreateCompatibilityViewState(
+    val firstPersonName: String = "",
+    val secondPersonName: String = ""
+)
 
 val SampleItems: List<CompatibilityItem>
     get() = listOf(

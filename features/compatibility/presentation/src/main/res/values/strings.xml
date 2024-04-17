@@ -15,4 +15,13 @@
     <string name="details_moon_sign">Moon Sign</string>
     <string name="details_advice">Advice</string>
     <string name="details_important_points">Important Points:</string>
+
+    <string name="create_title">Person details</string>
+    <string name="create_text">Providing precise details ensures accurate compatibility insights</string>
+
+    <string name="first_person">First person</string>
+    <string name="second_person">Second person</string>
+    <string name="name_hint">Enter name</string>
+    <string name="gender_hint">Gender</string>
+    <string name="date_hint">Date of birth</string>
 </resources>

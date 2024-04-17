@@ -16,6 +16,12 @@ internal constructor(
 ) {
     override fun dispatch(action: CompatibilityAction) = when(action) {
         is CompatibilityAction.ItemDelete -> obtainItemDelete(action.value)
+        is CompatibilityAction.CreateCompatibilityAction.FirstPersonNameChanged -> obtainFirstPersonNameChanged(action.value)
+        is CompatibilityAction.CreateCompatibilityAction.SecondPersonNameChanged -> obtainSecondPersonNameChanged(action.value)
+        is CompatibilityAction.CreateCompatibilityAction.CreateClick -> TODO()
+        else -> {
+
+        }
     }
 
 
@@ -23,6 +29,20 @@ internal constructor(
         val items = viewState.value.items.toMutableList()
         items.removeIf { it.id == value.id }
         emit(viewState.value.copy(items = items))
+    }
+
+    private fun obtainFirstPersonNameChanged(value: String) {
+        val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
+            firstPersonName = value
+        )
+        emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
+    }
+
+    private fun obtainSecondPersonNameChanged(value: String) {
+        val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
+            secondPersonName = value
+        )
+        emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
     }
 
 }

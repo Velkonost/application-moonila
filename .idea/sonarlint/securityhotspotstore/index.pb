@@ -581,3 +581,9 @@ rfeatures/compatibility/presentation/src/main/kotlin/features/compatibility/pres
 ‚features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsAdvice.kt,3/6/36d5e8791c25589e66a6ee5ed084954ec95590c0
 ¼
 ‹features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/details/DetailsImportantPoints.kt,0/d/0d1d20dbbbca8b5f2b6e2681c8cb1de4d119ce96
+¶
+…features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/CreateCompatibilitySheet.kt,0/4/042e107220915a0681037c134d268445a8c824d4
+±
+€features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/create/CreateHeader.kt,3/9/390294eecd9478f4274ccec89d7c2216490e81cf
+®
+~features/compatibility/presentation/src/main/kotlin/features/compatibility/presentation/screen/components/create/PersonData.kt,2/b/2be7cea158264583a5c57df99187fa5090a58659

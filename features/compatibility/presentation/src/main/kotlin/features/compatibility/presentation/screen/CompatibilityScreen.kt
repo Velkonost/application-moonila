@@ -1,5 +1,9 @@
 package features.compatibility.presentation.screen
 
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.ModalBottomSheetState
+import androidx.compose.material.ModalBottomSheetValue
+import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
@@ -10,8 +14,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import features.compatibility.presentation.CompatibilityViewModel
 import features.compatibility.presentation.contract.CompatibilityAction
 import features.compatibility.presentation.screen.components.ContentView
+import features.compatibility.presentation.screen.components.CreateCompatibilitySheet
 import features.compatibility.presentation.screen.components.EmptyView
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CompatibilityScreen(
     modifier: Modifier = Modifier,
@@ -22,19 +29,41 @@ fun CompatibilityScreen(
     val state by viewModel.viewState.collectAsStateWithLifecycle()
     val scope = rememberCoroutineScope()
 
+    val createSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
+        initialValue = ModalBottomSheetValue.Hidden,
+        skipHalfExpanded = true,
+    )
+
     if (state.items.isEmpty()) {
-        EmptyView()
+        EmptyView {
+            scope.launch {
+                createSheetState.show()
+            }
+        }
     } else {
         ContentView(
             items = state.items,
             forceHideBottomBar = forceHideBottomBar,
             onAdd = {
-
+                scope.launch {
+                    createSheetState.show()
+                }
             },
             onItemRemove = {
                 viewModel.dispatch(CompatibilityAction.ItemDelete(it))
             }
         )
     }
+
+    CreateCompatibilitySheet(
+        modalSheetState = createSheetState,
+        createCompatibilityViewState = state.createCompatibilityViewState,
+        onFirstPersonNameChanged = {
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.FirstPersonNameChanged(it))
+        },
+        onSecondPersonNameChanged = {
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.SecondPersonNameChanged(it))
+        }
+    )
 
 }

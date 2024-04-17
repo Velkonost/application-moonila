@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -21,11 +22,14 @@ import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -33,6 +37,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.moonila.features.compatibility.presentation.R
+import core.compose.components.AppButton
+import core.compose.components.Keyboard
+import core.compose.components.keyboardAsState
 import core.compose.theme.PoppinsFontFamily
 import features.compatibility.presentation.contract.CreateCompatibilityViewState
 import features.compatibility.presentation.screen.components.create.CreateHeader
@@ -52,10 +59,13 @@ fun CreateCompatibilitySheet(
     onFirstPersonDateChanged: (Int, Int, Int) -> Unit,
     onSecondPersonDateChanged: (Int, Int, Int) -> Unit,
     onFirstPersonGenderChanged: (Int, String) -> Unit,
-    onSecondPersonGenderChanged: (Int, String) -> Unit
+    onSecondPersonGenderChanged: (Int, String) -> Unit,
+    onSaveClick: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
+    val isKeyboardOpen by keyboardAsState()
+
 
     val selectDateSheetState: ModalBottomSheetState = rememberModalBottomSheetState(
         initialValue = ModalBottomSheetValue.Hidden,
@@ -83,7 +93,7 @@ fun CreateCompatibilitySheet(
         sheetShape = RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp),
         sheetBackgroundColor = colorResource(id = R.color.main_bg),
         sheetContent = {
-            Column(
+            Box(
                 modifier = modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.95f),
@@ -98,7 +108,7 @@ fun CreateCompatibilitySheet(
                     modifier = modifier
                         .fillMaxWidth()
                         .verticalScroll(scrollState)
-                        .padding(bottom = 140.dp)
+                        .padding(bottom = 260.dp, top = 52.dp)
                         .padding(horizontal = 16.dp)
                 ) {
                     Text(
@@ -137,6 +147,7 @@ fun CreateCompatibilitySheet(
                         name = createCompatibilityViewState.firstPersonName,
                         date = createCompatibilityViewState.firstPersonDate.label,
                         gender = createCompatibilityViewState.firstPersonGender.label,
+                        errors = createCompatibilityViewState.firstPersonErrors,
                         onNameChanged = onFirstPersonNameChanged,
                         onGenderClick = {
                             scope.launch {
@@ -159,6 +170,7 @@ fun CreateCompatibilitySheet(
                         name = createCompatibilityViewState.secondPersonName,
                         date = createCompatibilityViewState.secondPersonDate.label,
                         gender = createCompatibilityViewState.secondPersonGender.label,
+                        errors = createCompatibilityViewState.secondPersonErrors,
                         onNameChanged = onSecondPersonNameChanged,
                         onGenderClick = {
                             scope.launch {
@@ -174,6 +186,37 @@ fun CreateCompatibilitySheet(
                         },
                     )
 
+                }
+
+                if (isKeyboardOpen == Keyboard.Closed) {
+                    Column(modifier = modifier.fillMaxSize()) {
+                        Spacer(modifier.weight(1f))
+
+                        Box(
+                            modifier = modifier
+                                .height(180.dp)
+                                .fillMaxWidth()
+                                .background(
+                                    brush = Brush.verticalGradient(
+                                        0.1f to Color.Transparent,
+                                        0.5f to colorResource(id = R.color.main_bg),
+                                    )
+                                )
+                        )
+                    }
+
+                    Column(modifier = modifier.fillMaxSize()) {
+                        Spacer(modifier.weight(1f))
+
+                        AppButton(
+                            label = stringResource(
+                                id = if (createCompatibilityViewState.eligible) R.string.done_btn
+                                else R.string.add_details_btn
+                            ),
+                            enabled = true,
+                            onClick = onSaveClick
+                        )
+                    }
                 }
             }
         }

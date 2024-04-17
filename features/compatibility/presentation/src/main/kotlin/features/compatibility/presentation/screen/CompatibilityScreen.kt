@@ -14,9 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import features.compatibility.presentation.CompatibilityViewModel
 import features.compatibility.presentation.contract.CompatibilityAction
+import features.compatibility.presentation.contract.CompatibilityEvent
 import features.compatibility.presentation.screen.components.ContentView
 import features.compatibility.presentation.screen.components.CreateCompatibilitySheet
 import features.compatibility.presentation.screen.components.EmptyView
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -38,6 +40,7 @@ fun CompatibilityScreen(
     if (state.items.isEmpty()) {
         EmptyView {
             scope.launch {
+                viewModel.dispatch(CompatibilityAction.ClearCreation)
                 createSheetState.show()
             }
         }
@@ -47,6 +50,7 @@ fun CompatibilityScreen(
             forceHideBottomBar = forceHideBottomBar,
             onAdd = {
                 scope.launch {
+                    viewModel.dispatch(CompatibilityAction.ClearCreation)
                     createSheetState.show()
                 }
             },
@@ -76,11 +80,26 @@ fun CompatibilityScreen(
         },
         onSecondPersonGenderChanged = { index, label ->
             viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.SecondPersonGenderChanged(index, label))
+        },
+        onSaveClick = {
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.CreateClick)
+
         }
     )
 
     LaunchedEffect(createSheetState.currentValue) {
         forceHideBottomBar.value = createSheetState.isVisible
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.events.collectLatest {
+            when (it) {
+                is CompatibilityEvent.CreatedSuccess -> {
+                    createSheetState.hide()
+                }
+
+            }
+        }
     }
 
 }

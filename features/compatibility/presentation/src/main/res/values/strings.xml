@@ -28,4 +28,8 @@
     <string name="gender_male">Male</string>
     <string name="gender_female">Female</string>
     <string name="gender_other">Non-binary</string>
+
+    <string name="done_btn">Done</string>
+    <string name="add_details_btn">Add details</string>
+    <string name="this_field_is_required">This field is required</string>
 </resources>

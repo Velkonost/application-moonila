@@ -5,6 +5,7 @@ import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -63,7 +64,17 @@ fun CompatibilityScreen(
         },
         onSecondPersonNameChanged = {
             viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.SecondPersonNameChanged(it))
+        },
+        onFirstPersonDateChanged = {
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.FirstPersonDateChanged(it))
+        },
+        onSecondPersonDateChanged = {
+            viewModel.dispatch(CompatibilityAction.CreateCompatibilityAction.SecondPersonDateChanged(it))
         }
     )
+
+    LaunchedEffect(createSheetState.currentValue) {
+        forceHideBottomBar.value = createSheetState.isVisible
+    }
 
 }

@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -43,6 +44,8 @@ fun CreateCompatibilitySheet(
     createCompatibilityViewState: CreateCompatibilityViewState,
     onFirstPersonNameChanged: (String) -> Unit,
     onSecondPersonNameChanged: (String) -> Unit,
+    onFirstPersonDateChanged: (String) -> Unit,
+    onSecondPersonDateChanged: (String) -> Unit
 ) {
     val scope = rememberCoroutineScope()
     val scrollState = rememberScrollState()
@@ -80,7 +83,7 @@ fun CreateCompatibilitySheet(
                         modifier = modifier.padding(top = 24.dp),
                         text = stringResource(id = R.string.create_title),
                         fontFamily = PoppinsFontFamily,
-                        fontWeight = FontWeight.Normal,
+                        fontWeight = FontWeight.Medium,
                         color = colorResource(id = com.moonila.core.compose.R.color.light_color),
                         fontSize = 16.sp,
                     )
@@ -97,6 +100,7 @@ fun CreateCompatibilitySheet(
 
                     Box(
                         modifier = modifier
+                            .alpha(0.5f)
                             .padding(top = 20.dp)
                             .fillMaxWidth()
                             .height(1.dp)
@@ -109,7 +113,9 @@ fun CreateCompatibilitySheet(
                     PersonData(
                         title = stringResource(id = R.string.first_person),
                         name = createCompatibilityViewState.firstPersonName,
-                        onNameChanged = onFirstPersonNameChanged 
+                        date = createCompatibilityViewState.firstPersonDate,
+                        onNameChanged = onFirstPersonNameChanged,
+                        onDateChanged = onFirstPersonDateChanged
                     )
                     
                     Spacer(modifier = modifier.height(20.dp))
@@ -117,7 +123,9 @@ fun CreateCompatibilitySheet(
                     PersonData(
                         title = stringResource(id = R.string.second_person),
                         name = createCompatibilityViewState.secondPersonName,
-                        onNameChanged = onSecondPersonNameChanged
+                        date = createCompatibilityViewState.secondPersonDate,
+                        onNameChanged = onSecondPersonNameChanged,
+                        onDateChanged = onSecondPersonDateChanged
                     )
 
                 }

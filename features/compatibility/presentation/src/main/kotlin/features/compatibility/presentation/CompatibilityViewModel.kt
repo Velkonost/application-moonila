@@ -18,6 +18,8 @@ internal constructor(
         is CompatibilityAction.ItemDelete -> obtainItemDelete(action.value)
         is CompatibilityAction.CreateCompatibilityAction.FirstPersonNameChanged -> obtainFirstPersonNameChanged(action.value)
         is CompatibilityAction.CreateCompatibilityAction.SecondPersonNameChanged -> obtainSecondPersonNameChanged(action.value)
+        is CompatibilityAction.CreateCompatibilityAction.FirstPersonDateChanged -> obtainFirstPersonDateChanged(action.value)
+        is CompatibilityAction.CreateCompatibilityAction.SecondPersonDateChanged -> obtainSecondPersonDateChanged(action.value)
         is CompatibilityAction.CreateCompatibilityAction.CreateClick -> TODO()
         else -> {
 
@@ -41,6 +43,20 @@ internal constructor(
     private fun obtainSecondPersonNameChanged(value: String) {
         val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
             secondPersonName = value
+        )
+        emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
+    }
+
+    private fun obtainFirstPersonDateChanged(value: String) {
+        val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
+            firstPersonDate = value
+        )
+        emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
+    }
+
+    private fun obtainSecondPersonDateChanged(value: String) {
+        val createCompatibilityViewState = viewState.value.createCompatibilityViewState.copy(
+            secondPersonDate = value
         )
         emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
     }

@@ -10,4 +10,6 @@
 
     <color name="details_advice_bg">#181D67</color>
     <color name="details_important_points_bg">#205EA7</color>
+    
+    <color name="sheet_grabber_color">#5058BC</color>
 </resources>

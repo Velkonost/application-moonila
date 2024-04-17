@@ -12,7 +12,10 @@ data class CompatibilityViewState(
 
 data class CreateCompatibilityViewState(
     val firstPersonName: String = "",
-    val secondPersonName: String = ""
+    val firstPersonDate: String = "",
+
+    val secondPersonName: String = "",
+    val secondPersonDate: String = ""
 )
 
 val SampleItems: List<CompatibilityItem>

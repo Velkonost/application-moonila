@@ -21,7 +21,7 @@
 
     <string name="first_person">First person</string>
     <string name="second_person">Second person</string>
-    <string name="name_hint">Enter name</string>
-    <string name="gender_hint">Gender</string>
-    <string name="date_hint">Date of birth</string>
+    <string name="create_name_hint">Enter name</string>
+    <string name="create_gender_hint">Gender</string>
+    <string name="create_date_hint">Date of birth</string>
 </resources>

@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -45,6 +46,7 @@ fun SingleLineTextField(
     isEnabled: Boolean = true,
     placeholderText: String,
     onValueChanged: (String) -> Unit,
+    icon: Painter = painterResource(id = R.drawable.ic_cross_round),
     onClearClick: (() -> Unit)? = null
 ) {
 
@@ -68,7 +70,6 @@ fun SingleLineTextField(
             cursorBrush = SolidColor(colorResource(id = R.color.light_color)),
             modifier = modifier
                 .fillMaxWidth()
-                .padding(PaddingValues(horizontal = 16.dp))
                 .border(
                     width = 1.dp,
                     color = colorResource(
@@ -121,14 +122,14 @@ fun SingleLineTextField(
                 Spacer(modifier.weight(1f))
                 Image(
                     modifier = Modifier
-                        .padding(end = 32.dp)
+                        .padding(end = 16.dp)
                         .size(24.dp)
                         .clickable(
                             interactionSource = remember { MutableInteractionSource() },
                             indication = null,
                             onClick = onClearClick
                         ),
-                    painter = painterResource(id = R.drawable.ic_cross_round),
+                    painter = icon,
                     contentDescription = null
                 )
             }

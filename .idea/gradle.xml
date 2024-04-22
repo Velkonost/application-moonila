@@ -56,6 +56,10 @@
             <option value="$PROJECT_DIR$/features/practice/api" />
             <option value="$PROJECT_DIR$/features/practice/data" />
             <option value="$PROJECT_DIR$/features/practice/presentation" />
+            <option value="$PROJECT_DIR$/features/profile" />
+            <option value="$PROJECT_DIR$/features/profile/api" />
+            <option value="$PROJECT_DIR$/features/profile/data" />
+            <option value="$PROJECT_DIR$/features/profile/presentation" />
             <option value="$PROJECT_DIR$/features/selfknowledge" />
             <option value="$PROJECT_DIR$/features/selfknowledge/api" />
             <option value="$PROJECT_DIR$/features/selfknowledge/data" />

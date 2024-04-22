@@ -7,6 +7,7 @@ import activity.di.AppScreens
 import activity.di.addCompatibilityRoute
 import activity.di.addFeedRoute
 import activity.di.addPracticeRoute
+import activity.di.addProfileRoute
 import activity.di.addSelfKnowledgeRoute
 import activity.di.addSplashRoute
 import activity.di.addWisdomRoute
@@ -79,6 +80,7 @@ internal fun MainContent() {
                 addCompatibilityRoute(navController, forceHideBottomBar)
                 addPracticeRoute(navController, forceHideBottomBar)
                 addWisdomRoute(navController, forceHideBottomBar)
+                addProfileRoute(navController, forceHideBottomBar)
             }
         }
     }

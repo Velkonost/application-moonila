@@ -12,6 +12,7 @@ import features.mooninsight.presentation.screen.MoonInsightNavRoute
 import features.onboarding.presentation.screen.OnboardingNavRoute
 import features.paywall.presentation.screen.PaywallNavRoute
 import features.practice.presentation.screen.PracticeNavRoute
+import features.profile.presentation.screen.ProfileNavRoute
 import features.selfknowledge.presentation.screen.SelfKnowledgeNavRoute
 import features.splash.presentation.screen.SplashNavRoute
 import features.wisdom.presentation.screen.WisdomNavRoute
@@ -31,7 +32,8 @@ val NavigationScreens = setOf(
     CompatibilityNavRoute,
     SelfKnowledgeNavRoute,
     PracticeNavRoute,
-    WisdomNavRoute
+    WisdomNavRoute,
+    ProfileNavRoute
 )
 
 fun NavGraphBuilder.addSplashRoute(
@@ -105,5 +107,17 @@ fun NavGraphBuilder.addWisdomRoute(
         startDestination = NavigationScreen.WisdomNavScreen.route
     ) {
         WisdomNavRoute.provide(this, navController, forceHideBottomBar)
+    }
+}
+
+fun NavGraphBuilder.addProfileRoute(
+    navController: NavHostController,
+    forceHideBottomBar: MutableState<Boolean>
+) {
+    navigation(
+        route = "${NavigationScreen.ProfileNavScreen.route}_root",
+        startDestination = NavigationScreen.ProfileNavScreen.route
+    ) {
+        ProfileNavRoute.provide(this, navController, forceHideBottomBar)
     }
 }

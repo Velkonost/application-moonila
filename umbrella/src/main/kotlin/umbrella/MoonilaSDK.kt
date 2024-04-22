@@ -13,6 +13,8 @@ import features.paywall.data.di.PaywallDataModule
 import features.paywall.presentation.di.PaywallPresentationModule
 import features.practice.data.di.PracticeDataModule
 import features.practice.presentation.di.PracticePresentationModule
+import features.profile.data.di.ProfileDataModule
+import features.profile.presentation.di.ProfilePresentationModule
 import features.selfknowledge.data.di.SelfKnowledgeDataModule
 import features.selfknowledge.presentation.di.SelfKnowledgePresentationModule
 import features.splash.data.di.SplashDataModule
@@ -59,7 +61,10 @@ object MoonilaSDK {
             PracticePresentationModule,
 
             WisdomDataModule,
-            WisdomPresentationModule
+            WisdomPresentationModule,
+
+            ProfileDataModule,
+            ProfilePresentationModule
         )
 
         modules?.let(::modules)

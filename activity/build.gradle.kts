@@ -22,6 +22,7 @@ dependencies {
     implementation(projects.features.compatibility.presentation)
     implementation(projects.features.practice.presentation)
     implementation(projects.features.wisdom.presentation)
+    implementation(projects.features.profile.presentation)
 
     implementation(projects.core.vm)
     implementation(projects.core.util)

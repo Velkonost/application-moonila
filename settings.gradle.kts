@@ -64,4 +64,8 @@ include(
     ":features:wisdom:api",
     ":features:wisdom:data",
     ":features:wisdom:presentation",
+
+    ":features:profile:api",
+    ":features:profile:data",
+    ":features:profile:presentation",
 )

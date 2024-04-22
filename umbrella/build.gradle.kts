@@ -40,5 +40,8 @@ dependencies {
 
     implementation(projects.features.mooninsight.presentation)
 
+    implementation(projects.features.profile.data)
+    implementation(projects.features.profile.presentation)
+
     implementation(libs.koin.core)
 }

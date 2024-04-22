@@ -25,6 +25,8 @@ import features.wisdom.presentation.contract.WisdomAction
 import features.wisdom.presentation.screen.components.BlockTitle
 import features.wisdom.presentation.screen.components.CategoriesBlock
 import features.wisdom.presentation.screen.components.Header
+import features.wisdom.presentation.screen.components.LargeItem
+import features.wisdom.presentation.screen.components.MoonCategoryList
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -61,7 +63,28 @@ fun WisdomScreen(
         )
 
         BlockTitle(title = stringResource(id = R.string.news_of_the_day), paddingTop = 32)
+
+        LargeItem(
+            title = "Benevolent moon",
+            description = "In the ethereal realm of astrology, the term \"Benevolent Moon\" evokes a celestial narrative of grace and benevolence.",
+            onClick = {
+
+            },
+            onFavoriteClick = {
+
+            }
+        )
+
         BlockTitle(title = stringResource(id = R.string.moon_title))
+        MoonCategoryList(
+            onItemClick = {
+
+            },
+            onItemFavoriteClick = {
+
+            }
+        )
+
         BlockTitle(title = stringResource(id = R.string.yoga_title))
     }
 

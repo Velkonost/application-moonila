@@ -621,3 +621,11 @@ kfeatures/profile/presentation/src/main/kotlin/features/profile/presentation/di/
 cfeatures/profile/presentation/src/main/kotlin/features/profile/presentation/screen/ProfileScreen.kt,8/8/88dc1ca405ccdd92c0bdf8cc3eb52c9bf9826f1f
 ï
 efeatures/profile/presentation/src/main/kotlin/features/profile/presentation/screen/ProfileNavRoute.kt,9/e/9e7da49c22693adf6dff98a017a6fef349ae312a
+ï
+efeatures/wisdom/presentation/src/main/kotlin/features/wisdom/presentation/screen/components/Header.kt,e/b/eb09af25372448e32a78a73568d4cf21622d726b
+û
+nfeatures/wisdom/presentation/src/main/kotlin/features/wisdom/presentation/screen/components/CategoriesBlock.kt,c/8/c80ad85dcafb0f2d21f35dfdc242cf526ae58d54
+è
+_features/wisdom/presentation/src/main/kotlin/features/wisdom/presentation/model/CategoryItem.kt,0/4/04f6d62a7be79041df938bf3a73315893ad1ffbd
+ô
+ifeatures/wisdom/presentation/src/main/kotlin/features/wisdom/presentation/screen/components/BlockTitle.kt,7/e/7ee8f99260f41f4baa390df3a1fd69567b508717

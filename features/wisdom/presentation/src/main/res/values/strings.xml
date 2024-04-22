@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="wisdom_title">Wisdom</string>
+
+    <string name="category_all">All</string>
+    <string name="category_moon">Moon</string>
+    <string name="category_tarot">Tarot</string>
+    <string name="category_runes">Runes</string>
+
+    <string name="news_of_the_day">News of the day</string>
+    <string name="moon_title">Moon</string>
+    <string name="yoga_title">Yoga</string>
+</resources>

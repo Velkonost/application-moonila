@@ -1,15 +1,14 @@
-package features.wisdom.presentation.screen.components
+package features.wisdom.presentation.screen.components.items
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,9 +17,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
@@ -34,28 +35,32 @@ import com.moonila.features.wisdom.presentation.R
 import core.compose.theme.PoppinsFontFamily
 
 @Composable
-fun MediumFullImageItem(
+fun MediumItem(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
+    bgColor: Color = colorResource(id = R.color.item_bg_color_sample),
     icon: Painter = painterResource(id = R.drawable.ic_news_of_the_day_sample),
     onClick: () -> Unit,
     onFavoriteClick: () -> Unit
 ) {
-
     Box(
         modifier = modifier
             .width(250.dp)
             .height(270.dp)
+            .background(color = bgColor, shape = RoundedCornerShape(16.dp))
             .clip(RoundedCornerShape(16.dp))
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
                 onClick = onClick
-            )
+            ),
+        contentAlignment = Alignment.TopCenter
     ) {
         Image(
-            modifier = modifier.fillMaxSize(),
+            modifier = modifier
+                .padding(top = 18.dp)
+                .size(146.dp),
             painter = icon,
             contentDescription = null,
             contentScale = ContentScale.Crop

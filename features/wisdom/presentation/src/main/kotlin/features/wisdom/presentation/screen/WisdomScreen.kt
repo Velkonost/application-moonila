@@ -23,10 +23,10 @@ import com.moonila.features.wisdom.presentation.R
 import features.wisdom.presentation.WisdomViewModel
 import features.wisdom.presentation.contract.WisdomAction
 import features.wisdom.presentation.screen.components.BlockTitle
-import features.wisdom.presentation.screen.components.CategoriesBlock
+import features.wisdom.presentation.screen.components.categories.CategoriesBlock
 import features.wisdom.presentation.screen.components.Header
-import features.wisdom.presentation.screen.components.LargeItem
-import features.wisdom.presentation.screen.components.MoonCategoryList
+import features.wisdom.presentation.screen.components.items.LargeItem
+import features.wisdom.presentation.screen.components.WisdomCategoryList
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -76,7 +76,8 @@ fun WisdomScreen(
         )
 
         BlockTitle(title = stringResource(id = R.string.moon_title))
-        MoonCategoryList(
+        WisdomCategoryList(
+            fullImage = true,
             onItemClick = {
 
             },
@@ -86,6 +87,15 @@ fun WisdomScreen(
         )
 
         BlockTitle(title = stringResource(id = R.string.yoga_title))
+        WisdomCategoryList(
+            fullImage = false,
+            onItemClick = {
+
+            },
+            onItemFavoriteClick = {
+
+            }
+        )
     }
 
 }

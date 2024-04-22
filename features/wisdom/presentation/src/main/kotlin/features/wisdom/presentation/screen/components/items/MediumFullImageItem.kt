@@ -1,4 +1,4 @@
-package features.wisdom.presentation.screen.components
+package features.wisdom.presentation.screen.components.items
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,7 +34,7 @@ import com.moonila.features.wisdom.presentation.R
 import core.compose.theme.PoppinsFontFamily
 
 @Composable
-fun LargeItem(
+fun MediumFullImageItem(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
@@ -44,12 +45,14 @@ fun LargeItem(
 
     Box(
         modifier = modifier
-            .padding(top = 12.dp)
-            .padding(horizontal = 16.dp)
-            .fillMaxWidth()
-            .aspectRatio(1f)
+            .width(250.dp)
+            .height(270.dp)
             .clip(RoundedCornerShape(16.dp))
-
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null,
+                onClick = onClick
+            )
     ) {
         Image(
             modifier = modifier.fillMaxSize(),
@@ -96,27 +99,11 @@ fun LargeItem(
                 fontWeight = FontWeight.Normal,
                 maxLines = 2,
                 color = colorResource(id = com.moonila.core.compose.R.color.cloudy_color),
-                fontSize = 16.sp,
+                fontSize = 14.sp,
+                lineHeight = 20.sp,
                 overflow = TextOverflow.Ellipsis,
                 textAlign = TextAlign.Start
             )
-
-            Row {
-                Spacer(modifier.weight(1f))
-                Image(
-                    modifier = modifier
-                        .padding(top = 24.dp, bottom = 20.dp)
-                        .height(36.dp)
-                        .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = null,
-                            onClick = onClick
-                        ),
-                    painter = painterResource(id = R.drawable.ic_wisdom_about_more),
-                    contentDescription = null
-                )
-                Spacer(modifier.weight(1f))
-            }
         }
     }
 

@@ -1,4 +1,4 @@
-package features.wisdom.presentation.screen.components
+package features.wisdom.presentation.screen.components.categories
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moonila.features.selfknowledge.presentation.R
 import features.selfknowledge.presentation.SelfKnowledgeViewModel
+import features.selfknowledge.presentation.contract.SelfKnowledgeNavigation
 import features.selfknowledge.presentation.screen.components.Header
 import features.selfknowledge.presentation.screen.components.SelfKnowledgeDetailsSheet
 import features.selfknowledge.presentation.screen.components.SelfKnowledgeItemView
@@ -64,7 +65,10 @@ fun SelfKnowledgeScreen(
     ) {
         Header(
             name = state.userName,
-            subtitle = state.userData
+            subtitle = state.userData,
+            onProfileClick = {
+                viewModel.dispatch(SelfKnowledgeNavigation.NavigateToProfile)
+            }
         )
 
         Spacer(modifier.height(20.dp))

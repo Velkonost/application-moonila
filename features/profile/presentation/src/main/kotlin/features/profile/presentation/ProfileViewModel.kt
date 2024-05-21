@@ -14,6 +14,7 @@ internal constructor(
     initialState = ProfileViewState()
 ) {
     override fun dispatch(action: ProfileAction) = when(action) {
+        is ProfileNavigation.NavigateBack -> emit(ProfileNavigation.NavigateBack)
         else -> {
 
         }

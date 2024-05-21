@@ -30,4 +30,6 @@
     <color name="sheet_header_bg">#FFEBC9</color>
 
     <color name="cloudy_color">#F0F0FF</color>
+
+    <color name="general_bg">#2B317B</color>
 </resources>

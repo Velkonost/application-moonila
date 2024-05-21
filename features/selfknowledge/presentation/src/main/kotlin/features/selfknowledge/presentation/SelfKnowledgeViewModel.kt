@@ -14,6 +14,7 @@ internal constructor(
     initialState = SelfKnowledgeViewState()
 ) {
     override fun dispatch(action: SelfKnowledgeAction) = when(action) {
+        is SelfKnowledgeNavigation.NavigateToProfile -> emit(action)
         else -> {
 
         }

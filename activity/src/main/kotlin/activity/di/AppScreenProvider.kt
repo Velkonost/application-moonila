@@ -18,7 +18,8 @@ import features.splash.presentation.screen.SplashNavRoute
 import features.wisdom.presentation.screen.WisdomNavRoute
 
 val AppScreens = setOf(
-    PaywallNavRoute
+    PaywallNavRoute,
+    ProfileNavRoute
 //    AuthNavRoute,
 //    AddAreaNavRoute,
 //    NoteDetailNavRoute,
@@ -33,7 +34,6 @@ val NavigationScreens = setOf(
     SelfKnowledgeNavRoute,
     PracticeNavRoute,
     WisdomNavRoute,
-    ProfileNavRoute
 )
 
 fun NavGraphBuilder.addSplashRoute(

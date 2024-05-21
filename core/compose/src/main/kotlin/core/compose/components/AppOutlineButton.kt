@@ -1,6 +1,7 @@
 package core.compose.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,34 +28,27 @@ import com.moonila.core.compose.R
 import core.compose.theme.PoppinsFontFamily
 
 @Composable
-fun AppButton(
+fun AppOutlineButton(
     modifier: Modifier = Modifier,
     label: String,
     isLoading: Boolean = false,
-    enabled: Boolean = false,
-    includeBottomPadding: Boolean = true,
-    includeHorizontalPadding: Boolean = true,
+    height: Int = 56,
+    width: Float = 1f,
+    fontSize: Int = 18,
     onClick: () -> Unit
 ) {
-
     val haptic = LocalHapticFeedback.current
 
     Button(
         modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = if (includeHorizontalPadding) 16.dp else 0.dp)
-            .padding(bottom = if (includeBottomPadding) 56.dp else 0.dp)
-            .consumeWindowInsets(PaddingValues(bottom = 36.dp))
-            .imePadding()
-            .background(
-                color = colorResource(
-                    id = if (enabled) R.color.light_color
-                    else R.color.disabled_blue_color
-                ),
+            .fillMaxWidth(width)
+            .border(
+                width = 1.dp,
+                color = colorResource(id = R.color.light_color),
                 shape = MaterialTheme.shapes.extraLarge
             )
-            .height(56.dp),
-        enabled = !isLoading && enabled,
+            .height(height.dp),
+        enabled = !isLoading,
         colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
         onClick = {
             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
@@ -64,10 +58,7 @@ fun AppButton(
         if (isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.size(24.dp),
-                color = colorResource(
-                    id = if (enabled) R.color.blue_color
-                    else R.color.disabled_text_color
-                )
+                color = colorResource(id = R.color.light_color)
             )
         } else {
             Text(
@@ -75,11 +66,8 @@ fun AppButton(
                 style = MaterialTheme.typography.titleMedium,
                 fontFamily = PoppinsFontFamily,
                 fontWeight = FontWeight.SemiBold,
-                color = colorResource(
-                    id = if (enabled) R.color.blue_color
-                    else R.color.disabled_text_color
-                ),
-                fontSize = 16.sp,
+                color = colorResource(id = R.color.light_color),
+                fontSize = fontSize.sp,
                 textAlign = TextAlign.Center,
             )
         }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_title">Profile</string>
+    <string name="anonymous_title">Save your progress</string>
+    <string name="anonymous_text">Create account to save your\ndata with progress</string>
+    <string name="anonymous_btn">Sign In</string>
+
+    <string name="edit_profile">Edit profile</string>
+</resources>

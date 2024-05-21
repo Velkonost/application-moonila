@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="profile_bg">#2B317B</color>
+    <color name="anonymous_bg">#21266F</color>
+    <color name="user_data_bg">#4650BF</color>
+</resources>

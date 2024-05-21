@@ -651,3 +651,9 @@ y
 Icore/compose/src/main/kotlin/core/compose/components/AppOutliineButton.kt,2/c/2cd78845032d43f8d557a24795c323433f1a6d7d
 x
 Hcore/compose/src/main/kotlin/core/compose/components/AppOutlineButton.kt,a/4/a4d2591930cd5b3a265b8b8f073269fbbc803786
+§
+wfeatures/profile/presentation/src/main/kotlin/features/profile/presentation/screen/components/settings/SettingsSheet.kt,d/e/de747e9ab1b5ea83ab2c3559fcffd31ee1b20420
+¨
+xfeatures/profile/presentation/src/main/kotlin/features/profile/presentation/screen/components/settings/SettingsHeader.kt,9/b/9b0e427dec35a222ce49235a5fa718ff02b07cd2
+£
+sfeatures/profile/presentation/src/main/kotlin/features/profile/presentation/screen/components/NotificationsBlock.kt,a/4/a419f2798af135e60e5ed65b314e9fd9ee0a3288

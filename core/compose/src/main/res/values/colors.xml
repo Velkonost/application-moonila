@@ -32,4 +32,5 @@
     <color name="cloudy_color">#F0F0FF</color>
 
     <color name="general_bg">#2B317B</color>
+    <color name="grabber_color">#5058BC</color>
 </resources>

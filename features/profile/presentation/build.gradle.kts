@@ -21,6 +21,7 @@ dependencies {
     implementation(projects.core.util)
     implementation(projects.core.model)
     implementation(projects.core.compose)
+    implementation(projects.core.compose.wheelpicker)
     
     implementation(projects.features.profile.api)
 }

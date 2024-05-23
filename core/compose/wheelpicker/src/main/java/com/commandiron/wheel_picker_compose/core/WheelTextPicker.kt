@@ -25,6 +25,7 @@ fun WheelTextPicker(
     color: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
     forceSelectorSize: DpSize? = null,
+    textAlign: TextAlign = TextAlign.Start,
     onScrollFinished: (snappedIndex: Int) -> Int? = { null },
     alignStart: Boolean = false
 ) {
@@ -55,7 +56,7 @@ fun WheelTextPicker(
                 style = style,
                 color = color,
                 maxLines = 1,
-                textAlign = TextAlign.Start
+                textAlign = textAlign
             )
         }
     }

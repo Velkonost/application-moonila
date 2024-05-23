@@ -2,7 +2,9 @@ package com.commandiron.wheel_picker_compose.core
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -12,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import java.time.LocalTime
@@ -86,16 +89,19 @@ internal fun DefaultWheelTimePicker(
             ) {}
         }
         Row {
+            Spacer(modifier = modifier.weight(2f))
             //Hour
             WheelTextPicker(
                 size = DpSize(
-                    width = size.width / if(timeFormat == TimeFormat.HOUR_24) 2 else 3,
+                    width = 24.dp,//size.width / if(timeFormat == TimeFormat.HOUR_24) 2 else 4,
                     height = size.height
                 ),
                 texts = if(timeFormat == TimeFormat.HOUR_24) hours.map { it.text } else amPmHours.map { it.text },
                 rowCount = rowCount,
                 style = textStyle,
                 color = textColor,
+                infinite = false,
+                textAlign = TextAlign.End,
                 startIndex =  if(timeFormat == TimeFormat.HOUR_24) {
                     hours.find { it.value == startTime.hour }?.index ?: 0
                 } else amPmHours.find { it.value ==  localTimeToAmPmHour(startTime) }?.index ?: 0,
@@ -146,16 +152,18 @@ internal fun DefaultWheelTimePicker(
                     }
                 }
             )
+            Spacer(modifier = Modifier.width(65.dp))
             //Minute
             WheelTextPicker(
                 size = DpSize(
-                    width = size.width / if(timeFormat == TimeFormat.HOUR_24) 2 else 3,
+                    width = 24.dp,//size.width / if(timeFormat == TimeFormat.HOUR_24) 2 else 4,
                     height = size.height
                 ),
                 texts = minutes.map { it.text },
                 rowCount = rowCount,
                 style = textStyle,
                 color = textColor,
+                infinite = false,
                 startIndex = minutes.find { it.value == startTime.minute }?.index ?: 0,
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
@@ -260,28 +268,29 @@ internal fun DefaultWheelTimePicker(
                     }
                 )
             }
+            Spacer(modifier = modifier.weight(2f))
         }
-        Box(
-            modifier = Modifier
-                .size(
-                    width = if (timeFormat == TimeFormat.HOUR_24) {
-                        size.width
-                    } else size.width * 2 / 3,
-                    height = size.height / 3
-                )
-                .align(
-                    alignment = if (timeFormat == TimeFormat.HOUR_24) {
-                        Alignment.Center
-                    } else Alignment.CenterStart
-                ),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = ":",
-                style = textStyle,
-                color = textColor
-            )
-        }
+//        Box(
+//            modifier = Modifier
+//                .size(
+//                    width = if (timeFormat == TimeFormat.HOUR_24) {
+//                        size.width
+//                    } else size.width * 2 / 3,
+//                    height = size.height / 3
+//                )
+//                .align(
+//                    alignment = if (timeFormat == TimeFormat.HOUR_24) {
+//                        Alignment.Center
+//                    } else Alignment.CenterStart
+//                ),
+//            contentAlignment = Alignment.Center
+//        ) {
+//            Text(
+//                text = ":",
+//                style = textStyle,
+//                color = textColor
+//            )
+//        }
     }
 }
 

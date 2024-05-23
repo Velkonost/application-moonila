@@ -4,4 +4,5 @@
     <color name="anonymous_bg">#21266F</color>
     <color name="user_data_bg">#4650BF</color>
     <color name="settings_item_border">#57579F</color>
+    <color name="time_picker">#363D8E</color>
 </resources>

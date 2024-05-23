@@ -15,9 +15,23 @@ internal constructor(
 ) {
     override fun dispatch(action: ProfileAction) = when(action) {
         is ProfileNavigation.NavigateBack -> emit(ProfileNavigation.NavigateBack)
+        is ProfileAction.SetUpNotification -> obtainSetUpNotification(action.index, action.value)
+        is ProfileAction.ClearNotification -> obtainSetUpNotification(action.index, null)
         else -> {
 
         }
+    }
+
+    private fun obtainSetUpNotification(index: Int, value: String?) {
+        val notificationsState = with(viewState.value.notificationsState) {
+            when(index) {
+                1 -> copy(first = value)
+                2 -> copy(second = value)
+                else -> copy(third = value)
+            }
+        }
+
+        emit(viewState.value.copy(notificationsState = notificationsState))
     }
 
 

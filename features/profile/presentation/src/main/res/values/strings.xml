@@ -5,8 +5,6 @@
     <string name="anonymous_text">Create account to save your\ndata with progress</string>
     <string name="anonymous_btn">Sign In</string>
 
-    <string name="edit_profile">Edit profile</string>
-
     <string name="settings_title">Settings</string>
 
     <string name="restore_purchase">Restore Purchase</string>
@@ -22,4 +20,17 @@
     <string name="tip_notification">Tip of the Day</string>
     <string name="notification_not_set">Not set</string>
     <string name="notification_submit">Set Up</string>
+
+    <!--  EDIT  -->
+    <string name="edit_profile">Edit profile</string>
+
+    <string name="user_name_hint">Name</string>
+    <string name="user_gender_hint">Sex</string>
+    <string name="user_date_hint">Date of birth</string>
+    <string name="user_time_hint">Time of birth</string>
+    <string name="user_place_hint">Place of birth</string>
+
+    <string name="user_gender_male">Male</string>
+    <string name="user_gender_female">Female</string>
+    <string name="user_gender_other">Non-binary</string>
 </resources>

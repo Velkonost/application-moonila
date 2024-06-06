@@ -82,10 +82,7 @@ fun ImproveItem(
     selected: Boolean,
     onClick: () -> Unit
 ) {
-    Box(
-        modifier = modifier
-            .padding(top = 12.dp)
-    ) {
+    Box(modifier = modifier.padding(top = 12.dp)) {
         Row(
             modifier = modifier
                 .fillMaxWidth()

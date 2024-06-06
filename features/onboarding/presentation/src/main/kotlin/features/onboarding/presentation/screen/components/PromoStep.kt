@@ -131,7 +131,8 @@ fun PromoStep(
                 commonTextColor = colorResource(id = com.moonila.core.compose.R.color.common_text_color),
                 textSize = 16.sp,
                 fontWeight = FontWeight.Normal,
-                colorfulTextAtEnd = it
+                colorfulTextAtEnd = it,
+                colorfulFontWeight = FontWeight.SemiBold
             )
         }
 

@@ -25,7 +25,7 @@ internal constructor(
 
     override fun dispatch(action: OnboardingAction) = when (action) {
         is OnboardingAction.NextStepClick -> increaseStep()
-        is OnboardingAction.SkipClick -> completeOnboarding()
+        is OnboardingAction.SkipClick -> increaseStep(targetStep = OnboardingStep.Improve)
         is OnboardingAction.NameChanged -> obtainNameChanged(action.value)
         is OnboardingAction.GenderSelect -> obtainGenderSelect(action.value)
         is OnboardingAction.ImproveSelect -> obtainImproveSelect(action.value)
@@ -42,8 +42,8 @@ internal constructor(
         }
     }
 
-    private fun increaseStep() {
-        val nextStep = OnboardingStep.getNextStep(viewState.value.step)
+    private fun increaseStep(targetStep: OnboardingStep? = null) {
+        val nextStep = targetStep ?: OnboardingStep.getNextStep(viewState.value.step)
         if (nextStep != null) {
             emit(viewState.value.copy(step = nextStep, canGoNextStep = nextStep.canGoNextAfk))
         } else {
@@ -52,8 +52,12 @@ internal constructor(
     }
 
     private fun obtainNameChanged(value: String) {
-        val canGoNext = value.length > NAME_REQUIRED_LENGTH
-        emit(viewState.value.copy(nameValue = value, canGoNextStep = canGoNext))
+        if (value == " ") return
+        if (value.last() == ' ' && value.count { it == ' ' } > 1) return
+
+        val eligibleValue = NAME_REGEX.replace(value, "")
+        val canGoNext = eligibleValue.length >= NAME_REQUIRED_LENGTH
+        emit(viewState.value.copy(nameValue = eligibleValue, canGoNextStep = canGoNext))
     }
 
     private fun obtainGenderSelect(value: Gender) {
@@ -95,6 +99,7 @@ internal constructor(
     }
 
     companion object {
+        private val NAME_REGEX = Regex("[^A-Za-zА-Яа-я- ]")
         private const val NAME_REQUIRED_LENGTH = 2
     }
 

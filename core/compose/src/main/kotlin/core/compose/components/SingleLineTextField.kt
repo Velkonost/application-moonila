@@ -79,7 +79,7 @@ fun SingleLineTextField(
                     ),
                     shape = MaterialTheme.shapes.medium
                 )
-                .height(56.dp)
+                .height(58.dp)
                 .clip(shape = MaterialTheme.shapes.medium)
                 .background(
                     color = Color.Transparent,

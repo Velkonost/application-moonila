@@ -102,7 +102,7 @@ val SampleItems: List<SelfKnowledgeItem>
                 ),
 
                 SelfKnowledgeItemPoint(
-                    iconId = R.drawable.ic_weaknesses,
+                    iconId = R.drawable.ic_weaknesses_bed,
                     titleResId = R.string.weaknesses,
                     text = "Gossip"
                 ),

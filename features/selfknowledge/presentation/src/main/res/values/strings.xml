@@ -2,10 +2,10 @@
 <resources>
     <string name="about_me">About me</string>
 
-    <string name="selfknowledge_item_1_title">Your birth\nMoon Day</string>
-    <string name="selfknowledge_item_2_title">Your birth\nMoon Sign</string>
-    <string name="selfknowledge_item_3_title">Your birth\nMoon Phase</string>
-    <string name="selfknowledge_item_4_title">Your Destiny\nnumber</string>
+    <string name="selfknowledge_item_1_title">Your birth \nMoon Day</string>
+    <string name="selfknowledge_item_2_title">Your birth \nMoon Sign</string>
+    <string name="selfknowledge_item_3_title">Your birth \nMoon Phase</string>
+    <string name="selfknowledge_item_4_title">Your Destiny \nnumber</string>
 
     <string name="strengths">Strengths</string>
     <string name="weaknesses">Weaknesses</string>

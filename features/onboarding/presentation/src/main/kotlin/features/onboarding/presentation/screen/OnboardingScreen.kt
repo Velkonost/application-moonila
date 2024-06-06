@@ -107,7 +107,7 @@ fun OnboardingScreen(
 
         Column {
             AnimatedVisibility(
-                visible = state.step.position > OnboardingStep.Text3.position && state.step != OnboardingStep.ProfileSettings,
+                visible = state.step.position > OnboardingStep.Age.position && state.step != OnboardingStep.ProfileSettings,
                 enter = fadeIn(animationSpec = tween(1000, delayMillis = 1000)),
                 exit = fadeOut(animationSpec = tween(1000))
             ) {

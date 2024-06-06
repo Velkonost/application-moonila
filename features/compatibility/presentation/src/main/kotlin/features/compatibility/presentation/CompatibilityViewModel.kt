@@ -67,7 +67,7 @@ internal constructor(
         with(viewState.value.createCompatibilityViewState) {
             val createCompatibilityViewState = copy(
                 firstPersonName = value,
-                firstPersonErrors = firstPersonErrors.copy(name = value.isNotEmpty())
+                firstPersonErrors = firstPersonErrors.copy(name = value.isEmpty())
             )
             emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
         }
@@ -78,7 +78,7 @@ internal constructor(
         with(viewState.value.createCompatibilityViewState) {
             val createCompatibilityViewState = copy(
                 secondPersonName = value,
-                secondPersonErrors = secondPersonErrors.copy(name = value.isNotEmpty())
+                secondPersonErrors = secondPersonErrors.copy(name = value.isEmpty())
             )
             emit(viewState.value.copy(createCompatibilityViewState = createCompatibilityViewState))
         }
